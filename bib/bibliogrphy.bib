@@ -1,9 +1,173 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%    EVOLUTIONARY ALGORITHMS BIBLIOGRAPHY %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    Recombination operators
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Author: Cristian Abrante Dorta (La Laguna University)
+% Date: March 2019
 
-%%%% One point crossover opeator
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%         BIBLIOGRAPHY INDEX           %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%% 1 Representation
+%%% 1.1 Binary Representation
+%%% 1.2 Integer Representation
+%%% 1.3 Floating point representation
+%%% 1.3.1 Correlated floating representation
+%%% 1.3.2 Floating representation with n-step size
+%%% 1.3.3 Floating representation with 1-step size
+%%% 1.4 Permutation representation
+%%% 1.5 Tree Representation
+
+%%% 2 Mutation Operator
+%%% 2.1 Bitwise Mutation (binary)
+%%% 2.2 Random resetting (integer)
+%%% 2.3 Creep mutation (integer)
+%%% 2.4 Uniform mutation (floating)
+%%% 2.5 Non-Uniform mutation (floating)
+%%% 2.5 Self-adaptative mutation
+%%% 2.5.1 Uncorrelated Mutation with 1 step size (1-step floating)
+%%% 2.5.2 Uncorrelated Mutation with n step size (n-step floating)
+%%% 2.5.3 Correlated Mutation (correlated floating)
+%%% 2.6 Swap mutation (permutation)
+%%% 2.7 Insert mutation (permutation)
+%%% 2.8 Scramble mutation (permutation)
+%%% 2.9 Inversion mutation (permutation)
+%%% 2.10 Tree mutation (tree)
+
+%%% 3. Recombination operator
+%%% 3.1 1-point crossover (binary, integer, floating)
+%%% 3.2 n-points crossover (binary, integer, floating)
+%%% 3.3 Uniform crossover (binary, integer, floating)
+%%% 3.4 Simple arithmetic recombination (floating)
+%%% 3.5 Single arithmetic recombination (floating)
+%%% 3.6 Whole arithmetic recombination (floating)
+%%% 3.7 Blend crossover (floating)
+%%% 3.8 Partially mapped crossover (permutation)
+%%% 3.9 Edge crossover (permutation)
+%%% 3.10 Order crossover (permutation)
+%%% 3.11 Cycle crossover (permutation)
+%%% 3.12 Tree recombination (tree)
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%         BIBLIOGRAPHY CONTENT         %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%% 1 Representation
+%%% 1.1 Binary Representation
+%%% 1.2 Integer Representation
+%%% 1.3 Floating point representation
+%%% 1.3.1 Correlated floating representation
+%%% 1.3.2 Floating representation with n-step size
+%%% 1.3.3 Floating representation with 1-step size
+%%% 1.4 Permutation representation
+%%% 1.5 Tree Representation
+
+%%% 2 Mutation Operator
+%%% 2.1 Bitwise Mutation (binary)
+%%% 2.2 Random resetting (integer)
+%%% 2.3 Creep mutation (integer)
+
+% Study of creep mutation: big or small creep
+@article{davis1991handbook,
+  title={Handbook of genetic algorithms},
+  author={Davis, Lawrence},
+  year={1991},
+  publisher={CUMINCAD}
+}
+
+%%% 2.4 Uniform mutation (floating)
+%%% 2.5 Non-Uniform mutation (floating)
+
+% Introducction of Cauchy distribution instead of Gaussian in non-uniform mutation
+@article{yao1999evolutionary,
+  title={Evolutionary programming made faster},
+  author={Yao, Xin and Liu, Yong and Lin, Guangming},
+  journal={IEEE Transactions on Evolutionary computation},
+  volume={3},
+  number={2},
+  pages={82--102},
+  year={1999},
+  publisher={IEEE}
+}
+
+%%% 2.5 Self-adaptative mutation
+
+% Introduced self-adaption in evolutionary computing
+@inproceedings{back1992self,
+  title={Self-adaptation in genetic algorithms},
+  author={B{\"a}ck, Thomas},
+  booktitle={Proceedings of the first european conference on artificial life},
+  pages={263--271},
+  year={1992},
+  organization={MIT Press}
+}
+
+%%% 2.5.1 Uncorrelated Mutation with 1 step size (1-step floating)
+
+% Introduction of the concept of learning-rate 
+@book{back1996evolutionary,
+  title={Evolutionary algorithms in theory and practice: evolution strategies, evolutionary programming, genetic algorithms},
+  author={Back, Thomas},
+  year={1996},
+  publisher={Oxford university press}
+}
+
+%%% 2.5.2 Uncorrelated Mutation with n step size (n-step floating)
+%%% 2.5.3 Correlated Mutation (correlated floating)
+
+% Experimental prove of the benefits of self adaptative mutation.
+@article{beyer2002evolution,
+  title={Evolution strategies--A comprehensive introduction},
+  author={Beyer, Hans-Georg and Schwefel, Hans-Paul},
+  journal={Natural computing},
+  volume={1},
+  number={1},
+  pages={3--52},
+  year={2002},
+  publisher={Springer}
+}
+
+%%% 2.6 Swap mutation (permutation)
+
+% First described permitation mutation operators
+@article{gordon1995schedule,
+  title={Schedule optimisation using genetic algorithms},
+  author={Gordon, TGW},
+  journal={Master's thesis, University College, London},
+  year={1995}
+}
+
+%%% 2.7 Insert mutation (permutation)
+%%% 2.8 Scramble mutation (permutation)
+%%% 2.9 Inversion mutation (permutation)
+
+% Description of the inversion mutation operator (2-opt) for TSP problem
+@article{lin1973effective,
+  title={An effective heuristic algorithm for the traveling-salesman problem},
+  author={Lin, Shen and Kernighan, Brian W},
+  journal={Operations research},
+  volume={21},
+  number={2},
+  pages={498--516},
+  year={1973},
+  publisher={INFORMS}
+}
+
+%%% 2.10 Tree mutation (tree)on
+
+% Description of tree mutation
+@book{koza1992genetic,
+  title={Genetic programming: on the programming of computers by means of natural selection},
+  author={Koza, John R and Koza, John R},
+  volume={1},
+  year={1992},
+  publisher={MIT press}
+}
+
+%%% 3. Recombination operator
+%%% 3.1 1-point crossover (binary, integer, floating)
 
 % First proposed one-point crossover operator.
 @book{holland1992adaptation,
@@ -12,8 +176,14 @@
   year={1992},
   publisher={MIT press}
 }
+% Examined one-point crossover
+@article{de1975analysis,
+  title={Analysis of the behavior of a class of genetic adaptive systems},
+  author={De Jong, Kenneth Alan},
+  year={1975}
+}
 
-%%% n-point crossover operator
+%%% 3.2 n-points crossover (binary, integer, floating)
 
 % Study of multipoint crossover operators and their problems (bias)
 @incollection{spears1991analysis,
@@ -34,7 +204,7 @@
   year={1989}
 }
 
-%%% Uniform crossover operator
+%%% 3.3 Uniform crossover (binary, integer, floating)
 
 % First proposed uniform crossover.
 @inproceedings{syswerda1989uniform,
@@ -45,3 +215,89 @@
   year={1989},
   organization={Morgan Kaufmann Publishers}
 }
+
+%%% 3.4 Simple arithmetic recombination (floating)
+
+% Description of the three tipes of recombination: simple arithmetic, single arithmetic and whole arithmetic
+@book{michalewicz2013genetic,
+  title={Genetic algorithms+ data structures= evolution programs},
+  author={Michalewicz, Zbigniew},
+  year={2013},
+  publisher={Springer Science \& Business Media}
+}
+
+%%% 3.5 Single arithmetic recombination (floating)
+%%% 3.6 Whole arithmetic recombination (floating)
+%%% 3.7 Blend crossover (floating)
+
+% Description of blend crossover
+@incollection{eshelman1993real,
+  title={Real-coded genetic algorithms and interval-schemata},
+  author={Eshelman, Larry J and Schaffer, J David},
+  booktitle={Foundations of genetic algorithms},
+  volume={2},
+  pages={187--202},
+  year={1993},
+  publisher={Elsevier}
+}
+% Variation of blend crossover
+@article{agrawal1995simulated,
+  title={Simulated binary crossover for continuous search space},
+  author={Agrawal, Ram Bhushan and Deb, Kalyanmoy and Agrawal, Ram Bhushan},
+  journal={Complex systems},
+  volume={9},
+  number={2},
+  pages={115--148},
+  year={1995}
+}
+
+%%% 3.8 Partially mapped crossover (permutation)
+
+% First described three tipes of permutation representation
+@article{syswerda1991scheduling,
+  title={Scheduling optimization using genetic algorithms},
+  author={Syswerda, Gilbert},
+  journal={Handbook of genetic algorithms},
+  year={1991}
+}
+% Description of PMX for TSP
+@inproceedings{goldberg1985alleles,
+  title={Alleles, loci, and the traveling salesman problem},
+  author={Goldberg, David E and Lingle, Robert and others},
+  booktitle={Proceedings of an international conference on genetic algorithms and their applications},
+  volume={154},
+  pages={154--159},
+  year={1985},
+  organization={Lawrence Erlbaum, Hillsdale, NJ}
+}
+
+%%% 3.9 Edge crossover (permutation)
+
+% Description of edge-3 crossover the most common one.
+@incollection{whitley2000permutations,
+  title={Permutations},
+  author={Whitley, Darrell},
+  booktitle={Evolutionary Computation 1},
+  pages={177--188},
+  year={2000},
+  publisher={CRC Press}
+}
+
+%%% 3.10 Order crossover (permutation)
+
+% Description of the order based crossover
+% See davis1991handbook
+
+%%% 3.11 Cycle crossover (permutation)
+
+% Description of cycle crossover
+@inproceedings{smith1996recombination,
+  title={Recombination strategy adaptation via evolution of gene linkage},
+  author={Smith, Jim and Fogarty, Terence C},
+  booktitle={Proceedings of IEEE International Conference on Evolutionary Computation},
+  pages={826--831},
+  year={1996},
+  organization={IEEE}
+}
+
+%%% 3.12 Tree recombination (tree)
