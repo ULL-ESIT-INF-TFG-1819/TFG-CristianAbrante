@@ -1,14 +1,45 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Chapter 4 : TÃ­tulo del CapÃ­tulo cuatro
+% Chapter 4 : Desarrollo y tecnologías utilizadas
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-
-Los capítulos intermedios servirán para cubrir los siguientes aspectos:
-antecedentes, problemática o estado del arte, objetivos, fases y desarrollo del proyecto.
 
 
 %++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-En el capítulo ~\ref{chapter:intro} se describió bla, bla, bla.....
+En este capítulo se describirá en profundidad el framework \textbf{genetics.js}. Se expondrán tanto las tecnologías utilizadas, justificando debidamente la elección, así como la propia estructura que tiene el software que se ha desarrollado.
 
+%---------------------------------------------------------------------------------
+\section{Tecnologías utilizadas}
+\label{4:sec:1}
 
+Dado que el objetivo fundamental de este proyecto es el desarrollo de un framework de computación evolutiva que sea completamente compatible con la web, las tecnologías más apropiadas para este desarrollo serán las que se utilicen en el \textit{stack} del lenguaje JavaScript. \\
+
+Por ello, en primer lugar llevaremos a cabo una introducción a dicho lenguaje de programación, para luego exponer las dependecias externas que se ha utilizado durante la fase de desarrollo y las que se han elegido para ser utilizadas en la versión de la librería en producción, es decir las que serán utilizadas por los usuarios finales. 
+
+\subsection{\textit{Stack} de desarrollo en JavaScript}
+
+En primer lugar, es importante introducir el lenguaje de programación JavaScript y la importancia que tiene hoy en día, exponiendo las tecnologías más comunes que tiene aparejadas el desarrollo de una aplicación con este lenguaje. \\
+
+JavaScript es un lenguaje de programación interpretado, multiparadigma y de tipado débil, desarrollado por Brendan Eich, durante su trabajo en Netscape, para ser utilizado por el navegador que la empresa estaba creando. Durante esa época y en sus primeros años, se consideraba un lenguaje menor, es decir que solo se utilizaba para implementar ciertos aspectos de la interacción del usuario con la página web, o para llevar a cabo operaciones sencillas en el lado del cliente. \\
+
+Debido a la poca importancia que se le dio a su desarrollo desde el momento inicial, son destacables los grandes errores de diseño con los cuales cuenta \cite{KennethEng2019}, y los que hacen que sea bastante complejo confiar en que el software desarrollado en esta tecnología cumplirá ciertos criterios de calidad. Es por ellos que diversas empresas e instituciones, han tratado de estandarizar y complementar el lenguaje para garantizar su estabilidad y escalabilidad. Ejemplo de ello, es la organización ECMA con los estándares de JavaScript \cite{ecmascript}, o Microsoft con la creación del lenguaje TypeScript.\\
+
+Con los años ha ganado bastante popularidad, gracias en parte a proyectos como NodeJS \cite{node}, el cual trata de convertir a JavaScript en un lenguaje con mucho más ámbito que el que tenía anteriormente, dando la posibilidad de construir un servidor completo con este lenguaje. NodeJS es una de las tecnologías más punteras para el desarrollo de servidores hoy en día, debido a su gran escalabilidad y a que soporta una gran cantidad de conexiones simultáneas, en parte grecias al uso del motor V8 de JavaScript \cite{motor-v8}, desarrollado por Google. \\
+
+En este sentido, es muy destacable también NPM (Node Package Manager) \cite{npm} como gestor de dependencias de NodeJS. Este gestor de paquetes es el ejemplo perfecto de sencillez y eficacia, al permitir publicar nuestros propios módulos en un portal que los aglutina de manera centralizada, y que nos permite instalar, gestionar y utilizar dichos módulos de manera sencilla en nuestra propia aplicación desde la línea de comandos. \\
+
+La gestión de dependencias es una tarea compleja que puede acarrear ciertos problemas, sobretodo de retrocompatibilidad entre versiones. Una de las grandes ventajas de NPM es que esta tarea es bastante sencilla, centralizando todas las dependecias en un fichero \textit{json} (\textbf{package.json}), en el cual se especifica el nombre del paquete y la versión que tenemos instalada. De esta forma se garantiza que se está utilizando en nuestra aplicación exactamente la dependencia que queremos. \\
+
+Además, el versionado de los paquetes se basa en \textbf{semantic versioning} \cite{semver}, contando con la posibilidad de distinguir entre versiones \textbf{minor, major y patch}, garantizando así que se pueda seguir el mapa de desarrollo previsto. \\
+
+De esta forma, teniendo el potencial de una herramienta como NPM, la posibilidad de llevar esta idea a aplicaciones cliente es bastante interesante, puesto que para la web la importación de módulos externos no se gestiona de una manera tan eficaz que como se hace con NodeJS y NPM. Es ahí donde entran herramientas como Webpack y Babel en juego, las cuales permiten que el código que se importa mediante NPM y se utiliza en ficheros de código fuente, sea compilado para ser utilizado directamente en el \textit{front-end}. De esta forma podemos utilizar NPM como gestor de dependencias aunque estemos trabajando en el lado del cliente. \\
+
+Como vemos, la existencia de este tipo de tecnologías hace que sea muy conveniente desarrollar la librería \textbf{genetics.js} como un módulo NPM, puesto que ya no solo podría ser utillizada en el lado del cliente, sino que también hace posible que se utilice en otros ámbitos como un servidor con NodeJS o cualquier otra tecnología basada en JavaScript.
+
+\subsection{Tecnologías utilizadas para el desarrollo}
+
+Tal y como se ha comentado, la librería \textbf{genetics.js} se desarrollará como un módulo NPM para garantizar que sea compatible con tecnologías web. En este primer apartado, expondremos cuales seran las dependencias que este módulo tendrá en el desarrollo. Estas dependencias realmente no afectarán al usuario final, peusto que no serán descargadas ni utilizadas cuando se instale el paquete, ya que solo son útiles para garantizar y facilitar el desarrollo correcto de la librería. \\
+
+Las tecnologías que se han utilizado como dependencias de desarrollo han sido
+
+\subsection{Tecnologías utilizadas en producción}
