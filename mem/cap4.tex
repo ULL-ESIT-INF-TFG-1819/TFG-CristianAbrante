@@ -139,3 +139,70 @@ import { bool, MersenneTwister19937 } from 'random-js';
 */
 bool(0.3)(MersenneTwister19937.autoSeed());
 \end{lstlisting}
+
+%---------------------------------------------------------------------------------
+\section{Estructura del software}
+
+En esta sección se describirá cual es la estructura lógica de \textbf{genetics.js}, exponiendo cada una de sus partes y justificando cuáles han sido las decisiones de diseño que se han tomado para su desarrollo.
+
+\subsection{Visión general}
+
+Para construir una librería de algoritmos evolutivos, lo fundamental es que sea capaz de cubrir la mayor parte de operaciones disponibles, y además ofrezca la posibilidad de ser extendida de la manera más cómoda posible. \\
+
+Para ello, el diseño que se ha decidido es una estructura de clases e interfaces a implementar por cada una de las partes fundamentales o componentes de esta librería.
+
+\subsection{Individuos}
+
+Dentro de los algoritmos evolutivos, los individuos son quizás la parte fundamental. La idea principal de su diseño para esta librería es la de simplificar lo máximo posible las tareas de evaluación y modificación de su contenido. \\
+
+En computación evolutiva, los individuos codifican una solución concreta de un problema. Este individuo contendrá una serie de datos, que se conocen como el \textbf{genotipo} o codificación de dicha solución. A partir de este genotipo, se puede extraer la información que verdaderamente sería la solución a nuestro problema y que se conoce como \textbf{fenotipo}. \\
+
+Para llevar a cabo la conversión entre genotipo y fenotipo, se debe disponer de la información concreta del problema, y por tanto tener una función que converta el genotipo de un individuo a una solución concreta del espacio de soluciones. \\
+
+Un ejemplo de esto podría ser un problema en el que se quiere buscar el máximo de una función en un dominio de números enteros. Una posible codificación puede ser establecer una correspondencia entre cada uno de los enteros presentes en el dominio y un individuo formado por una cadena de números binarios. Cuando se desee evaular un individuo, lo que se debe hacer es decodificar el número entero al que se corresponde la cadena binaria que contiene dicho individuo. \\
+
+Elegir una buena codificación para nuestro problema es una tarea muy importante y en ocasiones compleja, puesto que la calidad del algoritmo que se diseñe en gran medida dependerá de esta decisión. Además, es importante destacar que dependiendo de la codificación que hayamos elegido, se le podrán aplicar a los individuos involucrados en el algoritmo unas operaciones u otras. \\
+
+Tal y como se ha comentado, la representación de los individuos es casi infinita, pues depende mucho del dominio del problema que se esté tratando de resolver. En \textbf{genetics.js} la decisión que se ha tomado es implementar una jerarquía de clases para modelar esta realidad. \\
+
+En este diagrama UML se puede ver la estructura de clases elegida, de las cuales será necesario explicar cada una de sus partes.
+
+\subsubsection{BaseIndividual}
+
+\texttt{BaseIndividual} es una clase abstracta que representa al individuo base de la jerarquía. En ella se almacena el \texttt{array} que contiene el genotipo del individuo.
+Cabe destacar que es una clase genérica, es decir que no se especifica el tipo que datos que contendrá dicho array, de esta forma se garantiza que se puede extender en clases hijas con la capacidad de reutilizar los métodos que esta tiene implementados. \\
+
+Los métodos con los que cuenta esta clase son aquellos que implican una búsqueda en un array y que ya están implementados en JavaScript, de esta forma se garantiza que los métodos presentes en esta clase son inmutables, es decir, que no cambian el contenido de dicho array. \\
+
+Como método abstracto tan solo tiene el \texttt{toString}, que sirve para convertir a un individuo en su representación como \texttt{string}. Este sería el único método a implementar si se quiere extender esta clase.
+
+\subsubsection{MutableIndividual e interfaz Mutable}
+
+\texttt{MutableIndividual} es una clase también abstracta que hereda de \texttt{BaseIndividual}, y que implementa la interfaz \texttt{Mutable}. Esta interfaz introduce los métodos más comunes para hacer cambios en el contenido del genotipo del array; como por ejemplo el método \texttt{set}, \texttt{fill} o \texttt{map}, los cuales ya están presentes en los arrays de JavaScript. \\
+
+El único método abstracto que presenta esta clase es \texttt{deepCopy}, que seirve para especificar como se haría una copia profunda del genotipo.
+
+\subsubsection{BinaryIndividual}
+
+El individuo binario (\texttt{BinaryIndividual}), es uno de los más utilizados dentro de los algoritmos evolutivos, y fue la primera representación con la que se construyó un algoritmo genético \cite{holland1992adaptation}. \\
+
+Para implementar este tipo de individuos, se ha extendido de la clase \texttt{MutableIndividual}, pero con el tipo de dato \texttt{boolean}, que es el que contendrá el genotipo.
+
+\subsubsection{NumericIndividual}
+
+El individuo numérico es una clase abstracta para aglutinar a los individuos que contienen números enteros y flotantes, los cuales tienen la mayoría de métodos comunes a excepción de su representación. \\
+
+Los individuos con codificación numérica contienen una parámetro \texttt{range} que especifica el rango en el que se encuentran los genes de dicho individuo. Para esta librería, los individuos solo podrán tener un rango, que se aplicará a todo los genes o valores del individuo, aunque puede caber la posibilidad de que se tengan varios rangos que se apliquen a los intervalos de genes especificados. \\
+
+Para implementar esta clase, es necesario que se sobrescriban la mayoría de métodos presentes en \texttt{MutableIndividual} para hacer la gestión de errores, garantizando que los valores que se introducen para hacer cambios están dentro del rango permitido.
+
+\subsubsection{IntegerIndividual}
+
+El individuo entero es un \texttt{NumericIndividual} que contiene en su genotipo tan solo números enteros, por ello, lo más importante es garantizar que cualquier número que se introduzca en el array sea un número entero. \\
+
+Este criterio se puede garantizar de una manera más restrictiva si se genera un error cada vez que se intente establecer un número flotante como un valor dentro del genotipo, pero en esta implementación se ha optado por redondear siempre los valores numéricos que se intenten introducir, de tal forma se garantiza que estos siempre sean enteros.
+
+\subsubsection{FloatingIndividual}
+
+Por otra parte, tenemos el individuo numérico que contiene valores en punto flotante. Esta clase es prácticamente idéntica a la clase base de individuos numéricos (\texttt{NumericIndividual}), puesto que tan solo se debe implementar el constructor.
+\label{4:sec:1}
