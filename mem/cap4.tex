@@ -169,6 +169,13 @@ En este diagrama UML se puede ver la estructura de clases elegida, de las cuales
 
 \subsubsection{BaseIndividual}
 
+\begin{figure}[ht]
+    \centering
+    \includegraphics[scale=0.6]{mem/images/cap-4/4.2.2(Individuos)/BaseIndividual.png}
+    \caption{Diagrama de clase de \texttt{BaseIndividual}}
+    \label{fig:baseindividual-uml}
+\end{figure}
+
 \texttt{BaseIndividual} es una clase abstracta que representa al individuo base de la jerarquía. En ella se almacena el \texttt{array} que contiene el genotipo del individuo.
 Cabe destacar que es una clase genérica, es decir que no se especifica el tipo que datos que contendrá dicho array, de esta forma se garantiza que se puede extender en clases hijas con la capacidad de reutilizar los métodos que esta tiene implementados. \\
 
@@ -178,17 +185,38 @@ Como método abstracto tan solo tiene el \texttt{toString}, que sirve para conve
 
 \subsubsection{MutableIndividual e interfaz Mutable}
 
+\begin{figure}[ht]
+    \centering
+    \includegraphics[scale=0.6]{mem/images/cap-4/4.2.2(Individuos)/MutableIndividual.png}
+    \caption{Diagrama de clase de \texttt{MutableIndividual}}
+    \label{fig:mutableindividual-uml}
+\end{figure}
+
 \texttt{MutableIndividual} es una clase también abstracta que hereda de \texttt{BaseIndividual}, y que implementa la interfaz \texttt{Mutable}. Esta interfaz introduce los métodos más comunes para hacer cambios en el contenido del genotipo del array; como por ejemplo el método \texttt{set}, \texttt{fill} o \texttt{map}, los cuales ya están presentes en los arrays de JavaScript. \\
 
 El único método abstracto que presenta esta clase es \texttt{deepCopy}, que seirve para especificar como se haría una copia profunda del genotipo.
 
 \subsubsection{BinaryIndividual}
 
+\begin{figure}[ht]
+    \centering
+    \includegraphics[scale=0.7]{mem/images/cap-4/4.2.2(Individuos)/BinaryIndividual.png}
+    \caption{Diagrama de clase de \texttt{BinaryIndividual}}
+    \label{fig:binaryindividual-uml}
+\end{figure}
+
 El individuo binario (\texttt{BinaryIndividual}), es uno de los más utilizados dentro de los algoritmos evolutivos, y fue la primera representación con la que se construyó un algoritmo genético \cite{holland1992adaptation}. \\
 
 Para implementar este tipo de individuos, se ha extendido de la clase \texttt{MutableIndividual}, pero con el tipo de dato \texttt{boolean}, que es el que contendrá el genotipo.
 
 \subsubsection{NumericIndividual}
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[scale=0.7]{mem/images/cap-4/4.2.2(Individuos)/NumericIndividual.png}
+    \caption{Diagrama de clase de \texttt{NumericIndividual}}
+    \label{fig:binaryindividual-uml}
+\end{figure}
 
 El individuo numérico es una clase abstracta para aglutinar a los individuos que contienen números enteros y flotantes, los cuales tienen la mayoría de métodos comunes a excepción de su representación. \\
 
@@ -198,11 +226,25 @@ Para implementar esta clase, es necesario que se sobrescriban la mayoría de mé
 
 \subsubsection{IntegerIndividual}
 
+\begin{figure}[ht]
+    \centering
+    \includegraphics[scale=0.7]{mem/images/cap-4/4.2.2(Individuos)/IntegerIndividual.png}
+    \caption{Diagrama de clase de \texttt{IntegerIndividual}}
+    \label{fig:binaryindividual-uml}
+\end{figure}
+
 El individuo entero es un \texttt{NumericIndividual} que contiene en su genotipo tan solo números enteros, por ello, lo más importante es garantizar que cualquier número que se introduzca en el array sea un número entero. \\
 
 Este criterio se puede garantizar de una manera más restrictiva si se genera un error cada vez que se intente establecer un número flotante como un valor dentro del genotipo, pero en esta implementación se ha optado por redondear siempre los valores numéricos que se intenten introducir, de tal forma se garantiza que estos siempre sean enteros.
 
 \subsubsection{FloatingIndividual}
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[scale=0.7]{mem/images/cap-4/4.2.2(Individuos)/FloatingIndividual.png}
+    \caption{Diagrama de clase de \texttt{FloatingIndividual}}
+    \label{fig:binaryindividual-uml}
+\end{figure}
 
 Por otra parte, tenemos el individuo numérico que contiene valores en punto flotante. Esta clase es prácticamente idéntica a la clase base de individuos numéricos (\texttt{NumericIndividual}), puesto que tan solo se debe implementar el constructor.
 \label{4:sec:1}
