@@ -22,17 +22,17 @@ En primer lugar, es importante introducir el lenguaje de programación JavaScrip
 
 JavaScript es un lenguaje de programación interpretado, multiparadigma y de tipado débil, desarrollado por Brendan Eich, durante su trabajo en Netscape, para ser utilizado por el navegador que la empresa estaba creando. Durante esa época y en sus primeros años, se consideraba un lenguaje menor, es decir que solo se utilizaba para implementar ciertos aspectos de la interacción del usuario con la página web, o para llevar a cabo operaciones sencillas en el lado del cliente. \\
 
-Debido a la poca importancia que se le dio a su desarrollo desde el momento inicial, son destacables los grandes errores de diseño con los cuales cuenta \cite{KennethEng2019}, y los que hacen que sea bastante complejo confiar en que el software desarrollado en esta tecnología cumplirá ciertos criterios de calidad. Es por ellos que diversas empresas e instituciones, han tratado de estandarizar y complementar el lenguaje para garantizar su estabilidad y escalabilidad. Ejemplo de ello, es la organización ECMA con los estándares de JavaScript \cite{ecmascript}, o Microsoft con la creación del lenguaje TypeScript.\\
+Debido a la poca importancia que se le dio a su desarrollo desde el momento inicial, son destacables los grandes errores de diseño con los cuales cuenta \cite{KennethEng2019}, y los que hacen que sea bastante complejo confiar en que el software desarrollado en esta tecnología cumplirá ciertos criterios de calidad. Es por ello que diversas empresas e instituciones, han tratado de estandarizar y complementar el lenguaje para garantizar su estabilidad y escalabilidad. Ejemplo de ello, es la organización ECMA con los estándares de JavaScript \cite{ecmascript}, o Microsoft con la creación del lenguaje TypeScript.\\
 
 Con los años ha ganado bastante popularidad, gracias en parte a proyectos como NodeJS \cite{node}, el cual trata de convertir a JavaScript en un lenguaje con mucho más ámbito que el que tenía anteriormente, dando la posibilidad de construir un servidor completo con este lenguaje. NodeJS es una de las tecnologías más punteras para el desarrollo de servidores hoy en día, debido a su gran escalabilidad y a que soporta una gran cantidad de conexiones simultáneas, en parte grecias al uso del motor V8 de JavaScript \cite{motor-v8}, desarrollado por Google. \\
 
-En este sentido, es muy destacable también NPM (Node Package Manager) \cite{npm} como gestor de dependencias de NodeJS. Este gestor de paquetes es el ejemplo perfecto de sencillez y eficacia, al permitir publicar nuestros propios módulos en un portal que los aglutina de manera centralizada, y que nos permite instalar, gestionar y utilizar dichos módulos de manera sencilla en nuestra propia aplicación desde la línea de comandos. \\
+En este sentido, es muy destacable también NPM (Node Package Manager) \cite{npm} como gestor de dependencias de NodeJS. Este gestor de paquetes es el ejemplo perfecto de sencillez y eficacia, al permitir publicar nuestros propios módulos en un portal que los aglutina de manera centralizada, y que nos permite instalar, gestionar y utilizar dichos paquetes de manera sencilla en nuestra propia aplicación desde la línea de comandos. \\
 
-La gestión de dependencias es una tarea compleja que puede acarrear ciertos problemas, sobretodo de retrocompatibilidad entre versiones. Una de las grandes ventajas de NPM es que esta tarea es bastante sencilla, centralizando todas las dependecias en un fichero \textit{json} (\textbf{package.json}), en el cual se especifica el nombre del paquete y la versión que tenemos instalada. De esta forma se garantiza que se está utilizando en nuestra aplicación exactamente la dependencia que queremos. \\
+La gestión de dependencias es una tarea compleja que puede acarrear ciertos problemas, sobretodo de retrocompatibilidad entre versiones. Una de las grandes ventajas de NPM es que esta tarea es bastante sencilla, centralizando todas las dependecias en un fichero \textit{json} (\textit{package.json}), en el cual se especifica el nombre del paquete y la versión que tenemos instalada. De esta forma se garantiza que se está utilizando en nuestra aplicación exactamente la dependencia que queremos. \\
 
 Además, el versionado de los paquetes se basa en \textbf{semantic versioning} \cite{semver}, contando con la posibilidad de distinguir entre versiones \textbf{minor, major y patch}, garantizando así que se pueda seguir el mapa de desarrollo previsto. \\
 
-De esta forma, teniendo el potencial de una herramienta como NPM, la posibilidad de llevar esta idea a aplicaciones cliente es bastante interesante, puesto que para la web la importación de módulos externos no se gestiona de una manera tan eficaz que como se hace con NodeJS y NPM. Es ahí donde entran herramientas como Webpack y Babel en juego, las cuales permiten que el código que se importa mediante NPM y se utiliza en ficheros de código fuente, sea compilado para ser utilizado directamente en el \textit{front-end}. De esta forma podemos utilizar NPM como gestor de dependencias aunque estemos trabajando en el lado del cliente. \\
+De esta forma, teniendo el potencial de una herramienta como NPM, la posibilidad de llevar esta idea a aplicaciones cliente es bastante interesante, puesto que para la web la importación de módulos externos no se gestiona de una manera tan eficaz que como se hace con NodeJS y NPM. Es ahí donde entran herramientas como Webpack \cite{webpack} y Babel \cite{babel} en juego, las cuales permiten que el código que se importa mediante NPM y se utiliza en ficheros de código fuente, sea compilado para ser utilizado directamente en el \textit{front-end}. De esta forma podemos utilizar NPM como gestor de dependencias aunque estemos trabajando en el lado del cliente. \\
 
 Como vemos, la existencia de este tipo de tecnologías hace que sea muy conveniente desarrollar la librería \textbf{genetics.js} como un módulo NPM, puesto que ya no solo podría ser utillizada en el lado del cliente, sino que también hace posible que se utilice en otros ámbitos como un servidor con NodeJS o cualquier otra tecnología basada en JavaScript.
 
@@ -46,7 +46,7 @@ Las tecnologías que se han utilizado como dependencias de desarrollo han sido l
 
 Los sistemas de control de versiones sirven para que se pueda llevar un desarrollo organizado del proyecto. Tener un sistema de control de versiones es esencial porque en el repositorio que se cree estará alojado todo el código fuente que se escriba, además del historial de \textit{commits} o confirmaciones que se lleven a cabo, de tal forma que se pueda regresar con facilidad a casi cualquier punto del desarrollo. \\
 
-En este proyecto, he utilizado Git como sistema de control de versiones y GitHub para alojar el repositorio remoto. Además el desarrollo se ha estructurado por ramas, de tal forma que solo se encuentre en \textit{master} la versión estable del proyecto. \\
+En este proyecto, he utilizado Git \cite{git} como sistema de control de versiones y GitHub \cite{github} para alojar el repositorio remoto. Además el desarrollo se ha estructurado por ramas, de tal forma que solo se encuentre en \textit{master} la versión estable del proyecto. \\
 
 Para estructurar las ramas he utilizado un convenio de nombres, de tal forma que el desarrollo del contenido de la versión concreta sea el nombre de la rama. Por ejemplo si se está desarrollando la versión 0.1.0, la rama de desarrollo llevará el nombre \textit{v0.1.0-dev}
 
@@ -56,11 +56,11 @@ Para estructurar las ramas he utilizado un convenio de nombres, de tal forma que
  
  La utilización de TypeScript como lenguaje de desarrollo viene motivada por las carencias que presenta JavaScript para realizar una librería escalable y con las garantías de calidad que se requieren para que sea fácilmente extensible. \\
  
- TypeScript fue desarrollado por Microsoft y actualmente, su compilador principal es un proyecto de software libre mantenido por la propia empresa bajo la licencia Apache 2.0. Se trata de un superconjunto de JavaScript, de tal forma que cualquier fichero en JavaScript, también está en TypeScript. Esto tiene como ventaja principal la facilidad de migración de un proyecto en un lenguaje a otro. \\
+ TypeScript fue desarrollado por Microsoft y actualmente, su compilador principal es un proyecto de software libre mantenido por la propia empresa bajo la licencia Apache 2.0 \cite{typescriptrepo}. Se trata de un superconjunto de JavaScript, de tal forma que cualquier fichero en JavaScript, también está en TypeScript. Esto tiene como ventaja principal la facilidad de migración de un proyecto en un lenguaje a otro. \\
  
  Las ventaja principal que presenta TypeScript frente a JavaScript es que se trata de un lenguaje con tipos. Las definiciones de tipos hacen que sea más complejo programar con este lenguaje, pero a la vez garantizan mucha más seguridad en el código que se desarrolla, asegurando así que se pueda escalar de una manera mucho más efectiva. \\
  
- Es destacable también, las características que presenta TypeScript que son comunes en los lenguajes orientados a objetos tradicionales; como clases o interfaces, que de manera nativa no son soportadas por JavaScript. Estas características son las idóneas para estructurar el software evitando repeticiones necesarias e imponiendo las estructura que seguirá el software que se implemente. \\
+ Es destacable también, las características que presenta TypeScript que son comunes en los lenguajes orientados a objetos tradicionales; como clases o interfaces, que de manera nativa no son soportadas por JavaScript. Estas características son las idóneas para estructurar el software evitando repeticiones necesarias e imponiendo las estructura que se seguirá en un futuro. \\
  
  Cabe destacar que las opciones del compilador son fácilmente configurables mediante un fichero \textit{json} (\textit{tsconfig.json}). En él se puede especificar multitud de opciones, sin embargo la más relevante es el estándard de JavaScript al que se quiere compilar el proyecto. En el caso de \textbf{genetics.js}, se ha elegido la versión ECMAScript5 puesto que es la que tiene un soporte más amplio por la mayoría de navegadores.
  
@@ -68,11 +68,11 @@ Para estructurar las ramas he utilizado un convenio de nombres, de tal forma que
  
  Una parte muy importante del desarrollo del software son los tests. Mas aun cuando se trata de una librería en la que van a existir una gran cantidad de clases y estructuras de datos diferentes, en cuyo caso, es muy importante que se desarrolle una batería de tests que garantice su correcto funcionamiento. \\
  
- La tecnología utilizada para este propósito ha sido Jest, pues nos ofrece múltiples ventajas a la hora de crear test unitarios y parametrizados a medida del componente que estemos comprobando y también porque nos permite realizar de manera sencilla \textit{mockups}, o simulaciones, de resultados de las funciones que queramos testear. \\
+ La tecnología utilizada para este propósito ha sido Jest \cite{jest}, pues nos ofrece múltiples ventajas a la hora de crear test unitarios y parametrizados a medida del componente que estemos comprobando y también porque nos permite realizar de manera sencilla \textit{mockups}, o simulaciones, de resultados de las funciones que queramos testear. \\
  
  El hecho de realizar \textit{mockups} es de gran ventaja en una aplicación como esta, en la que tanta lógica depende de resultados aleatorios. Con esta librería de testing se puede especificar \textit{ad-hoc} cual es el resultado "\textit{aleatorio}" que nos devolverá el generador sin tocar su código fuente y de esta forma, aumentar la robostez de los test, comprobando la lógica del componente externalizándola de los valores aleatorios que le puedan llegar como entrada. \\
  
- Una desventaja de este framework de desarrollo, es que no es completamente compatible con TypeScript en su versión actual, lo cual genera algunos problemas de a la hora de comprobar los tipos de los módulos que se están testeando. A su vez, esto genera algunas incompatibilidades de tipos en cuanto a generar los \textit{mockups}, probablemente porque estos internamente se basen en el tipado débil que presenta el lenguaje JavaScript. Para solucionar estos problemas se recurre a la librería externa \textbf{ts-jest}. \\
+ Una desventaja de este framework de desarrollo, es que no es completamente compatible con TypeScript en su versión actual, lo cual genera algunos problemas de a la hora de comprobar los tipos de los módulos que se están testeando. A su vez, esto genera algunas incompatibilidades de tipos en cuanto a generar los \textit{mockups}, probablemente porque estos internamente se basen en el tipado débil que presenta el lenguaje JavaScript. Para solucionar estos problemas se recurre a la librería externa \textbf{ts-jest} \cite{tsjest}. \\
  
  Al igual que todas las herramientas utilizadas, Jest tiene también su fichero de configuración (\textit{jestconfig.json}). En el se ha especificado cual será el directorio en el que se almacenarán los test además de indicar que se utilizará \textbf{ts-jest} para procesar aquellos que estén en TypeScript.
  
@@ -84,7 +84,7 @@ Para estructurar las ramas he utilizado un convenio de nombres, de tal forma que
  
  Llevar a cabo un procedimiento de integración continua es muy importante para garantizar que si se hace un cambio en una parte concreta de la librería, esto no tiene efectos colaterales en otros módulos. La importancia de esto radica principalemnte en la seguridad que tenemos al añadir nuevas funcionalidades a lo que ya tenemos hecho, de tal forma que incorporar a nuevos colaboradores y aceptar sus cambios no sería tan arriesgado como si tan solo se pasaran los test en local.\\
  
- Para llevar a cabo la integración continua se ha elegido la tecnología \textbf{CircleCI}, aunque hay algunas otras opciones que presentan las mismas características, como por ejemplo, \textbf{TravisCI}. El fichero de configuración de esta herramienta (\textit{.circleci/config.yml}), es básicamente calcado del estándard utilizado para aplicaciones con NodeJS. En él, tan solo es necesario especificar el comando npm que se utilizará para ejecutar los tests de integración contínua.
+ Para llevar a cabo la integración continua se ha elegido la tecnología \textbf{CircleCI}, aunque hay algunas otras opciones que presentan las mismas características, como por ejemplo, \textbf{TravisCI} \cite{travis}. El fichero de configuración de esta herramienta (\textit{.circleci/config.yml}), es básicamente calcado del estándard utilizado para aplicaciones con NodeJS. En él, tan solo es necesario especificar el comando npm que se utilizará para ejecutar los tests de integración contínua.
  
  \subsubsection{Coveralls}
  
@@ -92,7 +92,7 @@ Para estructurar las ramas he utilizado un convenio de nombres, de tal forma que
  
  Esta no es una medida infalible del correcto funcionamiento del software desarrollado, sin embargo si que nos da una medida bastante fiable de lo extensos que hemos sido con nuestros tests, mostrando si hemos conseguido cubrir la mayoría de líneas de código existentes en el proyecto.\\
  
- La herramienta encargada de recoger los informes de coverge a partir de los tests utilizados para la integración continua ha sido Coveralls. Para ello, se ha especificado un comando de test ejecutado por la integración continua que garantiza que en el caso de que dichos tests se ejecuten sin errores, se envíe un informe al servidor de coveralls. \\
+ La herramienta encargada de recoger los informes de coverge a partir de los tests utilizados para la integración continua ha sido Coveralls \cite{coveralls}. Para ello, se ha especificado un comando de test ejecutado por la integración continua que garantiza que en el caso de que dichos tests se ejecuten sin errores, se envíe un informe al servidor de coveralls. \\
  
  La configuración de este servicio es bastante simple, pues tan solo habría que especificar en el fichero de configuración (\textit{coveralls.yml}) cual es la herramienta de integración continua que se ha utilizado, en este caso CircleCI.
  
@@ -100,10 +100,42 @@ Para estructurar las ramas he utilizado un convenio de nombres, de tal forma que
  
  La documentación es una parte esencial del desarrollo, puesto que facilita la tarea de que los usuarios puedan utilizar los diferentes módulos de la librería, teniendo información de cual será el resultado y los parámetros que se espera cada una de las funciones y cual es el objetivo de las clases desarrolladas. \\
  
- Para elaborar una documentación para nuestro proyecto se ha utilizado \textbf{TypeDoc}. Esta herramienta nos permite hacer comentarios en las clases, métododos, interfaces y variables para luego generar una documentación en formato HTML que puede ser desplegada en GitHub pages. \\
+ Para elaborar una documentación para nuestro proyecto se ha utilizado \textbf{TypeDoc} \cite{typedoc}. Esta herramienta nos permite hacer comentarios en las clases, métododos, interfaces y variables para luego generar una documentación en formato HTML que puede ser desplegada en GitHub pages. \\
  
  La sintaxis de los comentarios es bastante común, puesto que es muy similar a la que utilizan otras herramientas similares como Doxigen o Javadoc, para lenguajes como C++ y Java. Además, se puede formatear los comentarios, pues también admite sintaxis Markdown.
  
+ \subsubsection{TSLint y Prettier}
  
+ Para finalizar, expondré estas dos herramientas utilizadas básicamente para formatear el código que se programa, de tal forma que se garantice que sea cual sea el editor y el desarrollador que se incorpore al proyecto, el formato y estándard que se seguirá en el código fuente va a ser el mismo. \\
+ 
+ La herramienta Prettier \cite{prettier} se encarga de hacer este formateo del código. Se configura mediante un fichero (\textit{.prettierrc}), en el que se indican las opciones que se desean cumplir para el código fuente generado. \\
+ 
+ De manera complementaria, la herramienta TSLint \cite{tslint} señala en el editor de código errores tanto sintácticos como de estilo. Se puede por tanto indicar cual será el estándard que queremos que siga nuestro proyecto de software. Existen muchos, aunque uno de los más restrictivos es el diseñado por Airbnb \cite{airbnbjs}. \\
+ 
+ La manera más cómoda para utilizar estas dos herramientas es de manera conjunta con el IDE o editor de código, de tal forma que cuando se almacenen los cambios en un fichero este se formatee de manera automática. En este proyecto se ha utilizado WebStorm \cite{webstorm} como IDE de desarrollo, pero hay otras buenas opciones para este propósito, como Visual Studio Code \cite{vscode} o Atom \cite{atom}.
 
 \subsection{Tecnologías utilizadas en producción}
+
+Las dependencias o tecnologías utilizadas en producción son aquellas que serán usadas por el usuario final cuando instale la librería, y no solo serán útiles durante la fase de desarrollo. \\
+
+En este sentido, se ha tratado de construir una librería \textit{minimalista} en cuanto a dependencias, de tal forma que el paquete incluya las menos posibles en su versión de producción. En una librería de las características de este proyecto, realmente esta tarea es bastante sencilla de llevar a cabo, pues prácticamente todo el trabajo de desarrollo se puede hacer desde cero y sin dependencias externas.\\
+
+De esta forma, tan solo se ha utilizado una dependencia en producción:
+
+\subsubsection{random.js}
+
+Una de las problemáticas de trabajar con un lenguaje como JavaScript es que no existe un módulo de generación de números aletorios realmente efectivo, al estilo de la librería \textbf{random} de C++ \cite{randomcpp}. Además, también se añade la problemática de que al estar trabajando con TypeScript, sería muy conveniente llevar a cabo la comprobación de tipos cuando utilicemos dicho paquete. Debido a estos problemas, la única librería que satisfacía las condiciones de ser un generador de números aleatoios correcto estadísticamente y que trabajara con TypeScript es \textbf{random.js} \cite{randomjs}. \\
+
+La ventaja principal que tiene trabajar con esta librería es que se puede especificar el \textit{engine} y la semilla que se utilizará para generar el número aleatorio. Y cuenta ya con una serie de \textit{engines} predeterminados para generar números aleatorios aprovechando característica concretas del entorno en el que se está ejecutando, como por ejemplo NodeJS o un navegador. \\
+
+Aparte de las ventajas que tiene a la hora de especificar el origen del número aleatorio, es destacable también la facilidad que posee para generar datos de un cierto tipo, como por ejemplo: enteros y flotantes en un rango o valores de verdadero y falso (\textit{boolean}). \\
+
+\begin{lstlisting} [style=JavaScript]
+import { bool, MersenneTwister19937 } from 'random-js';
+
+/**
+* Genera un bool con un 0.3 de probabilidad
+* de ser true.
+*/
+bool(0.3)(MersenneTwister19937.autoSeed());
+\end{lstlisting}
