@@ -38,8 +38,72 @@ Como vemos, la existencia de este tipo de tecnologías hace que sea muy convenie
 
 \subsection{Tecnologías utilizadas para el desarrollo}
 
-Tal y como se ha comentado, la librería \textbf{genetics.js} se desarrollará como un módulo NPM para garantizar que sea compatible con tecnologías web. En este primer apartado, expondremos cuales seran las dependencias que este módulo tendrá en el desarrollo. Estas dependencias realmente no afectarán al usuario final, peusto que no serán descargadas ni utilizadas cuando se instale el paquete, ya que solo son útiles para garantizar y facilitar el desarrollo correcto de la librería. \\
+Tal y como se ha comentado, la librería \textbf{genetics.js} se desarrollará como un módulo NPM para garantizar que sea compatible con tecnologías web. En este primer apartado, expondremos cuales seran las dependencias que este módulo tendrá en el desarrollo. Estas dependencias realmente no afectarán al usuario final, puesto que no serán descargadas ni utilizadas cuando se instale el paquete, ya que solo son útiles para garantizar y facilitar el desarrollo correcto de la librería. \\
 
-Las tecnologías que se han utilizado como dependencias de desarrollo han sido
+Las tecnologías que se han utilizado como dependencias de desarrollo han sido las siguientes:
+
+\subsubsection{Control de versiones (Git y GitHub)}
+
+Los sistemas de control de versiones sirven para que se pueda llevar un desarrollo organizado del proyecto. Tener un sistema de control de versiones es esencial porque en el repositorio que se cree estará alojado todo el código fuente que se escriba, además del historial de \textit{commits} o confirmaciones que se lleven a cabo, de tal forma que se pueda regresar con facilidad a casi cualquier punto del desarrollo. \\
+
+En este proyecto, he utilizado Git como sistema de control de versiones y GitHub para alojar el repositorio remoto. Además el desarrollo se ha estructurado por ramas, de tal forma que solo se encuentre en \textit{master} la versión estable del proyecto. \\
+
+Para estructurar las ramas he utilizado un convenio de nombres, de tal forma que el desarrollo del contenido de la versión concreta sea el nombre de la rama. Por ejemplo si se está desarrollando la versión 0.1.0, la rama de desarrollo llevará el nombre \textit{v0.1.0-dev}
+
+\subsubsection{TypeScript}
+ 
+ Mas que una dependencia de desarollo, TypeScript es el lenguaje de programación en el que se ha implementado el proyecto. Realmente, se considera una dependencia externa, pues aunque el desarrollo completo se llevado a cabo con este lenguaje, se necesita un compilador a JavaScript para publicar el paquete en NPM, con lo cual el usuario final tan solo utilizará código fuente JavaScript, además de las definiciones de tipos generadas. \\
+ 
+ La utilización de TypeScript como lenguaje de desarrollo viene motivada por las carencias que presenta JavaScript para realizar una librería escalable y con las garantías de calidad que se requieren para que sea fácilmente extensible. \\
+ 
+ TypeScript fue desarrollado por Microsoft y actualmente, su compilador principal es un proyecto de software libre mantenido por la propia empresa bajo la licencia Apache 2.0. Se trata de un superconjunto de JavaScript, de tal forma que cualquier fichero en JavaScript, también está en TypeScript. Esto tiene como ventaja principal la facilidad de migración de un proyecto en un lenguaje a otro. \\
+ 
+ Las ventaja principal que presenta TypeScript frente a JavaScript es que se trata de un lenguaje con tipos. Las definiciones de tipos hacen que sea más complejo programar con este lenguaje, pero a la vez garantizan mucha más seguridad en el código que se desarrolla, asegurando así que se pueda escalar de una manera mucho más efectiva. \\
+ 
+ Es destacable también, las características que presenta TypeScript que son comunes en los lenguajes orientados a objetos tradicionales; como clases o interfaces, que de manera nativa no son soportadas por JavaScript. Estas características son las idóneas para estructurar el software evitando repeticiones necesarias e imponiendo las estructura que seguirá el software que se implemente. \\
+ 
+ Cabe destacar que las opciones del compilador son fácilmente configurables mediante un fichero \textit{json} (\textit{tsconfig.json}). En él se puede especificar multitud de opciones, sin embargo la más relevante es el estándard de JavaScript al que se quiere compilar el proyecto. En el caso de \textbf{genetics.js}, se ha elegido la versión ECMAScript5 puesto que es la que tiene un soporte más amplio por la mayoría de navegadores.
+ 
+\subsubsection{Jest y ts-jest}
+ 
+ Una parte muy importante del desarrollo del software son los tests. Mas aun cuando se trata de una librería en la que van a existir una gran cantidad de clases y estructuras de datos diferentes, en cuyo caso, es muy importante que se desarrolle una batería de tests que garantice su correcto funcionamiento. \\
+ 
+ La tecnología utilizada para este propósito ha sido Jest, pues nos ofrece múltiples ventajas a la hora de crear test unitarios y parametrizados a medida del componente que estemos comprobando y también porque nos permite realizar de manera sencilla \textit{mockups}, o simulaciones, de resultados de las funciones que queramos testear. \\
+ 
+ El hecho de realizar \textit{mockups} es de gran ventaja en una aplicación como esta, en la que tanta lógica depende de resultados aleatorios. Con esta librería de testing se puede especificar \textit{ad-hoc} cual es el resultado "\textit{aleatorio}" que nos devolverá el generador sin tocar su código fuente y de esta forma, aumentar la robostez de los test, comprobando la lógica del componente externalizándola de los valores aleatorios que le puedan llegar como entrada. \\
+ 
+ Una desventaja de este framework de desarrollo, es que no es completamente compatible con TypeScript en su versión actual, lo cual genera algunos problemas de a la hora de comprobar los tipos de los módulos que se están testeando. A su vez, esto genera algunas incompatibilidades de tipos en cuanto a generar los \textit{mockups}, probablemente porque estos internamente se basen en el tipado débil que presenta el lenguaje JavaScript. Para solucionar estos problemas se recurre a la librería externa \textbf{ts-jest}. \\
+ 
+ Al igual que todas las herramientas utilizadas, Jest tiene también su fichero de configuración (\textit{jestconfig.json}). En el se ha especificado cual será el directorio en el que se almacenarán los test además de indicar que se utilizará \textbf{ts-jest} para procesar aquellos que estén en TypeScript.
+ 
+ \subsubsection{CircleCI}
+ 
+ El paso siguiente después de haber realizado una batería de tests es garantizar que estos se ejecuten de manera continua. Esto quiere decir que sean ejecutados cuando se haga un nuevo \textit{commit} al respositorio remoto. \\
+ 
+ La betería de tests es ejecutada por un servidor externo, lo que también sirve para separar dichos test de nuestra máquina local de desarrollo y comprobar de esta forma si nuestro sistema operativo o alguna configuración local está afectando al funcionamiento del proyecto. \\
+ 
+ Llevar a cabo un procedimiento de integración continua es muy importante para garantizar que si se hace un cambio en una parte concreta de la librería, esto no tiene efectos colaterales en otros módulos. La importancia de esto radica principalemnte en la seguridad que tenemos al añadir nuevas funcionalidades a lo que ya tenemos hecho, de tal forma que incorporar a nuevos colaboradores y aceptar sus cambios no sería tan arriesgado como si tan solo se pasaran los test en local.\\
+ 
+ Para llevar a cabo la integración continua se ha elegido la tecnología \textbf{CircleCI}, aunque hay algunas otras opciones que presentan las mismas características, como por ejemplo, \textbf{TravisCI}. El fichero de configuración de esta herramienta (\textit{.circleci/config.yml}), es básicamente calcado del estándard utilizado para aplicaciones con NodeJS. En él, tan solo es necesario especificar el comando npm que se utilizará para ejecutar los tests de integración contínua.
+ 
+ \subsubsection{Coveralls}
+ 
+ Otro de los aspectos fundamentales relacionados con los tests es el cubrimiento de código, el \textit{coverage}. El cubrimiento de código es un informe que se genera para especificar el porcentaje de líneas de código que hemos cubierto con nuestros tests. \\
+ 
+ Esta no es una medida infalible del correcto funcionamiento del software desarrollado, sin embargo si que nos da una medida bastante fiable de lo extensos que hemos sido con nuestros tests, mostrando si hemos conseguido cubrir la mayoría de líneas de código existentes en el proyecto.\\
+ 
+ La herramienta encargada de recoger los informes de coverge a partir de los tests utilizados para la integración continua ha sido Coveralls. Para ello, se ha especificado un comando de test ejecutado por la integración continua que garantiza que en el caso de que dichos tests se ejecuten sin errores, se envíe un informe al servidor de coveralls. \\
+ 
+ La configuración de este servicio es bastante simple, pues tan solo habría que especificar en el fichero de configuración (\textit{coveralls.yml}) cual es la herramienta de integración continua que se ha utilizado, en este caso CircleCI.
+ 
+ \subsubsection{TypeDoc}
+ 
+ La documentación es una parte esencial del desarrollo, puesto que facilita la tarea de que los usuarios puedan utilizar los diferentes módulos de la librería, teniendo información de cual será el resultado y los parámetros que se espera cada una de las funciones y cual es el objetivo de las clases desarrolladas. \\
+ 
+ Para elaborar una documentación para nuestro proyecto se ha utilizado \textbf{TypeDoc}. Esta herramienta nos permite hacer comentarios en las clases, métododos, interfaces y variables para luego generar una documentación en formato HTML que puede ser desplegada en GitHub pages. \\
+ 
+ La sintaxis de los comentarios es bastante común, puesto que es muy similar a la que utilizan otras herramientas similares como Doxigen o Javadoc, para lenguajes como C++ y Java. Además, se puede formatear los comentarios, pues también admite sintaxis Markdown.
+ 
+ 
 
 \subsection{Tecnologías utilizadas en producción}
