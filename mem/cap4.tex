@@ -331,3 +331,27 @@ La utilidad principal de este generador es especificar los parámetros que tendr
 Una vez se ha desarrollado \texttt{NumericGenerator} como generador numérico fundamental, es bastante sencillo extender las clases para generar individuos de números enteros (\texttt{IntegerGenerator}) y de números en punto floatante (\texttt{FloatingGenerator}). \\
 
 Para ello, tan solo se debe implementar el método abstracto \texttt{generateGene}, creando un individuo numérico o un individuo en punto flotante respectivamente. Cabe destacar que los parámetros no varian respecto a aquellos establecidos en \texttt{NumericGeneratorParams}, pues en ambos casos tan solo es necesario especificar el rango como elemento generador.
+
+\subsection{Population}
+
+La gestión de la población de individuos es un elemento fundamental para la ejecución de algoritmos evolutivos. Para este propósito, se ha creado una clase \texttt{Ppulation}, que es la encargada de contener el conjunto de individuos de la población, además de proveer de métodos para acceder, modificar o evaluar a dichos individuos. \\
+
+Los métodos que contiene esta clase son:
+
+\begin{itemize}
+    \item \texttt{generatePopulationWithOperations}: Este método recibe un generador de individuos con sus parámetros, además de una función de fitness y crea a la población de individuos, además de evaluar cual es su fitness.
+    \item \texttt{getPopulationSize}: Devuelve el tamaño de la población.
+    \item \texttt{replacePopulation}: remplaza los items de la población actual por otros.
+    \item \texttt{pushIndividual}: Añade un individuo a la población.
+    \item \texttt{getFittestIndividual}: devuelve el individuo que tenga una mayor evaluación en la función de fitness.
+    \item \texttt{getPopulationItems}: devuelve los items de la población en forma de \texttt{array}.
+\end{itemize}
+
+Ádemás, cabe destacar que esta clase contendrá una serie de estadísticas comunes que se pueden utilizar para visualizar cuales son las métricas que está siguiendo la población en las sucesivas generaciones del algoritmo. Las estadísticas que se pueden consultar serían las siguientes:
+
+\begin{itemize}
+    \item \texttt{averageAge}: la edad media de los individuos de la población.
+    \item \texttt{averageFitness}: el fitness medio de los individuos de la población.
+    \item \texttt{fitnessSum}: la suma total de fitness de los individuos.
+    \item \texttt{fittestIndividualIndex}: el índice del individuo con mayor fitness de la población.
+\end{itemize}
