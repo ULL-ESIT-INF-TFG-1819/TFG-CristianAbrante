@@ -336,6 +336,14 @@ Para ello, tan solo se debe implementar el método abstracto \texttt{generateGen
 
 La gestión de la población de individuos es un elemento fundamental para la ejecución de algoritmos evolutivos. Para este propósito, se ha creado una clase \texttt{Ppulation}, que es la encargada de contener el conjunto de individuos de la población, además de proveer de métodos para acceder, modificar o evaluar a dichos individuos. \\
 
+\begin{figure}[ht]
+    \centering
+    \includegraphics[scale=0.6]{mem/images/cap-4/4.2.4(Population)/Population.png}
+    \caption{Diagrama de clase de \texttt{Population}}
+    \label{fig:generator-uml}
+\end{figure}
+
+
 Los métodos que contiene esta clase son:
 
 \begin{itemize}
@@ -355,3 +363,32 @@ Los métodos que contiene esta clase son:
     \item \texttt{fitnessSum}: la suma total de fitness de los individuos.
     \item \texttt{fittestIndividualIndex}: el índice del individuo con mayor fitness de la población.
 \end{itemize}
+
+\subsection{ParentSelection}
+
+La selección de padres es la fase del algoritmo que se corresponde con la elección de aquellos individuos que reproducirán, generando descendencia en la siguiente generación. El criterio de selección de estos individuos puede ser muy variado, pero normalmente es proporcional a cuanto de adaptados al medio estén, lo que se conoce como \textbf{fitness proportional selection}.
+
+Para esta librería se ha desarrollado una selección proporcional al fitness cuya implementación se puede hacer mediante dos métodos diferentes.
+
+\subsubsection{RouletteWheel}
+
+La idea que se encuentra tras la selección mediante \textit{Roulette Wheel}, es seleccionar a los padres mejor adaptados, pero a su vez dejar un posibilidad a los individuos con una evaluación de fitness peor la posibilidad de ser padres en la siguiente generación. \\
+
+Para simular esta idea se utiliza una ruleta que tiene todos los individuos representados, pero con un área proporcional a su fitness. Al girar esa ruleta, es más probable que se elijan a los individuos mejor adaptados, puesto que su área de selección es mayor, sin embargo, tampoco se impide la selección de indivviduos mucho meńos adaptados, porque aunque su área sea menor, aun tienen una posibilidad de ser seleccionados. Esto nos permite garantizar la variedad en la población seleccionada para evitar que las búsquedas puedan quedar atrapadas en un óptimo local. \\
+
+En la implementación de \textbf{genetics.js}, se espera como parámetros una población, además de un \textit{array} con la probabilidad de selección acumulada normalizada. Tal y como comentamos, esta probabilidad de selección dependerá de la evaluación del fitness del individuo.
+
+\subsubsection{StochasticUniversalSampling}
+
+La otra posibilidad de implemnentación se conoce como \textit{Stochastic Universal Sampling}. La idea es similar a \textit{Roulette Wheel}, pues utiliza también la ruleta proporcional como idea fundamental. Sin embargo, en este método la ruleta no se hace girar tantas veces como individuos se quiera seleccionar, sino que se hace una sola tirada en la que se seleccionan todos los individuos a la vez. Sería el equivalente a una ruleta en la que existieran tantos puntos de selección como individuos, y en una sola tirada se decidieran todos. \\
+
+Los parámetros de este tipo de selección son iguales que en \textit{RouletteWheel}, por tanto es necesario especificar un \texttt{array} con las probabilidades normalizadas acumuladas.
+
+
+
+
+
+
+
+
+
