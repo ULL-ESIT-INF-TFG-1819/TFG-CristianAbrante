@@ -255,7 +255,21 @@ Dentro del ciclo de un algoritmo evolutivo, la generación de individuos aleator
 
 Tal y como ocurre en el caso anterior, el generador de individuos aleatorios debe hacerse a medida para el individuo que se pretende generar, y de tal forma que sea extensible para cualquier tipo de individuo a implementar en un futuro. Para \textbf{genetics.js} se han creado un generador aleatorio por cada tipo de individuo que se ha desarrollado, siempre tratando de reutilizar la mayor parte de código estableciendo una jerarquía de herencia.
 
+\begin{figure}[ht]
+    \centering
+    \includegraphics[scale=0.3]{mem/images/cap-4/4.2.3(Generador)/Generator.png}
+    \caption{Diagrama de la jergarquía de clases del generador de individuos}
+    \label{fig:generator-uml}
+\end{figure}
+
 \subsubsection{BaseGenerator e interfaz IndividualGenerator}
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[scale=0.5]{mem/images/cap-4/4.2.3(Generador)/BaseGenerator.png}
+    \caption{Diagrama de clase de \texttt{BaseGenerator}}
+    \label{fig:generator-uml}
+\end{figure}
 
 \texttt{IndividualGenerator} es la interfaz básica que se debe implementar para crear un generador aleatorio de individuos. Esta interfaz es genérica, es decir, que debemos especificar cual será el tipo de individuos que pretendemos generar y además deberemos especificar los parámetros concretos del generador a implementar. \\
 
@@ -280,11 +294,25 @@ Estos métodos son los siguientes:
 
 \subsubsection{BinaryGenerator y BinaryGeneratorParams}
 
+\begin{figure}[ht]
+    \centering
+    \includegraphics[scale=0.5]{mem/images/cap-4/4.2.3(Generador)/BinaryGenerator.png}
+    \caption{Diagrama de clase de \texttt{BinaryGenerator}}
+    \label{fig:generator-uml}
+\end{figure}
+
 El generador de individuos binarios (\texttt{BinaryGenerator}) tiene bastante importancia en este framework, debido a la gran cantidad de aplicaciones existentes que utilicen individuos binarios como su codificación para las soluciones. \\
 
 Los parámetros de este tipo de generador (\texttt{BinaryGeneratorParams}), son exactamente iguales a los del generador base, pero añadiendo a su vez un campo \texttt{chance} para establecer la probabilidad de que se genere un valor \texttt{true} en el individuo, y de esta manera sesgar el generador.
 
 \subsubsection{NumericGenerator y NumericGeneratorParams}
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[scale=0.5]{mem/images/cap-4/4.2.3(Generador)/NumericGenerator.png}
+    \caption{Diagrama de clase de \texttt{NumericGenerator}}
+    \label{fig:generator-uml}
+\end{figure}
 
 El generador de individuos numéricos (\texttt{NumericGenerator}) es una clase abstracta que sirve para aglutinar los generadores de individuos numéricos, ya sean de números enteros o reales. \\
 
@@ -292,25 +320,14 @@ La utilidad principal de este generador es especificar los parámetros que tendr
 
 \subsubsection{IntegerGenerator y FloatingGenerator}
 
+\begin{figure}[ht]
+    \centering
+    \includegraphics[scale=0.42]{mem/images/cap-4/4.2.3(Generador)/FloatingGenerator.png}
+    \includegraphics[scale=0.42]{mem/images/cap-4/4.2.3(Generador)/IntegerGenerator.png}
+    \caption{Diagrama de clase de \texttt{FloatingGenerator} y \texttt{IntegerGenerator}}
+    \label{fig:generator-uml}
+\end{figure}
+
 Una vez se ha desarrollado \texttt{NumericGenerator} como generador numérico fundamental, es bastante sencillo extender las clases para generar individuos de números enteros (\texttt{IntegerGenerator}) y de números en punto floatante (\texttt{FloatingGenerator}). \\
 
 Para ello, tan solo se debe implementar el método abstracto \texttt{generateGene}, creando un individuo numérico o un individuo en punto flotante respectivamente. Cabe destacar que los parámetros no varian respecto a aquellos establecidos en \texttt{NumericGeneratorParams}, pues en ambos casos tan solo es necesario especificar el rango como elemento generador.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
