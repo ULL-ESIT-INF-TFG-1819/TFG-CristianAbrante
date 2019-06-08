@@ -142,6 +142,7 @@ bool(0.3)(MersenneTwister19937.autoSeed());
 
 %---------------------------------------------------------------------------------
 \section{Estructura del software}
+\label{4:sec:2}
 
 En esta sección se describirá cual es la estructura lógica de \textbf{genetics.js}, exponiendo cada una de sus partes y justificando cuáles han sido las decisiones de diseño que se han tomado para su desarrollo.
 
@@ -247,4 +248,69 @@ Este criterio se puede garantizar de una manera más restrictiva si se genera un
 \end{figure}
 
 Por otra parte, tenemos el individuo numérico que contiene valores en punto flotante. Esta clase es prácticamente idéntica a la clase base de individuos numéricos (\texttt{NumericIndividual}), puesto que tan solo se debe implementar el constructor.
-\label{4:sec:1}
+
+\subsection{Generador de individuos}
+
+Dentro del ciclo de un algoritmo evolutivo, la generación de individuos aleatorios es la fase inicial. En esta sección se expondrá como se ha implementado el generador de individuos aleatorios y las partes que este ha involucrado. \\
+
+Tal y como ocurre en el caso anterior, el generador de individuos aleatorios debe hacerse a medida para el individuo que se pretende generar, y de tal forma que sea extensible para cualquier tipo de individuo a implementar en un futuro. Para \textbf{genetics.js} se han creado un generador aleatorio por cada tipo de individuo que se ha desarrollado, siempre tratando de reutilizar la mayor parte de código estableciendo una jerarquía de herencia.
+
+\subsubsection{BaseGenerator e interfaz IndividualGenerator}
+
+\texttt{IndividualGenerator} es la interfaz básica que se debe implementar para crear un generador aleatorio de individuos. Esta interfaz es genérica, es decir, que debemos especificar cual será el tipo de individuos que pretendemos generar y además deberemos especificar los parámetros concretos del generador a implementar. \\
+
+Para establecer los parámetros del generador hemos creado otra interfaz (\texttt{GeneratorParams}), la cual de manera básica tiene dos propiedades: 
+
+\begin{itemize}
+    \item \texttt{engine}: Es el engine que se utilizara como semilla del generador aleatorio, independientemente del tipo que se quiera generar.
+    \item \texttt{length}: Es el tamaño del individuo que se va a generar.
+\end{itemize}
+
+Esta interfaz \texttt{GeneratorParams} será también extendida para indicar los parámteros concretos del generador. \\
+
+Para ofrecer una implementación básica de un generador de individuos se ha creado la clase \texttt{BaseGenerator}. Esta clase tiene la mayoría de métodos de la interfaz \texttt{IndividualGenerator} implementados, estableciendo además una serie de métodos abstractos para que las clases heredadas puedan implementarlos y así simplificar la tarea de desarrollo. \\
+
+Estos métodos son los siguientes:
+
+\begin{itemize}
+    \item \texttt{construct(genotype: T[], params: Params): I}: Este método sirve para construir un individuo dado un genotipo generado, es útil porque en la clase base no se puede acceder al constructor de los individuos concretos que se generarán.
+    \item \texttt{generate(...args: any[]): I}: Este es el método básico que podrá ser llamado desde el exterior para generar un individuo. No tiene definidos los parámetros puesto que estos se deberán especificar para cada uno de los generadores que se implementen concretamente.
+    \item \texttt{generateGene(params: Params): T}: Este método servirá para generar un gen del genotipo. Espera recibir una lista de parámetros.
+\end{itemize}
+
+\subsubsection{BinaryGenerator y BinaryGeneratorParams}
+
+El generador de individuos binarios (\texttt{BinaryGenerator}) tiene bastante importancia en este framework, debido a la gran cantidad de aplicaciones existentes que utilicen individuos binarios como su codificación para las soluciones. \\
+
+Los parámetros de este tipo de generador (\texttt{BinaryGeneratorParams}), son exactamente iguales a los del generador base, pero añadiendo a su vez un campo \texttt{chance} para establecer la probabilidad de que se genere un valor \texttt{true} en el individuo, y de esta manera sesgar el generador.
+
+\subsubsection{NumericGenerator y NumericGeneratorParams}
+
+El generador de individuos numéricos (\texttt{NumericGenerator}) es una clase abstracta que sirve para aglutinar los generadores de individuos numéricos, ya sean de números enteros o reales. \\
+
+La utilidad principal de este generador es especificar los parámetros que tendrá un generador numérico (\texttt{NumericGeneratorParams}), el cual extiende del los parámetros básicos, pero a la vez añade el campo \texttt{range} para especificar el rango que tendrán los genes de los individuos numéricos generados.
+
+\subsubsection{IntegerGenerator y FloatingGenerator}
+
+Una vez se ha desarrollado \texttt{NumericGenerator} como generador numérico fundamental, es bastante sencillo extender las clases para generar individuos de números enteros (\texttt{IntegerGenerator}) y de números en punto floatante (\texttt{FloatingGenerator}). \\
+
+Para ello, tan solo se debe implementar el método abstracto \texttt{generateGene}, creando un individuo numérico o un individuo en punto flotante respectivamente. Cabe destacar que los parámetros no varian respecto a aquellos establecidos en \texttt{NumericGeneratorParams}, pues en ambos casos tan solo es necesario especificar el rango como elemento generador.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
