@@ -587,6 +587,13 @@ La implementación de este método se ha hecho mediante la clase \texttt{WholeAr
 
 \subsection{Mutaciones}
 
+\begin{figure}[ht]
+    \centering
+    \includegraphics[scale=0.3]{mem/images/cap-4/4.2.7(Mutation)/Mutation.png}
+    \caption{Diagrama de clase para los operadores de mutación }
+    \label{fig:my_label}
+\end{figure}
+
 Las operaciones de mutación sirven para aplicar un cierto grado de aleatoriedad a los individuos generados como descendencia después de aplicar una operación de recombinación. \\
 
 Dentro de los algoritmos evolutivos, este tipo de operaciones son las que incrementan el grado de diversidad existente en las soluciones obtenidas a partir de la recombinación, por ello se aplica a la descendencia obtenida. \\
@@ -594,6 +601,13 @@ Dentro de los algoritmos evolutivos, este tipo de operaciones son las que increm
 Para su implementación se ha seguido el mismo patrón que con la recombinación, es decir, crear una jerarquía de clases que se implemente a partir de una interfaz báse.
 
 \subsubsection{MutationBase e interfaz Mutation}
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[scale=0.4]{mem/images/cap-4/4.2.7(Mutation)/BaseMutation.png}
+    \caption{Diagrama de clase de \texttt{BaseMutation}}
+    \label{fig:my_label}
+\end{figure}
 
 Para definir las operaciones de mutación que hemos implementado, se ha creado la interfaz \texttt{Mutation}, la cual cuenta con dos métodos, que deben ser implementados para crear la operación deseada.
 
@@ -619,11 +633,25 @@ Esta clase posee una serie de métodos abstractos que se deben implementar para 
 
 \subsubsection{BitwiseMutation}
 
+\begin{figure}[ht]
+    \centering
+    \includegraphics[scale=0.4]{mem/images/cap-4/4.2.7(Mutation)/Bitwise.png}
+    \caption{Diagrama de clase de \texttt{BitwiseMutation}}
+    \label{fig:my_label}
+\end{figure}
+
 Esta mutación se aplica a individuos binarios (\texttt{BinaryIndividual}) y es muy común en muchos algoritmos evolutivos. Consiste en intercambiar los bits del individuo, verdadero por falso y viceversa, en función de un parámetro que se conoce como la tasa de mutación (\textit{mutation rate}). \\
 
 Para implementar este método de mutación se ha creado la clase \texttt{BitwiseMutation}. Además se ha utilizado la interfaz \texttt{BitwiseMutationParams}, que extiende \texttt{MutationParams} y que incluye un miembro \texttt{mutationRate}, que especifica la probabilidad que tiene cada gen de ser mutado.
 
 \subsubsection{CreepMutation}
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[scale=0.4]{mem/images/cap-4/4.2.7(Mutation)/CreepMutatioon.png}
+    \caption{Diagrama de clase de \texttt{CreepMutation}}
+    \label{fig:my_label}
+\end{figure}
 
 El siguiente tipo de mutación se aplica a individuos de tipo entero (\texttt{IntegerIndividual}), y consiste en mutar cada uno de los genes del individuo añadiendo una cantidad $\delta$ al valor del gen, obtenida a partir de una distribución normal de probabilidad y redondeado para devolver un número entero. \\
 
@@ -637,11 +665,25 @@ Para implementar este método de mutación se ha utilizado la clase \texttt{Cree
 
 \subsubsection{RandomResetting}
 
+\begin{figure}[ht]
+    \centering
+    \includegraphics[scale=0.4]{mem/images/cap-4/4.2.7(Mutation)/RandomResetting.png}
+    \caption{Diagrama de clase de \texttt{RandomResetting}}
+    \label{fig:my_label}
+\end{figure}
+
 La operación de \textit{random resetting} sería el equivalente al \textit{bitwise mutation} para individuos enteros (\texttt{IntegerIndividual}). En este tipo de mutación, se elige de manera uniforme un número al azar entre el rango de valores permitidos, el cual se establecerá como el nuevo valor del gen mutado.
 
 Para implementar este método se ha utilizado la clase \texttt{RandomResetting} la cual no tiene parámetros, puesto que el rango permitido de valores es elegido desde el propio individuo que se quiere mutar.
 
 \subsubsection{FloatingNonUniformMutation}
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[scale=0.4]{mem/images/cap-4/4.2.7(Mutation)/FloatingNonUniformMutation.png}
+    \caption{Diagrama de clase de \texttt{FloatingNonUniform}}
+    \label{fig:my_label}
+\end{figure}
 
 Esta mutación es similar a \textit{Creep mutation} pero para individuos en punto flotante (\texttt{FloatingIndividual}). A partir de una distribución normal de probabilidad se ha obtenido un número flotante que se añade al valor del gen, haciendo que se produzca una variación del mismo.
 
@@ -654,6 +696,13 @@ La distribución normal de probabilidad tiene dos parámetros ($\mu$ y $\sigma$)
 Para la impelemntación de este método se ha creado la clase \texttt{FloatingNonUniformMutation}, y la interfaz de parámetros \texttt{FloatingNonUniformMutationParams} que contiene un único parámetro y es el \texttt{stepSize} que se le aplicará a la operación.
 
 \subsubsection{FloatingUniformMutation}
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[scale=0.4]{mem/images/cap-4/4.2.7(Mutation)/FloatingUniformMutation.png}
+    \caption{Diagrama de clase de \texttt{FloatingUniform}}
+    \label{fig:my_label}
+\end{figure}
 
 De manera equivalente a como ocurre en el caso de individuos de números enteros, también existe un equivalente al \texttt{BitwiseMutation} para números en punto flotante y es la mutación uniforme. Esta mutación consiste en sustituir el gen mutado por un valor seleccionado de manera uniforme en el rango de valores permitidos. \\
 
