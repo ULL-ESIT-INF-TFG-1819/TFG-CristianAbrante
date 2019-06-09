@@ -402,11 +402,26 @@ Los parámetros de este tipo de selección son iguales que en \textit{RouletteWh
 
 \subsection{Operaciones de cruce}
 
+\begin{figure}[ht]
+    \centering
+    \includegraphics[scale=0.2]{mem/images/cap-4/4.2.6(Crossover)/Crossover.png}
+    \caption{Diagrama de clase de las operaciones de cruce}
+    \label{fig:my_label}
+\end{figure}
+
 Las operaciones de cruce son aquellas que se aplican entre los padres que han sido seleccionados, para así generar una descendencia. Los métodos de cruce entre individuos pueden ser muy diversos, y dependen normalmente del tipo de individuos a los que se les esté aplicando la operación de cruce.\\
 
 Para implementar los operadores de cruce, hemos utilizado una jerarquía de herencia que se implementa a partir de una interfaz, a partir de la cual hemos desarrollado los métodos de cruce más comunes.
 
+
 \subsubsection{BaseCrossover e interfaz Crossover}
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[scale=0.5]{mem/images/cap-4/4.2.6(Crossover)/BaseCrossover.png}
+    \caption{Diagrama de clase de \texttt{BaseCrossover}}
+    \label{fig:my_label}
+\end{figure}
 
 En las operaciones de cruce que hemos considerado, se seleccionan dos individos como padres, y a partir de ellos, aplicando la operación correspondiente, se generan dos hijos como descendencia. Siguiendo la metodología utillizada previamente, lo que haremos será elaborar una interfaz (\texttt{Crossover}), en la que se definan los métodos que deberán tener todas las operaciones de cruce.
 
@@ -432,6 +447,13 @@ El único método abstracto que posee esta clase y que se puede implementar es e
 
 \subsubsection{NPointsCrossover}
 
+\begin{figure}[ht]
+    \centering
+    \includegraphics[scale=0.5]{mem/images/cap-4/4.2.6(Crossover)/NPoints.png}
+    \caption{Diagrama de clase de \texttt{NPointsCrossover}}
+    \label{fig:my_label}
+\end{figure}
+
 El crossover por n puntos (\texttt{NPointsCrossover}), es uno de los tipos de crossover más famosos. Su procedimiento consiste en elegir dos padres, y elegir n puntos de cruce entre ellos aleatoriamente. Cada uno de los dos individuos de la descendencia se formará escogiendo de manera correlativa los genes de los padres. \\
 
 Para nuestra implementación, se ha creado la clase \texttt{NPointsCrossover} que extiende de \texttt{BaseCrossover} y que tiene impleemntado el método \texttt{getGenotypeValues}, cuyo objetivo es decidir de cual de cada uno de los padres elige el material genético, teniendo en cuenta que se debe hacer de manera alternativa.
@@ -444,15 +466,36 @@ A su vez, también se ha creado la interfaz \texttt{NPointsCrossoverParams}, est
 
 \subsubsection{OnePointCrossover}
 
+\begin{figure}[ht]
+    \centering
+    \includegraphics[scale=0.5]{mem/images/cap-4/4.2.6(Crossover)/OnePoint.png}
+    \caption{Diagrama de clase de \texttt{OnePointCrossover}}
+    \label{fig:my_label}
+\end{figure}
+
 El crossover de un solo punto es un caso concreto de el crossover de n puntos para $n = 1$. La implementación de este método es bastante sencilla una vez hecho el crossover de n puntos, puesto que tan solo habría que llamar a este método con \texttt{numberOfCrossoverPoints: 1}. Además, cabe destacar que este tipo de operación no tiene ningún parámetro adicional.
 
 \subsubsection{UniformCrossover}
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[scale=0.5]{mem/images/cap-4/4.2.6(Crossover)/Uniform.png}
+    \caption{Diagrama de clase de \texttt{UniformCrossover}}
+    \label{fig:my_label}
+\end{figure}
 
 El crossover uniforme consiste en escoger de cuales de los dos padres se escoge el material genético en función de un valor aleatorio de probabilidad que se genera por cada gen, comparándolo con un valor umbral dado como parámetro. Este método de recombinación permite hacer variaciones más importantes en los cromosomas de la descendencia. \\
 
 Para la implementación de este método se ha creado la clase \texttt{UniformCrossover} que extiende de \texttt{BaseCrossover}, además de la interfaz \texttt{UniformCrossoverParams} que extiende de \texttt{CrossoverParams} y que tiene como parámetro el umbral que se utilizará para determinar de cual de los padres se obtiene el material genético para la descendencia.
 
 \subsubsection{BaseFloatingCrossover}
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[scale=0.5]{mem/images/cap-4/4.2.6(Crossover)/BaseFloating.png}
+    \caption{Diagrama de clase de \texttt{BaseFloatingCrossover}}
+    \label{fig:my_label}
+\end{figure}
 
 Mientras que los tres tipos de operaciones de cruce descritos anteriormente pueden aplicarse a cualquier tipo de individuos, existen métodos que solo pueden aplicarse a individuos concretos. Es el caso de los métodos siguientes, que solo serán aplicados a individuos de punto flotante. \\
 
@@ -472,6 +515,14 @@ Tal y como podemos comprobar, esta operación depende de un parámetro $\alpha$,
 
 \subsubsection{SimpleArithmeticRecombination}
 
+\begin{figure}[ht]
+    \centering
+    \includegraphics[scale=0.7]{mem/images/cap-4/4.2.6(Crossover)/SimpleArithmetic.png}
+    \caption{Diagrama de clase de \texttt{SimpleArithmeticRecombination}}
+    \label{fig:my_label}
+\end{figure}
+
+
 Este es uno de los tres tipos de recombinación que se han implementado para individuos de punto flotante. Esta recombinación consiste en hacer la mezcla entre los valores de los genotipos de los padres seleccionados en función de si el índice del elemento del genotipo que se quiere obtener es menor que un cierto índice $k$ generado aleatoriamente. \\
 
 La expresión que se utilizaría para definir a la descendencia sería:
@@ -490,6 +541,14 @@ La implementación de este método se ha hecho mediante la clase \texttt{SimpleA
 
 \subsubsection{SingleArithmeticRecombination}
 
+\begin{figure}[ht]
+    \centering
+    \includegraphics[scale=0.7]{mem/images/cap-4/4.2.6(Crossover)/SingleArithmetic.png}
+    \caption{Diagrama de clase de \texttt{SingleArithmeticRecombination}}
+    \label{fig:my_label}
+\end{figure}
+
+
 Esta operación destaca por producir pocos cambios en la descendencia respecto a los padres, pues tan solo se aplicará la expresión de mezcla de genotipos en una sola posición $k$ elegida de manera aleatoria. \\
 
 La expresión que repesenta este método es la siguiente:
@@ -504,6 +563,13 @@ La expresión que repesenta este método es la siguiente:
 Para su implementación se ha creado la clase \texttt{SingleArtihmeticRecombination}, con la interfaz de parámetros \texttt{BaseFloatingCrossoverParams}.
 
 \subsubsection{WholeArithmeticRecombination}
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[scale=0.7]{mem/images/cap-4/4.2.6(Crossover)/WholeArithmetic.png}
+    \caption{Diagrama de clase de \texttt{WholeArithmeticRecombination}}
+    \label{fig:my_label}
+\end{figure}
 
 Este es el último tipo de recombinación para individuos de números en punto flotante. Se caracteriza por provocar un cambio bastante drástico en el genotipo de la descendencia respecto al genotipo de los padres, pues aplica la expresión de mezcla de genotipos en todos los genes de los individuos generados. \\
 
