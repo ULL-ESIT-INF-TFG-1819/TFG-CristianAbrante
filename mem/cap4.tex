@@ -724,6 +724,13 @@ Los métodos de reemplazo que se han implementado han sido los siguientes:
 
 \subsubsection{AgeBasedReplacement}
 
+\begin{figure}[ht]
+    \centering
+    \includegraphics[scale=0.4]{mem/images/cap-4/4.2.8(Reemplazo)/AgeBasedReplacement.png}
+    \caption{Diagrama de clase de \texttt{AgeBasedReplacement}}
+    \label{fig:my_label}
+\end{figure}
+
 Este método de remplazo consiste en seleccionar a los individuos mas jóvenes de entre la población y la descendencia. En nuestro caso, en el que los tamaños de la población y la descendencia coinciden, esta operación se corresponderá a seleccionar tan solo a los individuos de la descendencia. \\
 
 La principal ventaja de este método de selección es la eficiencia, pues a la hora de tener poblaciones de una gran cantidad de individuos tan solo deberían devolverse los individuos de la nueva población. \\
@@ -731,6 +738,13 @@ La principal ventaja de este método de selección es la eficiencia, pues a la h
 Para implementarlo se ha utilizado la clase \texttt{AgeBasedReplacement}, la cual tiene un único método \texttt{replace} que tiene como parámetros la población inicial y el offspring, a partir de los cuales se quiere generar la población de remplazo.
 
 \subsubsection{FitnessBasedReplacement}
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[scale=0.4]{mem/images/cap-4/4.2.8(Reemplazo)/FitnessBasedReplacement.png}
+    \caption{Diagrama de clase de \texttt{FitnessBasedReplacement}}
+    \label{fig:my_label}
+\end{figure}
 
 El criterio que se sigue para llevar a cabo el remplazo mediante este método es el fitness que posee el individuo. De esta forma, cuando se tiene la población inicial y la descendencia, los individuos de ambas se deben ordenar de acuerdo a su fitness, seleccionando solo los mejores. \\
 
