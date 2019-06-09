@@ -18,13 +18,34 @@ Por ello, en primer lugar llevaremos a cabo una introducción a dicho lenguaje d
 
 \subsection{\textit{Stack} de desarrollo en JavaScript}
 
+\begin{figure}[ht]
+    \centering
+    \begin{subfigure}[b]{0.15\textwidth}
+        \includegraphics[width=\textwidth]{mem/images/cap-4/4.1.1(JS)/js-logo.png}
+        \label{fig:js}
+    \end{subfigure}
+    ~ %add desired spacing between images, e. g. ~, \quad, \qquad, \hfill etc. 
+      %(or a blank line to force the subfigure onto a new line)
+    \begin{subfigure}[b]{0.15\textwidth}
+        \includegraphics[width=\textwidth]{mem/images/cap-4/4.1.1(JS)/node-logo.png}
+        \label{fig:node}
+    \end{subfigure}
+    ~ %add desired spacing between images, e. g. ~, \quad, \qquad, \hfill etc. 
+    %(or a blank line to force the subfigure onto a new line)
+    \begin{subfigure}[b]{0.15\textwidth}
+        \includegraphics[width=\textwidth]{mem/images/cap-4/4.1.1(JS)/npm-logo.png}
+        \label{fig:npm}
+    \end{subfigure}
+    \caption{Logos de JavaScript, Node y NPM}\label{fig:animals}
+\end{figure}
+
 En primer lugar, es importante introducir el lenguaje de programación JavaScript y la importancia que tiene hoy en día, exponiendo las tecnologías más comunes que tiene aparejadas el desarrollo de una aplicación con este lenguaje. \\
 
 JavaScript es un lenguaje de programación interpretado, multiparadigma y de tipado débil, desarrollado por Brendan Eich, durante su trabajo en Netscape, para ser utilizado por el navegador que la empresa estaba creando. Durante esa época y en sus primeros años, se consideraba un lenguaje menor, es decir que solo se utilizaba para implementar ciertos aspectos de la interacción del usuario con la página web, o para llevar a cabo operaciones sencillas en el lado del cliente. \\
 
 Debido a la poca importancia que se le dio a su desarrollo desde el momento inicial, son destacables los grandes errores de diseño con los cuales cuenta \cite{KennethEng2019}, y los que hacen que sea bastante complejo confiar en que el software desarrollado en esta tecnología cumplirá ciertos criterios de calidad. Es por ello que diversas empresas e instituciones, han tratado de estandarizar y complementar el lenguaje para garantizar su estabilidad y escalabilidad. Ejemplo de ello, es la organización ECMA con los estándares de JavaScript \cite{ecmascript}, o Microsoft con la creación del lenguaje TypeScript.\\
 
-Con los años ha ganado bastante popularidad, gracias en parte a proyectos como NodeJS \cite{node}, el cual trata de convertir a JavaScript en un lenguaje con mucho más ámbito que el que tenía anteriormente, dando la posibilidad de construir un servidor completo con este lenguaje. NodeJS es una de las tecnologías más punteras para el desarrollo de servidores hoy en día, debido a su gran escalabilidad y a que soporta una gran cantidad de conexiones simultáneas, en parte grecias al uso del motor V8 de JavaScript \cite{motor-v8}, desarrollado por Google. \\
+Con los años ha ganado bastante popularidad, gracias en parte a proyectos como NodeJS \cite{node}, el cual trata de convertir a JavaScript en un lenguaje con mucho más ámbito del que tenía anteriormente, dando la posibilidad de construir un servidor completo con este lenguaje. NodeJS es una de las tecnologías más punteras para el desarrollo de servidores hoy en día, debido a su gran escalabilidad y a que soporta una gran cantidad de conexiones simultáneas, en parte grecias al uso del motor V8 de JavaScript \cite{motor-v8}, desarrollado por Google. \\
 
 En este sentido, es muy destacable también NPM (Node Package Manager) \cite{npm} como gestor de dependencias de NodeJS. Este gestor de paquetes es el ejemplo perfecto de sencillez y eficacia, al permitir publicar nuestros propios módulos en un portal que los aglutina de manera centralizada, y que nos permite instalar, gestionar y utilizar dichos paquetes de manera sencilla en nuestra propia aplicación desde la línea de comandos. \\
 
@@ -44,6 +65,20 @@ Las tecnologías que se han utilizado como dependencias de desarrollo han sido l
 
 \subsubsection{Control de versiones (Git y GitHub)}
 
+\begin{figure}[ht]
+    \centering
+    \begin{subfigure}[b]{0.15\textwidth}
+        \includegraphics[width=\textwidth]{mem/images/cap-4/4.1.2(desarrollo)/git-logo.png}
+        \label{fig:git}
+    \end{subfigure}
+    \quad
+    \begin{subfigure}[b]{0.1\textwidth}
+        \includegraphics[width=\textwidth]{mem/images/cap-4/4.1.2(desarrollo)/github-logo.png}
+        \label{fig:github}
+    \end{subfigure}
+    \caption{Logos de Git y GitHub}\label{fig:animals}
+\end{figure}
+
 Los sistemas de control de versiones sirven para que se pueda llevar un desarrollo organizado del proyecto. Tener un sistema de control de versiones es esencial porque en el repositorio que se cree estará alojado todo el código fuente que se escriba, además del historial de \textit{commits} o confirmaciones que se lleven a cabo, de tal forma que se pueda regresar con facilidad a casi cualquier punto del desarrollo. \\
 
 En este proyecto, he utilizado Git \cite{git} como sistema de control de versiones y GitHub \cite{github} para alojar el repositorio remoto. Además el desarrollo se ha estructurado por ramas, de tal forma que solo se encuentre en \textit{master} la versión estable del proyecto. \\
@@ -51,6 +86,13 @@ En este proyecto, he utilizado Git \cite{git} como sistema de control de version
 Para estructurar las ramas he utilizado un convenio de nombres, de tal forma que el desarrollo del contenido de la versión concreta sea el nombre de la rama. Por ejemplo si se está desarrollando la versión 0.1.0, la rama de desarrollo llevará el nombre \textit{v0.1.0-dev}
 
 \subsubsection{TypeScript}
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[scale=0.1]{mem/images/cap-4/4.1.2(desarrollo)/typescript-logo.png}
+    \caption{Logo de TypeScript}
+    \label{fig:typescript}
+\end{figure}
  
  Mas que una dependencia de desarollo, TypeScript es el lenguaje de programación en el que se ha implementado el proyecto. Realmente, se considera una dependencia externa, pues aunque el desarrollo completo se llevado a cabo con este lenguaje, se necesita un compilador a JavaScript para publicar el paquete en NPM, con lo cual el usuario final tan solo utilizará código fuente JavaScript, además de las definiciones de tipos generadas. \\
  
@@ -64,7 +106,14 @@ Para estructurar las ramas he utilizado un convenio de nombres, de tal forma que
  
  Cabe destacar que las opciones del compilador son fácilmente configurables mediante un fichero \textit{json} (\textit{tsconfig.json}). En él se puede especificar multitud de opciones, sin embargo la más relevante es el estándard de JavaScript al que se quiere compilar el proyecto. En el caso de \textbf{genetics.js}, se ha elegido la versión ECMAScript5 puesto que es la que tiene un soporte más amplio por la mayoría de navegadores.
  
-\subsubsection{Jest y ts-jest}
+\subsubsection{Tests (Jest y ts-jest)}
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[scale=0.3]{mem/images/cap-4/4.1.2(desarrollo)/jest-logo.png}
+    \caption{Logo de Jest}
+    \label{fig:jest}
+\end{figure}
  
  Una parte muy importante del desarrollo del software son los tests. Mas aun cuando se trata de una librería en la que van a existir una gran cantidad de clases y estructuras de datos diferentes, en cuyo caso, es muy importante que se desarrolle una batería de tests que garantice su correcto funcionamiento. \\
  
@@ -72,31 +121,52 @@ Para estructurar las ramas he utilizado un convenio de nombres, de tal forma que
  
  El hecho de realizar \textit{mockups} es de gran ventaja en una aplicación como esta, en la que tanta lógica depende de resultados aleatorios. Con esta librería de testing se puede especificar \textit{ad-hoc} cual es el resultado "\textit{aleatorio}" que nos devolverá el generador sin tocar su código fuente y de esta forma, aumentar la robostez de los test, comprobando la lógica del componente externalizándola de los valores aleatorios que le puedan llegar como entrada. \\
  
- Una desventaja de este framework de desarrollo, es que no es completamente compatible con TypeScript en su versión actual, lo cual genera algunos problemas de a la hora de comprobar los tipos de los módulos que se están testeando. A su vez, esto genera algunas incompatibilidades de tipos en cuanto a generar los \textit{mockups}, probablemente porque estos internamente se basen en el tipado débil que presenta el lenguaje JavaScript. Para solucionar estos problemas se recurre a la librería externa \textbf{ts-jest} \cite{tsjest}. \\
+ Una desventaja de este framework de desarrollo, es que no es completamente compatible con TypeScript en su versión actual, lo cual genera algunos problemas de a la hora de comprobar los tipos de los módulos que se están testeando. A su vez, esto genera algunas incompatibilidades de tipos al generar los \textit{mockups}, probablemente porque estos internamente se basen en el tipado débil que presenta el lenguaje JavaScript. Para solucionar estos problemas se recurre a la librería externa \textbf{ts-jest} \cite{tsjest}. \\
  
  Al igual que todas las herramientas utilizadas, Jest tiene también su fichero de configuración (\textit{jestconfig.json}). En el se ha especificado cual será el directorio en el que se almacenarán los test además de indicar que se utilizará \textbf{ts-jest} para procesar aquellos que estén en TypeScript.
  
- \subsubsection{CircleCI}
+ \subsubsection{Integración continua (CircleCI)}
+ 
+ \begin{figure}[ht]
+    \centering
+    \includegraphics[scale=0.15]{mem/images/cap-4/4.1.2(desarrollo)/circleci-logo.png}
+    \caption{Logo de CircleCI}
+    \label{fig:circleci}
+\end{figure}
  
  El paso siguiente después de haber realizado una batería de tests es garantizar que estos se ejecuten de manera continua. Esto quiere decir que sean ejecutados cuando se haga un nuevo \textit{commit} al respositorio remoto. \\
  
- La betería de tests es ejecutada por un servidor externo, lo que también sirve para separar dichos test de nuestra máquina local de desarrollo y comprobar de esta forma si nuestro sistema operativo o alguna configuración local está afectando al funcionamiento del proyecto. \\
+ La batería de tests es ejecutada por un servidor externo, lo que también sirve para separar dichos test de nuestra máquina local de desarrollo y comprobar de esta forma si nuestro sistema operativo o alguna configuración local está afectando al funcionamiento del proyecto. \\
  
  Llevar a cabo un procedimiento de integración continua es muy importante para garantizar que si se hace un cambio en una parte concreta de la librería, esto no tiene efectos colaterales en otros módulos. La importancia de esto radica principalemnte en la seguridad que tenemos al añadir nuevas funcionalidades a lo que ya tenemos hecho, de tal forma que incorporar a nuevos colaboradores y aceptar sus cambios no sería tan arriesgado como si tan solo se pasaran los test en local.\\
  
- Para llevar a cabo la integración continua se ha elegido la tecnología \textbf{CircleCI}, aunque hay algunas otras opciones que presentan las mismas características, como por ejemplo, \textbf{TravisCI} \cite{travis}. El fichero de configuración de esta herramienta (\textit{.circleci/config.yml}), es básicamente calcado del estándard utilizado para aplicaciones con NodeJS. En él, tan solo es necesario especificar el comando npm que se utilizará para ejecutar los tests de integración contínua.
+ Para llevar a cabo la integración continua se ha elegido la tecnología \textbf{CircleCI} \cite{circleci}, aunque hay algunas otras opciones que presentan las mismas características, como por ejemplo, \textbf{TravisCI} \cite{travis}. El fichero de configuración de esta herramienta (\textit{.circleci/config.yml}), es básicamente calcado del estándard utilizado para aplicaciones con NodeJS. En él, tan solo es necesario especificar el comando npm que se utilizará para ejecutar los tests de integración continua.
  
- \subsubsection{Coveralls}
+ \subsubsection{Cubrimiento de código (Coveralls)}
+ 
+  \begin{figure}[ht]
+    \centering
+    \includegraphics[scale=0.3]{mem/images/cap-4/4.1.2(desarrollo)/coveralls-logo.png}
+    \caption{Logo de CircleCI}
+    \label{fig:circleci}
+\end{figure}
  
  Otro de los aspectos fundamentales relacionados con los tests es el cubrimiento de código, el \textit{coverage}. El cubrimiento de código es un informe que se genera para especificar el porcentaje de líneas de código que hemos cubierto con nuestros tests. \\
  
  Esta no es una medida infalible del correcto funcionamiento del software desarrollado, sin embargo si que nos da una medida bastante fiable de lo extensos que hemos sido con nuestros tests, mostrando si hemos conseguido cubrir la mayoría de líneas de código existentes en el proyecto.\\
  
- La herramienta encargada de recoger los informes de coverge a partir de los tests utilizados para la integración continua ha sido Coveralls \cite{coveralls}. Para ello, se ha especificado un comando de test ejecutado por la integración continua que garantiza que en el caso de que dichos tests se ejecuten sin errores, se envíe un informe al servidor de coveralls. \\
+ La herramienta encargada de recoger los informes de coverge a partir de los tests utilizados para la integración continua ha sido \textbf{Coveralls} \cite{coveralls}. Para ello, se ha especificado un comando de test ejecutado por la integración continua que garantiza que en el caso de que dichos tests se ejecuten sin errores, se envíe un informe al servidor de coveralls. \\
  
  La configuración de este servicio es bastante simple, pues tan solo habría que especificar en el fichero de configuración (\textit{coveralls.yml}) cual es la herramienta de integración continua que se ha utilizado, en este caso CircleCI.
  
- \subsubsection{TypeDoc}
+ \subsubsection{Documentación (TypeDoc)}
+ 
+\begin{figure}[ht]
+    \centering
+    \includegraphics[scale=0.3]{mem/images/cap-4/4.1.2(desarrollo)/typedoc-logo.png}
+    \caption{Logo de TypeDoc}
+    \label{fig:typedoc}
+\end{figure}
  
  La documentación es una parte esencial del desarrollo, puesto que facilita la tarea de que los usuarios puedan utilizar los diferentes módulos de la librería, teniendo información de cual será el resultado y los parámetros que se espera cada una de las funciones y cual es el objetivo de las clases desarrolladas. \\
  
@@ -104,15 +174,32 @@ Para estructurar las ramas he utilizado un convenio de nombres, de tal forma que
  
  La sintaxis de los comentarios es bastante común, puesto que es muy similar a la que utilizan otras herramientas similares como Doxigen o Javadoc, para lenguajes como C++ y Java. Además, se puede formatear los comentarios, pues también admite sintaxis Markdown.
  
- \subsubsection{TSLint y Prettier}
+ \subsubsection{Formateo de código e IDE (TSLint, Prettier y WebStorm)}
  
- Para finalizar, expondré estas dos herramientas utilizadas básicamente para formatear el código que se programa, de tal forma que se garantice que sea cual sea el editor y el desarrollador que se incorpore al proyecto, el formato y estándard que se seguirá en el código fuente va a ser el mismo. \\
+ \begin{figure}[ht]
+    \centering
+    \begin{subfigure}[b]{0.12\textwidth}
+        \includegraphics[width=\textwidth]{mem/images/cap-4/4.1.2(desarrollo)/tslint-logo.png}
+        \label{fig:tslint}
+    \end{subfigure}
+    \quad
+    \begin{subfigure}[b]{0.12\textwidth}
+       \includegraphics[width=\textwidth]{mem/images/cap-4/4.1.2(desarrollo)/prettier-logo.png}
+    \end{subfigure}
+    \quad
+    \begin{subfigure}[b]{0.12\textwidth}
+       \includegraphics[width=\textwidth]{mem/images/cap-4/4.1.2(desarrollo)/webstorm-logo.png}
+    \end{subfigure}
+    \caption{Logos de TSLint, Prettier y WebStorm}\label{fig:animals}
+\end{figure}
  
- La herramienta Prettier \cite{prettier} se encarga de hacer este formateo del código. Se configura mediante un fichero (\textit{.prettierrc}), en el que se indican las opciones que se desean cumplir para el código fuente generado. \\
+ Para finalizar, expondré las herramientas utilizadas para formatear el código que se programa, de tal forma que se garantice que sea cual sea el editor y el desarrollador que se incorpore al proyecto, el formato y estándard que se seguirá en el código fuente va a ser el mismo. \\
  
- De manera complementaria, la herramienta TSLint \cite{tslint} señala en el editor de código errores tanto sintácticos como de estilo. Se puede por tanto indicar cual será el estándard que queremos que siga nuestro proyecto de software. Existen muchos, aunque uno de los más restrictivos es el diseñado por Airbnb \cite{airbnbjs}. \\
+ La herramienta \textbf{Prettier} \cite{prettier} se encarga de hacer este formateo del código. Se configura mediante un fichero (\textit{.prettierrc}), en el que se indican las opciones que se desean cumplir para el código fuente generado. \\
  
- La manera más cómoda para utilizar estas dos herramientas es de manera conjunta con el IDE o editor de código, de tal forma que cuando se almacenen los cambios en un fichero este se formatee de manera automática. En este proyecto se ha utilizado WebStorm \cite{webstorm} como IDE de desarrollo, pero hay otras buenas opciones para este propósito, como Visual Studio Code \cite{vscode} o Atom \cite{atom}.
+ De manera complementaria, la herramienta \textbf{TSLint} \cite{tslint} señala en el editor de código errores tanto sintácticos como de estilo. Se puede por tanto indicar cual será el estándard que queremos que siga nuestro proyecto de software. Existen muchos, aunque uno de los más restrictivos es el diseñado por Airbnb \cite{airbnbjs}. \\
+ 
+ La manera más cómoda para utilizar estas dos herramientas es de manera conjunta con el IDE o editor de código, de tal forma que cuando se almacenen los cambios en un fichero este se formatee de manera automática. En este proyecto se ha utilizado \textbf{WebStorm} \cite{webstorm} como IDE de desarrollo, pero hay otras buenas opciones para este propósito, como Visual Studio Code \cite{vscode} o Atom \cite{atom}.
 
 \subsection{Tecnologías utilizadas en producción}
 
@@ -124,11 +211,15 @@ De esta forma, tan solo se ha utilizado una dependencia en producción:
 
 \subsubsection{random.js}
 
-Una de las problemáticas de trabajar con un lenguaje como JavaScript es que no existe un módulo de generación de números aletorios realmente efectivo, al estilo de la librería \textbf{random} de C++ \cite{randomcpp}. Además, también se añade la problemática de que al estar trabajando con TypeScript, sería muy conveniente llevar a cabo la comprobación de tipos cuando utilicemos dicho paquete. Debido a estos problemas, la única librería que satisfacía las condiciones de ser un generador de números aleatoios correcto estadísticamente y que trabajara con TypeScript es \textbf{random.js} \cite{randomjs}. \\
+Una de las problemáticas de trabajar con un lenguaje como JavaScript es que no existe un módulo de generación de números aletorios realmente efectivo, al estilo de la librería \textbf{random} de C++ \cite{randomcpp}. Además, también se añade la problemática de que al estar trabajando con TypeScript, sería muy conveniente llevar a cabo la comprobación de tipos cuando utilicemos dicho paquete. Debido a estos problemas, la única librería que satisfacía las condiciones de ser un generador de números aleatorios correcto estadísticamente y que trabajara con TypeScript es \textbf{random.js} \cite{randomjs}. \\
 
 La ventaja principal que tiene trabajar con esta librería es que se puede especificar el \textit{engine} y la semilla que se utilizará para generar el número aleatorio. Y cuenta ya con una serie de \textit{engines} predeterminados para generar números aleatorios aprovechando característica concretas del entorno en el que se está ejecutando, como por ejemplo NodeJS o un navegador. \\
 
 Aparte de las ventajas que tiene a la hora de especificar el origen del número aleatorio, es destacable también la facilidad que posee para generar datos de un cierto tipo, como por ejemplo: enteros y flotantes en un rango o valores de verdadero y falso (\textit{boolean}). \\
+
+\clearpage
+
+Un ejemplo de su funcionamiento para generar un booleano aleatorio es el siguiente: \\
 
 \begin{lstlisting} [style=JavaScript]
 import { bool, MersenneTwister19937 } from 'random-js';
@@ -144,13 +235,11 @@ bool(0.3)(MersenneTwister19937.autoSeed());
 \section{Estructura del software}
 \label{4:sec:2}
 
-En esta sección se describirá cual es la estructura lógica de \textbf{genetics.js}, exponiendo cada una de sus partes y justificando cuáles han sido las decisiones de diseño que se han tomado para su desarrollo.
+En esta sección se describirá cual es la estructura lógica de \textbf{genetics.js}, exponiendo cada una de sus partes y justificando cuáles han sido las decisiones de diseño que se han tomado para su desarrollo. \\
 
-\subsection{Visión general}
+Para construir esta librería, la idea fundamental que se ha seguido es intentar independizar lo máximo posible cada una de las fases y componentes con las que cuenta un algoritmo evolutivo. \\
 
-Para construir una librería de algoritmos evolutivos, lo fundamental es que sea capaz de cubrir la mayor parte de operaciones disponibles, y además ofrezca la posibilidad de ser extendida de la manera más cómoda posible. \\
-
-Para ello, el diseño que se ha decidido es una estructura de clases e interfaces a implementar por cada una de las partes fundamentales o componentes de esta librería.
+De esta forma, para exponer el trabajo realizado, se expondrán por separado cada uno de los módulos en los que se divide esta librería, ofreciendo un diagrama que expone las funcionalidades de cada parte de manera lógica y señalando los métodos más relevantes que explican su funcionamiento de manera externa.
 
 \subsection{Individuos}
 
@@ -158,13 +247,27 @@ Dentro de los algoritmos evolutivos, los individuos son quizás la parte fundame
 
 En computación evolutiva, los individuos codifican una solución concreta de un problema. Este individuo contendrá una serie de datos, que se conocen como el \textbf{genotipo} o codificación de dicha solución. A partir de este genotipo, se puede extraer la información que verdaderamente sería la solución a nuestro problema y que se conoce como \textbf{fenotipo}. \\
 
-Para llevar a cabo la conversión entre genotipo y fenotipo, se debe disponer de la información concreta del problema, y por tanto tener una función que converta el genotipo de un individuo a una solución concreta del espacio de soluciones. \\
+Para llevar a cabo la conversión entre genotipo y fenotipo, se debe disponer de la información concreta del problema, y por tanto tener una función que converta el genotipo de un individuo a una solución dentro del espacio de soluciones. \\
 
 Un ejemplo de esto podría ser un problema en el que se quiere buscar el máximo de una función en un dominio de números enteros. Una posible codificación puede ser establecer una correspondencia entre cada uno de los enteros presentes en el dominio y un individuo formado por una cadena de números binarios. Cuando se desee evaular un individuo, lo que se debe hacer es decodificar el número entero al que se corresponde la cadena binaria que contiene dicho individuo. \\
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.5]{mem/images/cap-4/4.2.2(Individuos)/Individuos-1.png}
+    \caption{Ejemplo de conversión entre genotipo y fenotipo}
+    \label{fig:example1}
+\end{figure}
 
 Elegir una buena codificación para nuestro problema es una tarea muy importante y en ocasiones compleja, puesto que la calidad del algoritmo que se diseñe en gran medida dependerá de esta decisión. Además, es importante destacar que dependiendo de la codificación que hayamos elegido, se le podrán aplicar a los individuos involucrados en el algoritmo unas operaciones u otras. \\
 
 Tal y como se ha comentado, la representación de los individuos es casi infinita, pues depende mucho del dominio del problema que se esté tratando de resolver. En \textbf{genetics.js} la decisión que se ha tomado es implementar una jerarquía de clases para modelar esta realidad. \\
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[scale=0.2]{mem/images/cap-4/4.2.2(Individuos)/Individual.png}
+    \caption{Diagrama de clases de los individuos}
+    \label{fig:individuos}
+\end{figure}
 
 En este diagrama UML se puede ver la estructura de clases elegida, de las cuales será necesario explicar cada una de sus partes.
 
@@ -177,12 +280,11 @@ En este diagrama UML se puede ver la estructura de clases elegida, de las cuales
     \label{fig:baseindividual-uml}
 \end{figure}
 
-\texttt{BaseIndividual} es una clase abstracta que representa al individuo base de la jerarquía. En ella se almacena el \texttt{array} que contiene el genotipo del individuo.
-Cabe destacar que es una clase genérica, es decir que no se especifica el tipo que datos que contendrá dicho array, de esta forma se garantiza que se puede extender en clases hijas con la capacidad de reutilizar los métodos que esta tiene implementados. \\
+\texttt{BaseIndividual} es una clase abstracta que representa al individuo base de la jerarquía. En ella se almacena el \texttt{array} que contiene el genotipo del individuo.Cabe destacar que se trata de una clase genérica en la que no se especifica el tipo que dato que contendrá dicho array. De esta forma se garantiza que se puede extender en clases hijas con la capacidad de reutilizar los métodos que esta tiene implementados. \\
 
-Los métodos con los que cuenta esta clase son aquellos que implican una búsqueda en un array y que ya están implementados en JavaScript, de esta forma se garantiza que los métodos presentes en esta clase son inmutables, es decir, que no cambian el contenido de dicho array. \\
+Los métodos con los que cuenta esta clase son aquellos que implican una búsqueda en un array y que ya están implementados en JavaScript. Esto se hace para asegurar que los métodos presentes en esta clase son inmutables, es decir, que no cambian el contenido del genotipo. \\
 
-Como método abstracto tan solo tiene el \texttt{toString}, que sirve para convertir a un individuo en su representación como \texttt{string}. Este sería el único método a implementar si se quiere extender esta clase.
+Como método abstracto tan solo tiene \texttt{toString}, que sirve para convertir a un individuo en su representación como \texttt{string}. Este sería el único método a implementar si se quiere extender esta clase.
 
 \subsubsection{MutableIndividual e interfaz Mutable}
 
@@ -195,7 +297,7 @@ Como método abstracto tan solo tiene el \texttt{toString}, que sirve para conve
 
 \texttt{MutableIndividual} es una clase también abstracta que hereda de \texttt{BaseIndividual}, y que implementa la interfaz \texttt{Mutable}. Esta interfaz introduce los métodos más comunes para hacer cambios en el contenido del genotipo del array; como por ejemplo el método \texttt{set}, \texttt{fill} o \texttt{map}, los cuales ya están presentes en los arrays de JavaScript. \\
 
-El único método abstracto que presenta esta clase es \texttt{deepCopy}, que seirve para especificar como se haría una copia profunda del genotipo.
+El único método abstracto que presenta esta clase es \texttt{deepCopy}, cuya utilidad es especificar como se hace una copia profunda del genotipo.
 
 \subsubsection{BinaryIndividual}
 
@@ -206,15 +308,27 @@ El único método abstracto que presenta esta clase es \texttt{deepCopy}, que se
     \label{fig:binaryindividual-uml}
 \end{figure}
 
-El individuo binario (\texttt{BinaryIndividual}), es uno de los más utilizados dentro de los algoritmos evolutivos, y fue la primera representación con la que se construyó un algoritmo genético \cite{holland1992adaptation}. \\
+El individuo binario (\texttt{BinaryIndividual}), es uno de los más utilizados dentro de los algoritmos evolutivos. Además, fue la primera representación utilizada para constrir un algoritmo genético \cite{holland1992adaptation}. \\
 
-Para implementar este tipo de individuos, se ha extendido de la clase \texttt{MutableIndividual}, pero con el tipo de dato \texttt{boolean}, que es el que contendrá el genotipo.
+Para implementar este tipo de individuos, se ha extendido de la clase \texttt{MutableIndividual}, pero con el tipo de dato \texttt{boolean}, que es el que contendrá el genotipo. \\
+
+Un ejemplo de su uso sería el siguiente: \\
+
+\begin{lstlisting} [style=JavaScript]
+import { BinaryIndividual } from "genetics-js"
+
+/**
+* Se genera un individuo cuyo genotipo es:
+* [true, false, false, false, true]
+*/
+const ind = new BinaryIndividual("10001");
+\end{lstlisting}
 
 \subsubsection{NumericIndividual}
 
-\begin{figure}[ht]
+\begin{figure}[H]
     \centering
-    \includegraphics[scale=0.7]{mem/images/cap-4/4.2.2(Individuos)/NumericIndividual.png}
+    \includegraphics[scale=0.6]{mem/images/cap-4/4.2.2(Individuos)/NumericIndividual.png}
     \caption{Diagrama de clase de \texttt{NumericIndividual}}
     \label{fig:binaryindividual-uml}
 \end{figure}
@@ -236,7 +350,27 @@ Para implementar esta clase, es necesario que se sobrescriban la mayoría de mé
 
 El individuo entero es un \texttt{NumericIndividual} que contiene en su genotipo tan solo números enteros, por ello, lo más importante es garantizar que cualquier número que se introduzca en el array sea un número entero. \\
 
-Este criterio se puede garantizar de una manera más restrictiva si se genera un error cada vez que se intente establecer un número flotante como un valor dentro del genotipo, pero en esta implementación se ha optado por redondear siempre los valores numéricos que se intenten introducir, de tal forma se garantiza que estos siempre sean enteros.
+Este criterio se puede garantizar de una manera más restrictiva si se genera un error cada vez que se intente establecer un número flotante como un valor dentro del genotipo, pero en esta implementación se ha optado por redondear siempre los valores numéricos que se intenten introducir, de tal forma se garantiza que estos siempre sean enteros. \\
+
+\clearpage
+
+Un ejemplo de su uso sería el siguiente: \\
+
+\begin{lstlisting} [style=JavaScript]
+import { IntegerIndividual } from "genetics-js"
+
+/**
+* Se genera un individuo cuyo genotipo es:
+* [1, 2, -3, 4]
+*/
+const ind1 = new IntegerIndividual("1 2 -3 4");
+
+/**
+* Se genera un individuo cuyo genotipo es:
+* [1, 2, 3, 4]
+*/
+const ind2 = new IntegerIndividual("1 2.3 3 4");
+\end{lstlisting}
 
 \subsubsection{FloatingIndividual}
 
@@ -247,13 +381,26 @@ Este criterio se puede garantizar de una manera más restrictiva si se genera un
     \label{fig:binaryindividual-uml}
 \end{figure}
 
-Por otra parte, tenemos el individuo numérico que contiene valores en punto flotante. Esta clase es prácticamente idéntica a la clase base de individuos numéricos (\texttt{NumericIndividual}), puesto que tan solo se debe implementar el constructor.
+Por otra parte, tenemos el individuo numérico que contiene valores en punto flotante. Esta clase es prácticamente idéntica a la clase base de individuos numéricos (\texttt{NumericIndividual}), puesto que tan solo se debe implementar el constructor. \\
+
+Un ejemplo de su uso sería el siguiente: \\
+
+\begin{lstlisting} [style=JavaScript]
+import { FloatingIndividual } from "genetics-js"
+
+/**
+* Se genera un individuo cuyo genotipo es:
+* [0.5, -3.0, 0.04]
+*/
+const ind1 = new FloatingIndividual("0.5 -3 4e-2");
+\end{lstlisting}
+
 
 \subsection{Generador de individuos}
 
 Dentro del ciclo de un algoritmo evolutivo, la generación de individuos aleatorios es la fase inicial. En esta sección se expondrá como se ha implementado el generador de individuos aleatorios y las partes que este ha involucrado. \\
 
-Tal y como ocurre en el caso anterior, el generador de individuos aleatorios debe hacerse a medida para el individuo que se pretende generar, y de tal forma que sea extensible para cualquier tipo de individuo a implementar en un futuro. Para \textbf{genetics.js} se han creado un generador aleatorio por cada tipo de individuo que se ha desarrollado, siempre tratando de reutilizar la mayor parte de código estableciendo una jerarquía de herencia.
+El generador de individuos aleatorios debe hacerse a medida para el individuo que se pretende generar, garantizando que sea extensible para cualquier tipo de individuo a implementar en un futuro. Para \textbf{genetics.js} se ha creado un generador aleatorio por cada tipo de individuo que se ha desarrollado, siempre tratando de reutilizar la mayor parte de código estableciendo una jerarquía de herencia.
 
 \begin{figure}[ht]
     \centering
@@ -276,11 +423,11 @@ Tal y como ocurre en el caso anterior, el generador de individuos aleatorios deb
 Para establecer los parámetros del generador hemos creado otra interfaz (\texttt{GeneratorParams}), la cual de manera básica tiene dos propiedades: 
 
 \begin{itemize}
-    \item \texttt{engine}: Es el engine que se utilizara como semilla del generador aleatorio, independientemente del tipo que se quiera generar.
+    \item \texttt{engine}: Es el engine que se utilizara como semilla del generador aleatorio.
     \item \texttt{length}: Es el tamaño del individuo que se va a generar.
 \end{itemize}
 
-Esta interfaz \texttt{GeneratorParams} será también extendida para indicar los parámteros concretos del generador. \\
+Esta interfaz \texttt{GeneratorParams} deberá ser también extendida para indicar los parámteros concretos del generador. \\
 
 Para ofrecer una implementación básica de un generador de individuos se ha creado la clase \texttt{BaseGenerator}. Esta clase tiene la mayoría de métodos de la interfaz \texttt{IndividualGenerator} implementados, estableciendo además una serie de métodos abstractos para que las clases heredadas puedan implementarlos y así simplificar la tarea de desarrollo. \\
 
@@ -305,9 +452,25 @@ El generador de individuos binarios (\texttt{BinaryGenerator}) tiene bastante im
 
 Los parámetros de este tipo de generador (\texttt{BinaryGeneratorParams}), son exactamente iguales a los del generador base, pero añadiendo a su vez un campo \texttt{chance} para establecer la probabilidad de que se genere un valor \texttt{true} en el individuo, y de esta manera sesgar el generador.
 
+Un ejemplo de su uso sería el siguiente: \\
+
+\begin{lstlisting} [style=JavaScript]
+import { BinaryGenerator } from "genetics-js"
+
+const generator = new BinaryGenerator();
+
+/**
+* Un posible inidivudo generado podría tener el
+* genotipo:
+* [false, false, true, false]
+*/
+console.log(generator.generateWith({ length: 4, chance: 0.3 }}))
+\end{lstlisting}
+
+
 \subsubsection{NumericGenerator y NumericGeneratorParams}
 
-\begin{figure}[ht]
+\begin{figure}[H]
     \centering
     \includegraphics[scale=0.5]{mem/images/cap-4/4.2.3(Generador)/NumericGenerator.png}
     \caption{Diagrama de clase de \texttt{NumericGenerator}}
@@ -316,7 +479,7 @@ Los parámetros de este tipo de generador (\texttt{BinaryGeneratorParams}), son 
 
 El generador de individuos numéricos (\texttt{NumericGenerator}) es una clase abstracta que sirve para aglutinar los generadores de individuos numéricos, ya sean de números enteros o reales. \\
 
-La utilidad principal de este generador es especificar los parámetros que tendrá un generador numérico (\texttt{NumericGeneratorParams}), el cual extiende del los parámetros básicos, pero a la vez añade el campo \texttt{range} para especificar el rango que tendrán los genes de los individuos numéricos generados.
+La utilidad principal de este generador es especificar los parámetros que tendrá un generador numérico (\texttt{NumericGeneratorParams}), el cual extiende los parámetros básicos, pero a la vez añade el campo \texttt{range} para especificar el rango que tendrán los genes de los individuos numéricos generados.
 
 \subsubsection{IntegerGenerator y FloatingGenerator}
 
@@ -328,13 +491,36 @@ La utilidad principal de este generador es especificar los parámetros que tendr
     \label{fig:generator-uml}
 \end{figure}
 
-Una vez se ha desarrollado \texttt{NumericGenerator} como generador numérico fundamental, es bastante sencillo extender las clases para generar individuos de números enteros (\texttt{IntegerGenerator}) y de números en punto floatante (\texttt{FloatingGenerator}). \\
+Una vez se ha desarrollado \texttt{NumericGenerator} como generador numérico fundamental, es bastante sencillo extender dicha clase para crear un generador de individuos de números enteros (\texttt{IntegerGenerator}) y de números en punto floatante (\texttt{FloatingGenerator}). \\
 
-Para ello, tan solo se debe implementar el método abstracto \texttt{generateGene}, creando un individuo numérico o un individuo en punto flotante respectivamente. Cabe destacar que los parámetros no varian respecto a aquellos establecidos en \texttt{NumericGeneratorParams}, pues en ambos casos tan solo es necesario especificar el rango como elemento generador.
+Para ello, tan solo se debe implementar el método abstracto \texttt{generateGene}, creando un individuo numérico o un individuo en punto flotante respectivamente. Cabe destacar que los parámetros no varian respecto a aquellos establecidos en \texttt{NumericGeneratorParams}, pues en ambos casos tan solo es necesario especificar el rango como elemento generador. \\
+
+Un ejemplo de su uso es el siguiente: \\
+
+\begin{lstlisting} [style=JavaScript]
+import { IntegerGenerator, FloatingGenerator } from "genetics-js"
+
+const integerGenerator = new IntegerGenerator();
+const floatGenerator = new FloatingGenerator();
+
+/**
+* Un posible inidivudo generado podría tener el
+* genotipo:
+* [3, 3, 1, 5]
+*/
+console.log(integerGenerator.generateWith({ length: 4, range: [1, 5] }}))
+
+/**
+* Un posible inidivudo generado podría tener el
+* genotipo:
+* [0.1, -0.4332, 1.0, 0.5677]
+*/
+console.log(floatGenerator.generateWith({ length: 4, range: [-0.5, 2] }}))
+\end{lstlisting}
 
 \subsection{Gestión de la población}
 
-La gestión de la población de individuos es un elemento fundamental para la ejecución de algoritmos evolutivos. Para este propósito, se ha creado una clase \texttt{Ppulation}, que es la encargada de contener el conjunto de individuos de la población, además de proveer de métodos para acceder, modificar o evaluar a dichos individuos. \\
+La gestión de la población de individuos es un elemento fundamental para la ejecución de algoritmos evolutivos. Para este propósito, se ha creado una clase \texttt{Population}, que es la encargada de contener el conjunto de individuos de la población, además de proveer de métodos para acceder, modificar o evaluar a dichos individuos. \\
 
 \begin{figure}[ht]
     \centering
@@ -347,7 +533,7 @@ La gestión de la población de individuos es un elemento fundamental para la ej
 Los métodos que contiene esta clase son:
 
 \begin{itemize}
-    \item \texttt{generatePopulationWithOperations}: Este método recibe un generador de individuos con sus parámetros, además de una función de fitness y crea a la población de individuos, además de evaluar cual es su fitness.
+    \item \texttt{generatePopulationWithOperations}: Este método recibe un generador de individuos con sus parámetros, además de una función de fitness y crea a la población de individuos, evaluando a la misma vez su fitness.
     \item \texttt{getPopulationSize}: Devuelve el tamaño de la población.
     \item \texttt{replacePopulation}: remplaza los items de la población actual por otros.
     \item \texttt{pushIndividual}: Añade un individuo a la población.
@@ -366,23 +552,30 @@ Los métodos que contiene esta clase son:
 
 \subsection{Selección de padres}
 
-La selección de padres es la fase del algoritmo que se corresponde con la elección de aquellos individuos que reproducirán, generando descendencia en la siguiente generación. El criterio de selección de estos individuos puede ser muy variado, pero normalmente es proporcional a cuanto de adaptados al medio estén, lo que se conoce como \textbf{fitness proportional selection}.
+La selección de padres es la fase del algoritmo que se corresponde con la elección de aquellos individuos que se reproducirán, generando una descendencia en la siguiente generación. El criterio de selección de estos individuos puede ser muy variado, pero normalmente es proporcional a cuanto de adaptados al medio estén, lo que se conoce como \textbf{fitness proportional selection}. \\
 
 Para esta librería se ha desarrollado una selección proporcional al fitness cuya implementación se puede hacer mediante dos métodos diferentes.
 
 \subsubsection{RouletteWheel}
 
-\begin{figure}[ht]
+\begin{figure}[H]
     \centering
-    \includegraphics[scale=0.6]{mem/images/cap-4/4.2.5(Selection)/RouletteWheel.png}
+    \includegraphics[scale=0.7]{mem/images/cap-4/4.2.5(Selection)/RouletteWheel.png}
     \caption{Diagrama de clase de \texttt{RouletteWheel}}
     \label{fig:generator-uml}
 \end{figure}
 
 
-La idea que se encuentra tras la selección mediante \textit{Roulette Wheel}, es seleccionar a los padres mejor adaptados, pero a su vez dejar un posibilidad a los individuos con una evaluación de fitness peor la posibilidad de ser padres en la siguiente generación. \\
+La idea que se encuentra tras la selección mediante \textit{Roulette Wheel} \cite{DBLP:journals/corr/abs-1109-3627}, es seleccionar a los individuos mejor adaptados, pero a su vez dejando un posibilidad a los individuos con una evaluación de fitness peor la posibilidad de ser padres en la siguiente generación. \\
 
-Para simular esta idea se utiliza una ruleta que tiene todos los individuos representados, pero con un área proporcional a su fitness. Al girar esa ruleta, es más probable que se elijan a los individuos mejor adaptados, puesto que su área de selección es mayor, sin embargo, tampoco se impide la selección de indivviduos mucho meńos adaptados, porque aunque su área sea menor, aun tienen una posibilidad de ser seleccionados. Esto nos permite garantizar la variedad en la población seleccionada para evitar que las búsquedas puedan quedar atrapadas en un óptimo local. \\
+De manera metáforica, se utiliza una ruleta que tiene todos los individuos representados, pero con un área proporcional a su fitness. Al girar esa ruleta, es más probable que se elijan a los individuos mejor adaptados, puesto que su área de selección es mayor, sin embargo, tampoco se impide la selección de individuos mucho meńos adaptados, aunque su área de seleccion sea menor. Esto nos permite garantizar la variedad en la población seleccionada para evitar que las búsquedas puedan quedar atrapadas en un óptimo local. \\
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[scale=0.5]{mem/images/cap-4/4.2.5(Selection)/RouletteWheel-1.png}
+    \caption{Diagrama que representa la ruleta proporcional al fitness}
+    \label{fig:roulette-wheel-example}
+\end{figure}
 
 En la implementación de \textbf{genetics.js}, se espera como parámetros una población, además de un \textit{array} con la probabilidad de selección acumulada normalizada. Tal y como comentamos, esta probabilidad de selección dependerá de la evaluación del fitness del individuo.
 
@@ -396,7 +589,14 @@ En la implementación de \textbf{genetics.js}, se espera como parámetros una po
 \end{figure}
 
 
-La otra posibilidad de implemnentación se conoce como \textit{Stochastic Universal Sampling}. La idea es similar a \textit{Roulette Wheel}, pues utiliza también la ruleta proporcional como idea fundamental. Sin embargo, en este método la ruleta no se hace girar tantas veces como individuos se quiera seleccionar, sino que se hace una sola tirada en la que se seleccionan todos los individuos a la vez. Sería el equivalente a una ruleta en la que existieran tantos puntos de selección como individuos, y en una sola tirada se decidieran todos. \\
+La otra posibilidad de implemnentación se conoce como \textit{Stochastic Universal Sampling} \cite{baker1987reducing}. La idea es similar a \textit{Roulette Wheel}, pues utiliza también la ruleta proporcional como idea fundamental. Sin embargo, en este método la ruleta no se hace girar tantas veces como individuos se quiera seleccionar, sino que se hace una sola tirada en la que se seleccionan todos los individuos a la vez. Sería el equivalente a una ruleta en la que existieran tantos puntos de selección como individuos, y en una sola tirada se decidieran todos. \\
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[scale=0.5]{mem/images/cap-4/4.2.5(Selection)/SUS-1.png}
+    \caption{Representación de la ruleta proporcioonal al fitness con múltiples puntos de selección}
+    \label{fig:roulette-wheel-example}
+\end{figure}
 
 Los parámetros de este tipo de selección son iguales que en \textit{RouletteWheel}, por tanto es necesario especificar un \texttt{array} con las probabilidades normalizadas acumuladas.
 
@@ -409,14 +609,14 @@ Los parámetros de este tipo de selección son iguales que en \textit{RouletteWh
     \label{fig:my_label}
 \end{figure}
 
-Las operaciones de cruce son aquellas que se aplican entre los padres que han sido seleccionados, para así generar una descendencia. Los métodos de cruce entre individuos pueden ser muy diversos, y dependen normalmente del tipo de individuos a los que se les esté aplicando la operación de cruce.\\
+Las operaciones de cruce son aquellas que se aplican entre los padres que han sido seleccionados, para así generar una descendencia. Los métodos de cruce entre individuos pueden ser muy diversos, y dependen normalmente del tipo de individuos a los que se les esté aplicando dicha operación.\\
 
-Para implementar los operadores de cruce, hemos utilizado una jerarquía de herencia que se implementa a partir de una interfaz, a partir de la cual hemos desarrollado los métodos de cruce más comunes.
+Para implementar los operadores de cruce, hemos utilizado una jerarquía de herencia que se implementa a partir de una interfaz que contiene las operaciones básicas.
 
 
 \subsubsection{BaseCrossover e interfaz Crossover}
 
-\begin{figure}[ht]
+\begin{figure}[H]
     \centering
     \includegraphics[scale=0.5]{mem/images/cap-4/4.2.6(Crossover)/BaseCrossover.png}
     \caption{Diagrama de clase de \texttt{BaseCrossover}}
@@ -454,15 +654,32 @@ El único método abstracto que posee esta clase y que se puede implementar es e
     \label{fig:my_label}
 \end{figure}
 
-El crossover por n puntos (\texttt{NPointsCrossover}), es uno de los tipos de crossover más famosos. Su procedimiento consiste en elegir dos padres, y elegir n puntos de cruce entre ellos aleatoriamente. Cada uno de los dos individuos de la descendencia se formará escogiendo de manera correlativa los genes de los padres. \\
+El crossover por n puntos (\texttt{NPointsCrossover}), es uno de los tipos de crossover más famosos \cite{spears1991analysis}. Su procedimiento consiste en elegir dos padres, y elegir n puntos de cruce entre ellos aleatoriamente. Cada uno de los dos individuos de la descendencia se formará escogiendo de manera correlativa los genes de los padres. \\
 
-Para nuestra implementación, se ha creado la clase \texttt{NPointsCrossover} que extiende de \texttt{BaseCrossover} y que tiene impleemntado el método \texttt{getGenotypeValues}, cuyo objetivo es decidir de cual de cada uno de los padres elige el material genético, teniendo en cuenta que se debe hacer de manera alternativa.
+Para nuestra implementación, se ha creado la clase \texttt{NPointsCrossover} que extiende de \texttt{BaseCrossover} y que tiene implementado el método \texttt{getGenotypeValues}, cuyo objetivo es decidir de cual de cada uno de los padres elige el material genético, teniendo en cuenta que se debe hacer de manera alternativa. \\
 
 A su vez, también se ha creado la interfaz \texttt{NPointsCrossoverParams}, esta interfaz sirve para especificar los parámetros de esta operación, extendiendo de \texttt{CrossoverParams}. El único parámetro adicional que se ha añadido ha sido:
 
 \begin{itemize}
     \item \texttt{numberOfCrossoverPoints}: es el número de puntos de cruce elegidos para llevar a cabo la operación.
 \end{itemize}
+
+Un ejemplo de su uso sería el siguiente: \\
+
+\begin{lstlisting} [style=JavaScript]
+import { NPointsCrossover, BinaryIndividual } from "genetics-js"
+
+const cross = new NPointsCrossover();
+const ind1 = new BinaryIndividual("0110010");
+const ind2 = new BinaryIndividual("0100100");
+
+/**
+* Una posible descendencia que se generaría con n = 3:
+* 0 | 11 | 00 | 10 -> 0100000
+* 0 | 10 | 01 | 00 -> 0110110
+*/
+cross.crossWith(ind1, ind2, { numberOfCrossoverPoints: 3 }}))
+\end{lstlisting}
 
 \subsubsection{OnePointCrossover}
 
@@ -473,20 +690,57 @@ A su vez, también se ha creado la interfaz \texttt{NPointsCrossoverParams}, est
     \label{fig:my_label}
 \end{figure}
 
-El crossover de un solo punto es un caso concreto de el crossover de n puntos para $n = 1$. La implementación de este método es bastante sencilla una vez hecho el crossover de n puntos, puesto que tan solo habría que llamar a este método con \texttt{numberOfCrossoverPoints: 1}. Además, cabe destacar que este tipo de operación no tiene ningún parámetro adicional.
+El crossover de un solo punto \cite{de1975analysis} es un caso concreto de el crossover de n puntos para $n = 1$. La implementación de este método es bastante sencilla una vez hecho el crossover de n puntos, puesto que tan solo habría que llamar a este método con \texttt{numberOfCrossoverPoints: 1}. Además, cabe destacar que este tipo de operación no tiene ningún parámetro adicional. \\
+
+Un ejemplo de su uso sería: \\
+
+\begin{lstlisting} [style=JavaScript]
+import { OnePointCrossover, BinaryIndividual } from "genetics-js"
+
+const cross = new OnePointCrossover();
+const ind1 = new BinaryIndividual("0110010");
+const ind2 = new BinaryIndividual("0100100");
+
+/**
+* Una posible descendencia que se generaría:
+* 011 | 0010 -> 0110100
+* 010 | 0100 -> 0100010
+*/
+cross.crossWith(ind1, ind2)
+\end{lstlisting}
 
 \subsubsection{UniformCrossover}
 
 \begin{figure}[ht]
     \centering
-    \includegraphics[scale=0.5]{mem/images/cap-4/4.2.6(Crossover)/Uniform.png}
+    \includegraphics[scale=0.3]{mem/images/cap-4/4.2.6(Crossover)/Uniform.png}
     \caption{Diagrama de clase de \texttt{UniformCrossover}}
     \label{fig:my_label}
 \end{figure}
 
-El crossover uniforme consiste en escoger de cuales de los dos padres se escoge el material genético en función de un valor aleatorio de probabilidad que se genera por cada gen, comparándolo con un valor umbral dado como parámetro. Este método de recombinación permite hacer variaciones más importantes en los cromosomas de la descendencia. \\
+El crossover uniforme \cite{syswerda1989uniform} consiste en elegir de cuales de los dos padres se escoge el material genético en función de un valor aleatorio de probabilidad que se genera por cada gen, comparándolo con un valor umbral dado como parámetro. Este método de recombinación permite hacer variaciones más importantes en los cromosomas de la descendencia. \\
 
-Para la implementación de este método se ha creado la clase \texttt{UniformCrossover} que extiende de \texttt{BaseCrossover}, además de la interfaz \texttt{UniformCrossoverParams} que extiende de \texttt{CrossoverParams} y que tiene como parámetro el umbral que se utilizará para determinar de cual de los padres se obtiene el material genético para la descendencia.
+Para la implementación de este método se ha creado la clase \texttt{UniformCrossover} que extiende de \texttt{BaseCrossover}, además de la interfaz \texttt{UniformCrossoverParams} que extiende de \texttt{CrossoverParams} y que tiene como parámetro el umbral que se utilizará para determinar de cual de los padres se obtiene el material genético para la descendencia. \\
+
+Un ejemplo de su uso podría ser:
+
+\begin{lstlisting} [style=JavaScript]
+import { UniformCrossover, BinaryIndividual } from "genetics-js"
+
+const cross = new UniformCrossover();
+const ind1 = new BinaryIndividual("0110010");
+const ind2 = new BinaryIndividual("0100100");
+
+/**
+* Una posible descendencia que se generaría con umbral 0.5,
+* y con los valores:
+* [ 0.3, 0.5, 0.6, 0.1, 0.2, 0.8, 0.9 ]
+* 0110010 -> 0100000
+* 0100100 -> 0110110
+*/
+cross.crossWith(ind1, ind2, { selectionThreshold: 0.5 })
+\end{lstlisting}
+
 
 \subsubsection{BaseFloatingCrossover}
 
@@ -499,7 +753,7 @@ Para la implementación de este método se ha creado la clase \texttt{UniformCro
 
 Mientras que los tres tipos de operaciones de cruce descritos anteriormente pueden aplicarse a cualquier tipo de individuos, existen métodos que solo pueden aplicarse a individuos concretos. Es el caso de los métodos siguientes, que solo serán aplicados a individuos de punto flotante. \\
 
-Para aglutinar los métodos de crossover de individuos flotantes se ha creado la clase abstracta \texttt{BaseFloatingCrossover}. Esta clase, tiene implementado el método \texttt{getGenotypesValue}, de tal forma que en función de una condición que se implementará de manera concreta en las clases heredadas, se devolverá el valor del genotipo como: 
+Para aglutinar los métodos de crossover de individuos flotantes \cite{michalewicz2013genetic} se ha creado la clase abstracta \texttt{BaseFloatingCrossover}. Esta clase, tiene implementado el método \texttt{getGenotypesValue}, de tal forma que en función de una condición que se implementará de manera concreta en las clases heredadas, se devolverá el valor del genotipo como: 
 
 \begin{equation}
     z^x_i = \alpha x_i + (1 - \alpha)y_i
@@ -511,7 +765,7 @@ Para aglutinar los métodos de crossover de individuos flotantes se ha creado la
 
 Donde $x$ e $y$ son los padres elegidos en la operación de recombinación y $z^x$ y $z^y$ son los individuos $x$ e $y$ de la descendencia respectivamente. Todos ellos están evaluados en su gen $i$, es decir en el $i$-esimo valor de su genotipo. \\
 
-Tal y como podemos comprobar, esta operación depende de un parámetro $\alpha$, que debe ser pasaod como parámetro en la interfaz \texttt{BaseFloatingCrossoverParams} que exiende de \texttt{CrossoverParams}.
+Tal y como podemos comprobar, esta operación depende de un parámetro $\alpha$, que debe ser pasado como parámetro en la interfaz \texttt{BaseFloatingCrossoverParams} que exiende de \texttt{CrossoverParams}.
 
 \subsubsection{SimpleArithmeticRecombination}
 
@@ -535,9 +789,30 @@ La expresión que se utilizaría para definir a la descendencia sería:
     <y_1, \dots, y_k, \alpha \cdot x_{k+1} + (1 - \alpha) \cdot y_{k+1}, \dots, \alpha \cdot x_n + (1 - \alpha) \cdot y_n >
 \end{equation}
 
-Como vemos, este método de recmobinación depende también de un parámetro $\alpha$. 
+Como vemos, este método de recmobinación depende también de un parámetro $\alpha$. \\
 
-La implementación de este método se ha hecho mediante la clase \texttt{SimpleArithmeticRecombination}, con la interfaz de parámetros \texttt{BaseFloatingCrossoverParams}, en la que ya viene especificado el parametro $\alpha$.
+La implementación de este método se ha hecho mediante la clase \texttt{SimpleArithmeticRecombination}, con la interfaz de parámetros \texttt{BaseFloatingCrossoverParams}, en la que ya viene especificado el parametro $\alpha$. \\
+
+Un ejemplo de su uso sería el siguiente:
+
+\begin{lstlisting} [style=JavaScript]
+import { 
+  SimpleArithmeticRecombination, 
+  FloatingIndividual 
+} from "genetics-js"
+
+const cross = new SimpleArithmeticRecombination();
+const ind1 = new FloatingIndividual ("0.4 0.5 0.6 0.7 0.8 0.9");
+const ind2 = new FloatingIndividual ("0.2 0.3 0.2 0.3 0.2 0.3");
+
+/**
+* Una posible descendencia que se generaría con alpha = 0.5,
+* y k = 4
+* 0.4 0.5 0.6 | 0.7 0.8 0.9 -> 0.4 0.5 0.6 | 0.5 0.5 0.6 
+* 0.2 0.3 0.2 | 0.3 0.2 0.3 -> 0.2 0.3 0.2 | 0.5 0.5 0.6
+*/
+cross.crossWith(ind1, ind2, { alpha: 0.5 })
+\end{lstlisting}
 
 \subsubsection{SingleArithmeticRecombination}
 
@@ -551,7 +826,7 @@ La implementación de este método se ha hecho mediante la clase \texttt{SimpleA
 
 Esta operación destaca por producir pocos cambios en la descendencia respecto a los padres, pues tan solo se aplicará la expresión de mezcla de genotipos en una sola posición $k$ elegida de manera aleatoria. \\
 
-La expresión que repesenta este método es la siguiente:
+La expresión que repesenta este método es la siguiente:\\
 
 \begin{equation}
     <x_1, \cdots ,x_{k−1}, \alpha \cdot y_k + (1 - \alpha) \cdot x_k, x_{k+1}, \cdots ,x_n >
@@ -559,8 +834,29 @@ La expresión que repesenta este método es la siguiente:
 \begin{equation}
     <y_1, \cdots ,y_{k−1}, \alpha \cdot x_k + (1 - \alpha) \cdot y_k, y_{k+1}, \cdots ,y_n >
 \end{equation}
+\\
+Para su implementación se ha creado la clase \texttt{SingleArtihmeticRecombination}, con la interfaz de parámetros \texttt{BaseFloatingCrossoverParams}. \\
 
-Para su implementación se ha creado la clase \texttt{SingleArtihmeticRecombination}, con la interfaz de parámetros \texttt{BaseFloatingCrossoverParams}.
+Un ejemplo de uso sería: \\
+
+\begin{lstlisting} [style=JavaScript]
+import { 
+  SingleArithmeticRecombination, 
+  FloatingIndividual 
+} from "genetics-js"
+
+const cross = new SingleArithmeticRecombination();
+const ind1 = new FloatingIndividual ("0.4 0.5 0.6 0.7 0.8 0.9");
+const ind2 = new FloatingIndividual ("0.2 0.3 0.2 0.3 0.2 0.3");
+
+/**
+* Una posible descendencia que se generaría con alpha = 0.5,
+* y k = 4
+* 0.4 0.5 0.6 0.7 0.8 0.9 -> 0.4 0.5 0.6 0.7 0.5 0.9
+* 0.2 0.3 0.2 0.3 0.2 0.3 -> 0.2 0.3 0.2 0.3 0.5 0.3
+*/
+cross.crossWith(ind1, ind2, { alpha: 0.5 })
+\end{lstlisting}
 
 \subsubsection{WholeArithmeticRecombination}
 
@@ -582,8 +878,30 @@ La expresión que lo caracteriza es la siguiente:
 \begin{equation}
     z^y = \overline{y} + (1 - \alpha) \cdot \overline{x}
 \end{equation}
+\\
+La implementación de este método se ha hecho mediante la clase \texttt{WholeArithmeticRecombination}. \\
 
-La implementación de este método se ha hecho mediante la clase \texttt{WholeArithmeticRecombination}.
+\clearpage
+
+Un ejemplo de uso sería: \\
+
+\begin{lstlisting} [style=JavaScript]
+import { 
+  WholeArithmeticRecombination, 
+  FloatingIndividual 
+} from "genetics-js"
+
+const cross = new WholeArithmeticRecombination();
+const ind1 = new FloatingIndividual ("0.4 0.5 0.6 0.7 0.8 0.9");
+const ind2 = new FloatingIndividual ("0.2 0.3 0.2 0.3 0.2 0.3");
+
+/**
+* La descendencia que se generaría con alpha = 0.5:
+* 0.4 0.5 0.6 0.7 0.8 0.9 -> 0.3 0.4 0.4 0.5 0.5 0.6
+* 0.2 0.3 0.2 0.3 0.2 0.3 -> 0.3 0.4 0.4 0.5 0.5 0.6
+*/
+cross.crossWith(ind1, ind2, { alpha: 0.5 })
+\end{lstlisting}
 
 \subsection{Mutaciones}
 
@@ -598,16 +916,9 @@ Las operaciones de mutación sirven para aplicar un cierto grado de aleatoriedad
 
 Dentro de los algoritmos evolutivos, este tipo de operaciones son las que incrementan el grado de diversidad existente en las soluciones obtenidas a partir de la recombinación, por ello se aplica a la descendencia obtenida. \\
 
-Para su implementación se ha seguido el mismo patrón que con la recombinación, es decir, crear una jerarquía de clases que se implemente a partir de una interfaz báse.
+Para su implementación se ha seguido el mismo patrón que con la recombinación, es decir, crear una jerarquía de clases que se implemente a partir de una interfaz base.
 
 \subsubsection{MutationBase e interfaz Mutation}
-
-\begin{figure}[ht]
-    \centering
-    \includegraphics[scale=0.4]{mem/images/cap-4/4.2.7(Mutation)/BaseMutation.png}
-    \caption{Diagrama de clase de \texttt{BaseMutation}}
-    \label{fig:my_label}
-\end{figure}
 
 Para definir las operaciones de mutación que hemos implementado, se ha creado la interfaz \texttt{Mutation}, la cual cuenta con dos métodos, que deben ser implementados para crear la operación deseada.
 
@@ -624,7 +935,14 @@ Al igual que ocurre con las operaciones de cruce, en la mutación también debem
 
 A partir de la interfaz \texttt{Mutation} y con los parámetros \texttt{MutationParams}, se ha creado una clase base abstracta (\texttt{MutationBase}) que implementa la mayoría de métodos utilizados para llevar a cabo operaciones de mutación.\\
 
-Esta clase posee una serie de métodos abstractos que se deben implementar para extenderla y facilitar así la tarea de desarrollar nuestros propios métodos de mutación.
+\begin{figure}[ht]
+    \centering
+    \includegraphics[scale=0.4]{mem/images/cap-4/4.2.7(Mutation)/BaseMutation.png}
+    \caption{Diagrama de clase de \texttt{MutationBase}}
+    \label{fig:my_label}
+\end{figure}
+
+Esta clase posee una serie de métodos abstractos que se deben implementar para extenderla y facilitar así la tarea de desarrollar nuestros propios procedimientos de mutación.
 
 \begin{itemize}
     \item \texttt{mutate(individual: I, ...args: any[]): void}: Este método heredado de la interfaz \texttt{Mutable} no se ha implementado, pues los parámetros concretos dependen del método de mutación.
@@ -640,20 +958,35 @@ Esta clase posee una serie de métodos abstractos que se deben implementar para 
     \label{fig:my_label}
 \end{figure}
 
-Esta mutación se aplica a individuos binarios (\texttt{BinaryIndividual}) y es muy común en muchos algoritmos evolutivos. Consiste en intercambiar los bits del individuo, verdadero por falso y viceversa, en función de un parámetro que se conoce como la tasa de mutación (\textit{mutation rate}). \\
+Esta mutación se aplica a individuos binarios (\texttt{BinaryIndividual}) y es muy común en muchos algoritmos evolutivos \cite{holland1992adaptation}. Consiste en intercambiar los bits del individuo, verdadero por falso y viceversa, en función de un parámetro que se conoce como la tasa de mutación (\textit{mutation rate}). \\
 
-Para implementar este método de mutación se ha creado la clase \texttt{BitwiseMutation}. Además se ha utilizado la interfaz \texttt{BitwiseMutationParams}, que extiende \texttt{MutationParams} y que incluye un miembro \texttt{mutationRate}, que especifica la probabilidad que tiene cada gen de ser mutado.
+Para implementar este método de mutación se ha creado la clase \texttt{BitwiseMutation}. Además se ha utilizado la interfaz \texttt{BitwiseMutationParams}, que extiende \texttt{MutationParams} y que incluye un miembro \texttt{mutationRate}, que especifica la probabilidad que tiene cada gen de ser mutado. \\
+
+Un ejemplo de uso sería el siguiente: \\
+
+\begin{lstlisting} [style=JavaScript]
+import { BitwiseMutation, BinaryIndividual } from "genetics-js"
+
+const mutation = new BitwiseMutation();
+const ind = new BinaryIndividual("0010010");
+
+/**
+* Posible resultado tras elegir los bits 1 y 5 para ser mutados:
+* 0010010 -> 0110000
+*/
+mutation.mutateWith(ind, { mutationRate: 0.1 })
+\end{lstlisting}
 
 \subsubsection{CreepMutation}
 
 \begin{figure}[ht]
     \centering
-    \includegraphics[scale=0.4]{mem/images/cap-4/4.2.7(Mutation)/CreepMutatioon.png}
+    \includegraphics[scale=0.5]{mem/images/cap-4/4.2.7(Mutation)/CreepMutatioon.png}
     \caption{Diagrama de clase de \texttt{CreepMutation}}
     \label{fig:my_label}
 \end{figure}
 
-El siguiente tipo de mutación se aplica a individuos de tipo entero (\texttt{IntegerIndividual}), y consiste en mutar cada uno de los genes del individuo añadiendo una cantidad $\delta$ al valor del gen, obtenida a partir de una distribución normal de probabilidad y redondeado para devolver un número entero. \\
+El siguiente tipo de mutación se aplica a individuos de tipo entero (\texttt{IntegerIndividual}), y consiste en mutar cada uno de los genes del individuo añadiendo una cantidad $\delta$ al valor del gen \cite{davis1991handbook}, obtenida a partir de una distribución normal de probabilidad y redondeado para devolver un número entero. \\
 
 Esta distribución de probabilidad tiene como parámetros $\mu = 0$ y $\sigma$, donde el último se corresponde al \textit{step size} o tamaño en el que se quiere variar el gen:
 
@@ -661,7 +994,22 @@ Esta distribución de probabilidad tiene como parámetros $\mu = 0$ y $\sigma$, 
     x_i = x_i + |\mathcal{N}(0, \sigma)|
 \end{equation}
 
-Para implementar este método de mutación se ha utilizado la clase \texttt{CreepMutation}, y la interfaz \texttt{CreepMutationParams}, la cual tiene especificado el \texttt{stepSize} que se desea como parámetro.
+Para implementar este método de mutación se ha utilizado la clase \texttt{CreepMutation}, y la interfaz \texttt{CreepMutationParams}, la cual tiene especificado el \texttt{stepSize} que se desea como parámetro. \\
+
+Un ejemplo de uso sería el siguiente:
+
+\begin{lstlisting} [style=JavaScript]
+import { CreepMutation, IntegerIndividual } from "genetics-js"
+
+const mutation = new CreepMutation();
+const ind = new IntegerIndividual("1 3 4 5");
+
+/**
+* Un posible resultado con step size 2 es:
+* 1 3 4 5 -> 0 4 2 7
+*/
+mutation.mutateWith(ind, { stepSize: 2 })
+\end{lstlisting}
 
 \subsubsection{RandomResetting}
 
@@ -672,9 +1020,24 @@ Para implementar este método de mutación se ha utilizado la clase \texttt{Cree
     \label{fig:my_label}
 \end{figure}
 
-La operación de \textit{random resetting} sería el equivalente al \textit{bitwise mutation} para individuos enteros (\texttt{IntegerIndividual}). En este tipo de mutación, se elige de manera uniforme un número al azar entre el rango de valores permitidos, el cual se establecerá como el nuevo valor del gen mutado.
+La operación de \textit{random resetting} sería el equivalente al \textit{bitwise mutation} para individuos enteros (\texttt{IntegerIndividual}). En este tipo de mutación, se elige de manera uniforme un número al azar entre el rango de valores permitidos, el cual se establecerá como el nuevo valor del gen mutado. \\
 
-Para implementar este método se ha utilizado la clase \texttt{RandomResetting} la cual no tiene parámetros, puesto que el rango permitido de valores es elegido desde el propio individuo que se quiere mutar.
+Para implementar este método se ha utilizado la clase \texttt{RandomResetting} la cual no tiene parámetros, puesto que el rango permitido de valores es elegido desde el propio individuo que se quiere mutar. \\
+
+Un ejemplo de uso sería el siguiente: \\
+
+\begin{lstlisting} [style=JavaScript]
+import { RandomResetting, IntegerIndividual } from "genetics-js"
+
+const mutation = new CreepMutation();
+const ind = new IntegerIndividual("1 3 4 5", { range: [0, 7] });
+
+/**
+* Un posible resultado es:
+* 1 3 4 5 -> 0 4 5 5
+*/
+mutation.mutateWith(ind)
+\end{lstlisting}
 
 \subsubsection{FloatingNonUniformMutation}
 
@@ -685,7 +1048,7 @@ Para implementar este método se ha utilizado la clase \texttt{RandomResetting} 
     \label{fig:my_label}
 \end{figure}
 
-Esta mutación es similar a \textit{Creep mutation} pero para individuos en punto flotante (\texttt{FloatingIndividual}). A partir de una distribución normal de probabilidad se ha obtenido un número flotante que se añade al valor del gen, haciendo que se produzca una variación del mismo.
+Esta mutación es similar a \textit{Creep mutation} pero para individuos en punto flotante. A partir de una distribución normal de probabilidad se obtiene un número flotante que se añade al valor del gen, haciendo que se produzca una variación del mismo.
 
 \begin{equation}
     x_i = x_i + \mathcal{N}(0, \sigma)
@@ -693,7 +1056,25 @@ Esta mutación es similar a \textit{Creep mutation} pero para individuos en punt
 
 La distribución normal de probabilidad tiene dos parámetros ($\mu$ y $\sigma$), pero al igual que en \textit{Creep mutation}, se establece el valor $\mu = 0$ y a $\sigma$ se le denomina \textit{step size}, siendo la variable que controla la cantidad de variación que se aplicará a los genes. \\
 
-Para la impelemntación de este método se ha creado la clase \texttt{FloatingNonUniformMutation}, y la interfaz de parámetros \texttt{FloatingNonUniformMutationParams} que contiene un único parámetro y es el \texttt{stepSize} que se le aplicará a la operación.
+Para la impelemntación de este método se ha creado la clase \texttt{FloatingNonUniformMutation}, y la interfaz de parámetros \texttt{FloatingNonUniformMutationParams} que contiene un único parámetro y es el \texttt{stepSize} que se le aplicará a la operación.\\
+
+Un ejemplo de uso sería el siguiente: \\
+
+\begin{lstlisting} [style=JavaScript]
+import { 
+  FloatingNonUniformMutation,
+  FloatingIndividual 
+} from "genetics-js";
+
+const mutation = new FloatingNonUniformMutation();
+const ind = new FloatingIndividual("1 3 4 5");
+
+/**
+* Un posible resultado con step size 1.0 es:
+* 1 3 4 5 -> 1.2 2.45 4.75 6
+*/
+mutation.mutateWith(ind, { stepSize: 1.0 })
+\end{lstlisting}
 
 \subsubsection{FloatingUniformMutation}
 
@@ -706,7 +1087,23 @@ Para la impelemntación de este método se ha creado la clase \texttt{FloatingNo
 
 De manera equivalente a como ocurre en el caso de individuos de números enteros, también existe un equivalente al \texttt{BitwiseMutation} para números en punto flotante y es la mutación uniforme. Esta mutación consiste en sustituir el gen mutado por un valor seleccionado de manera uniforme en el rango de valores permitidos. \\
 
-La implementación de este método se lleva a cabo mediante la clase \texttt{FloatingUniformMutation}, que al igual que en \texttt{RandomResetting} no tiene parñametros adicionales puesto que el rango de valores es un atributo del individuo que se desea mutar.
+La implementación de este método se lleva a cabo mediante la clase \texttt{FloatingUniformMutation}, que al igual que en \texttt{RandomResetting} no tiene parámetros adicionales puesto que el rango de valores es un atributo del individuo que se desea mutar.\\
+
+Un ejemplo de uso sería el siguiente: \\
+
+\begin{lstlisting} [style=JavaScript]
+import { FloatingUniformMutation, FloatingIndividual } from "genetics-js";
+
+const mutation = new FloatingUniformMutation();
+const ind = new FloatingIndividual("1.2 3.4 4 5.0", { range: [0, 7] });
+
+/**
+* Un posible resultado es:
+* 1.2 3.4 4 5.0 -> 0.0 1.22 4.5 7.0
+*/
+mutation.mutateWith(ind)
+\end{lstlisting}
+
 
 \subsection{Reemplazo}
 
@@ -714,7 +1111,7 @@ El reemplazo de los individuos es la fase que sigue una vez se ha generado la de
 
 Una vez que se ha generado esa descendencia tendremos una cantidad de individuos perteneciente a la población inicial y otra cantidad de individuos perteneciente a la descendencia, el proceso de selección se encargará de discernir cuales dentro de todos estos individuos serán los que pasen a la siguiente generación. \\
 
-En la implementación de esta librería, hemos considerado que el tamaño de la población y descendencia es igual. Por tanto si definimos $\lambda$ como el tamaño de la población, el tamaño de la descendencia y de la población se considera $\lambda + \lambda$, y de este tamaño debemos elegir tan solo $\lambda$ siguiendo algún criterio.
+En la implementación de esta librería, hemos considerado que el tamaño de la población y descendencia es igual. Por tanto si definimos $\lambda$ como el tamaño de la población, el tamaño de la descendencia y de la población sería $\lambda + \lambda$, y de este tamaño debemos elegir tan solo $\lambda$ siguiendo algún criterio.
 
 \begin{equation}
     \lambda + \lambda \rightarrow \lambda
@@ -726,22 +1123,22 @@ Los métodos de reemplazo que se han implementado han sido los siguientes:
 
 \begin{figure}[ht]
     \centering
-    \includegraphics[scale=0.4]{mem/images/cap-4/4.2.8(Reemplazo)/AgeBasedReplacement.png}
+    \includegraphics[scale=0.5]{mem/images/cap-4/4.2.8(Reemplazo)/AgeBasedReplacement.png}
     \caption{Diagrama de clase de \texttt{AgeBasedReplacement}}
     \label{fig:my_label}
 \end{figure}
 
 Este método de remplazo consiste en seleccionar a los individuos mas jóvenes de entre la población y la descendencia. En nuestro caso, en el que los tamaños de la población y la descendencia coinciden, esta operación se corresponderá a seleccionar tan solo a los individuos de la descendencia. \\
 
-La principal ventaja de este método de selección es la eficiencia, pues a la hora de tener poblaciones de una gran cantidad de individuos tan solo deberían devolverse los individuos de la nueva población. \\
+La principal ventaja de este método es la eficiencia, pues a la hora de tener poblaciones de una gran cantidad de individuos tan solo deberían seleccionarse los individuos de la nueva población. \\
 
-Para implementarlo se ha utilizado la clase \texttt{AgeBasedReplacement}, la cual tiene un único método \texttt{replace} que tiene como parámetros la población inicial y el offspring, a partir de los cuales se quiere generar la población de remplazo.
+Para implementarlo se ha utilizado la clase \texttt{AgeBasedReplacement}, la cual tiene un único método \texttt{replace} que tiene como parámetros la población inicial y el offspring, a partir de los cuales se quiere generar la población de remplazo.\\
 
 \subsubsection{FitnessBasedReplacement}
 
 \begin{figure}[ht]
     \centering
-    \includegraphics[scale=0.4]{mem/images/cap-4/4.2.8(Reemplazo)/FitnessBasedReplacement.png}
+    \includegraphics[scale=0.5]{mem/images/cap-4/4.2.8(Reemplazo)/FitnessBasedReplacement.png}
     \caption{Diagrama de clase de \texttt{FitnessBasedReplacement}}
     \label{fig:my_label}
 \end{figure}
@@ -762,7 +1159,20 @@ La implementación de la función de fitness ha sido bastante simple, de tal fom
     \texttt{(individual: I, ...args: any[]) => number}
 \end{center}
 
-Como podemos ver es una función que recibe como parámetros el individuo que se quiere evaluar además de cualquier parámetro adicional. De esta forma dependiendo de la aplicación concreta para la cual queramos utilizar esta librería, se debera implementar esta función de manera concreta.
+Como podemos ver es una función que recibe como parámetros el individuo que se quiere evaluar además de cualquier parámetro adicional. De esta forma dependiendo de la aplicación concreta para la cual queramos utilizar esta librería, se debera implementar esta función de manera concreta.\\
+
+Se realizará un ejemplo en el que se implementará una función de fitness que devuelva el número de valores \texttt{true} en un individuo binario: \\
+
+\begin{lstlisting} [style=JavaScript]
+import { FitnessFunction, BinaryIndividual } from "genetics-js";
+
+const fitness: FitnessFunction<BinaryIndividual, boolean> = 
+    (individual) => {
+        const count = 0;
+        individual.forEach(gene => count += gene ? 1 : 0);
+        return count;
+    }
+\end{lstlisting}
 
 \subsection{Condición de finalización}
 
@@ -771,3 +1181,17 @@ La condición de finalización es la que indica cuando la ejecución del algorit
 En el caso de \textbf{genetics.js}, la condición de parada que se ha logrado implementar es la de llegar a un número concreto de generaciones, es decir que el algoritmo se pare cuando se hayan ejecutado una serie de generaciones que se establecen como parámetro. \\
 
 Esto se hace mediante la clase \texttt{MaxGenerations}, que recibe como parámetro el número máximo de generaciones que queremos que se ejecuten.
+
+un ejemplo de uso sería: \\
+
+\begin{lstlisting} [style=JavaScript]
+import { MaxGenerations } from "genetics-js";
+
+const condition = new MaxGenerations(10);
+
+/*
+* Se puede utilizar este metodo para comprobar
+* si la condición de parada se ha establecido.
+*/
+condition.isSatisfied(population);
+\end{lstlisting}
