@@ -598,7 +598,7 @@ Los parámetros de este tipo de selección son iguales que en \textit{RouletteWh
 
 \begin{figure}[ht]
     \centering
-    \includegraphics[scale=0.2]{mem/images/cap-4/4.2.6(Crossover)/Crossover.png}
+    \includegraphics[scale=0.3]{mem/images/cap-4/4.2.6(Crossover)/Crossover.png}
     \caption{Diagrama de clase de las operaciones de cruce}
     \label{fig:my_label}
 \end{figure}
@@ -787,8 +787,6 @@ Como vemos, este método de recombinación depende también de un parámetro $\a
 
 La implementación de este método se ha hecho mediante la clase \texttt{SimpleArithmeticRecombination}, con la interfaz de parámetros \texttt{BaseFloatingCrossoverParams}, en la que ya viene especificado el parametro $\alpha$. \\
 
-\clearpage
-
 Un ejemplo de su uso sería el siguiente: \\
 
 \begin{lstlisting} [style=JavaScript]
@@ -905,7 +903,7 @@ cross.crossWith(ind1, ind2, { alpha: 0.5 })
 
 \begin{figure}[ht]
     \centering
-    \includegraphics[scale=0.3]{mem/images/cap-4/4.2.7(Mutation)/Mutation.png}
+    \includegraphics[scale=0.4]{mem/images/cap-4/4.2.7(Mutation)/Mutation.png}
     \caption{Diagrama de clase para los operadores de mutación }
     \label{fig:my_label}
 \end{figure}
@@ -935,7 +933,7 @@ A partir de la interfaz \texttt{Mutation} y con los parámetros \texttt{Mutation
 
 \begin{figure}[ht]
     \centering
-    \includegraphics[scale=0.4]{mem/images/cap-4/4.2.7(Mutation)/BaseMutation.png}
+    \includegraphics[scale=0.5]{mem/images/cap-4/4.2.7(Mutation)/BaseMutation.png}
     \caption{Diagrama de clase de \texttt{MutationBase}}
     \label{fig:my_label}
 \end{figure}
@@ -951,7 +949,7 @@ Esta clase posee una serie de métodos abstractos que se deben implementar para 
 
 \begin{figure}[ht]
     \centering
-    \includegraphics[scale=0.4]{mem/images/cap-4/4.2.7(Mutation)/Bitwise.png}
+    \includegraphics[scale=0.5]{mem/images/cap-4/4.2.7(Mutation)/Bitwise.png}
     \caption{Diagrama de clase de \texttt{BitwiseMutation}}
     \label{fig:my_label}
 \end{figure}
@@ -1013,7 +1011,7 @@ mutation.mutateWith(ind, { stepSize: 2 })
 
 \begin{figure}[ht]
     \centering
-    \includegraphics[scale=0.4]{mem/images/cap-4/4.2.7(Mutation)/RandomResetting.png}
+    \includegraphics[scale=0.5]{mem/images/cap-4/4.2.7(Mutation)/RandomResetting.png}
     \caption{Diagrama de clase de \texttt{RandomResetting}}
     \label{fig:my_label}
 \end{figure}
@@ -1041,7 +1039,7 @@ mutation.mutateWith(ind)
 
 \begin{figure}[ht]
     \centering
-    \includegraphics[scale=0.4]{mem/images/cap-4/4.2.7(Mutation)/FloatingNonUniformMutation.png}
+    \includegraphics[scale=0.6]{mem/images/cap-4/4.2.7(Mutation)/FloatingNonUniformMutation.png}
     \caption{Diagrama de clase de \texttt{FloatingNonUniform}}
     \label{fig:my_label}
 \end{figure}
@@ -1078,7 +1076,7 @@ mutation.mutateWith(ind, { stepSize: 1.0 })
 
 \begin{figure}[ht]
     \centering
-    \includegraphics[scale=0.4]{mem/images/cap-4/4.2.7(Mutation)/FloatingUniformMutation.png}
+    \includegraphics[scale=0.6]{mem/images/cap-4/4.2.7(Mutation)/FloatingUniformMutation.png}
     \caption{Diagrama de clase de \texttt{FloatingUniform}}
     \label{fig:my_label}
 \end{figure}
@@ -1121,7 +1119,7 @@ Los métodos de reemplazo que se han implementado han sido los siguientes:
 
 \begin{figure}[ht]
     \centering
-    \includegraphics[scale=0.5]{mem/images/cap-4/4.2.8(Reemplazo)/AgeBasedReplacement.png}
+    \includegraphics[scale=0.6]{mem/images/cap-4/4.2.8(Reemplazo)/AgeBasedReplacement.png}
     \caption{Diagrama de clase de \texttt{AgeBasedReplacement}}
     \label{fig:my_label}
 \end{figure}
@@ -1136,7 +1134,7 @@ Para implementarlo se ha utilizado la clase \texttt{AgeBasedReplacement}, la cua
 
 \begin{figure}[ht]
     \centering
-    \includegraphics[scale=0.5]{mem/images/cap-4/4.2.8(Reemplazo)/FitnessBasedReplacement.png}
+    \includegraphics[scale=0.6]{mem/images/cap-4/4.2.8(Reemplazo)/FitnessBasedReplacement.png}
     \caption{Diagrama de clase de \texttt{FitnessBasedReplacement}}
     \label{fig:my_label}
 \end{figure}
