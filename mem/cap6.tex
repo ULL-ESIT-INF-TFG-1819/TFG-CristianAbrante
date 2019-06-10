@@ -4,7 +4,39 @@
 
 %++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-Este capítulo es obligatorio.
-Toda memoria de Trabajo de Fin de Grado debe incluir unas conclusiones y unas 
-líneas de trabajo futuro 
+Tras haber completado el desarrollo de este proyecto, se debe hacer un balance para determinar cual ha sido el grado de satisfacción con el resultado, y de esta forma señalar si la se ha logrado la consecución de los objetivos y establecer cuales serán las líneas futuras de desarrollo.  \\
 
+En primer lugar, cabe destacar la dificultad que entraña el diseño e implementación de un framework de computación evolutiva. Esta dificultad viene determinada sobretodo por la importancia actual que tiene este campo dentro de la computación y la inteligencia artificial, por lo cual existen una gran cantidad de aplicaciones diferentes que desarrollan nuevos métodos y técnicas cada vez más precisas y avanzados. De esta forma, crear una librería que sea lo suficientemente flexible como para adaptarse correctamente a estos cambios, pero que a la vez disponga de una implementación concreta para las funciones más comunes entraña dificultades muy importantes. \\
+
+De esta forma, considero que los métodos y técnicas implementados cubren la mayoría de aplicaciones básicas, aunque para abarcar muchas más técnicas y métodos, se debería intentar utilizar esta librería para problemas más avanzados. De esta forma se determinarían las carencias existentes y podrían ser solucionadas de manera paulatina. \\
+
+En cuanto a las tecnologías de desarrollo, creo que la mayoría de decisiones han sido acertadas. Por una parte, porque se han elegido herramientas actuales, que cuentan con un gran número de usuarios, lo cual garantiza en mayor medida su estabilidad. Y por otra parte, porque al realizar la implementación de la libería adaptada a la web se puede garantizar que se pueda utilizar esta librería con las aplicaciones que se desarrollen en un futuro. Además, el desarrollo como librería web, es el más flexible pues ya no solo podrá ejecutarse en el \textit{front-end}, sino que también nos permite ser ejecutada en un servidor. \\
+
+A continuación, pasaré a describir las lineas futuras que tiene este trabajo, las cuales he decidido dividir en varias categorías, para así distinguir que trabajo se llevará a cabo en cada punto concreto. \\
+
+En primer lugar expondrá las lineas futuras en cuanto a \textbf{tecnologías utilizadas}:
+
+\begin{itemize}
+    \item \textbf{Utilizar un monorepo para estructurar el repositorio}: La necesidad de utilizar un monorepo es gestionar mejor las diferentes partes de las que se compone este proyecto: por una parte tendríamos la propia librería, luego la web con la documentación y finalmente un paquete con ejemplos de implementaciones concretas para problemas comunes como el TSP, el problema de la mochila, el VRP... Para manejar este \textit{monorepo} se puede utilizar la tecnología \textbf{Lerna} y \textbf{Yarn} en lugar de NPM para manejar la instalación de dependencias y la ejecución de scripts.
+    \item \textbf{cambio de tecnología de documentación}: La elección de \textbf{TypeDoc} como instrumento de documentación no creo que haya sido una mala idea. Sin embargo, creo que este estilo de documentación no puede ser escalable al futuro, sino que se necesita hacer una página web a medida para la documentación, similar a las que existen en otros proyectos de grandes dimensiones. La tecnología a la que propongo realizar la migración es \textbf{Docusaurus}, principalmente por su gran integración con \textbf{React} y \textbf{Gatsby}.
+\end{itemize}
+
+En segundo lugar, estas serán las líneas futuras que se seguirán en cuanto al \textbf{desarrollo}.
+
+\begin{itemize}
+    \item \textbf{Restructurar la clases desarrolladas más recientemente}: Por motivo de escasez de tiempo, los métodos implementados en último lugar (selección y criterio de finalización), no se han hecho con el mismo trabajo de diseño y desarrollo que las otras, con lo cual necesitarían una restructuración.
+    \item \textbf{Restructurar la organización de ficheros}: En muchos casos existe una mala organización de ficheros, lo cual debe corregirse.
+    \item \textbf{Mejora de los tests}: Actualmente, para testear la librería se utiliza una batería de tests, pero aun no existen suficientes ejemplos como para garantizar el correcto funcionamiento en todos los módulos.
+    \item \textbf{Implementación de un CLI}: Creo que una buena idea es que se permitiera ejecutar algunos algoritmos mediante la linea de comandos, pudiendo elegir los parámetros de manera sencilla y garantizando que existe una correcta visualización en la terminal. Para este propósito, propongo la herramienta \textbf{enquirer}
+    \item \textbf{Soporte de asincronía}: Los algoritmos evolutivos son una tarea que requiere de una gran carga computacional, así que sería un gran avance que estas tareas se pudieran ejecutar de manera asíncrona.
+\end{itemize}
+
+Finalmeente, ofreceré unas líneas futuras en cuanto a la \textbf{algoritmia y nuevas funcionalidades}:
+
+\begin{itemize}
+    \item \textbf{Permitir tests estadísticos por parte del usuario}: Una tarea fundamental para evaluar un algoritmo evolutivo es ejecutar tests estadísticos sobre el resultado, es una tarea que se le debe facilitar al usuario.
+    \item \textbf{Implementar individuos de permutación}: Este tipo de individuos son ampliamente ustilizados, creo que es importante ofrecer una implementación a medida para ellos.
+    \item \textbf{Considerar individuos numéricos multirango}: Por ahora, los individuos numéricos solo pueden tener un rango, sería interesante poder extender ese comportamiento.
+    \item \textbf{Considerar individuos no factibles y permitir operadores de reparación}: Actualmente no se consideran los individuos no factibles. Creo que se deberían añadir en un futuro además de diseñar operadores específicos que reparen soluciones no factibles.
+    \item \textbf{Implementar otras categorías de algoritmos}: Implementar otras categorías de algoritmos evolutivos como los algoritmos meméticos sería muy útil para los usuarios.
+\end{itemize}
