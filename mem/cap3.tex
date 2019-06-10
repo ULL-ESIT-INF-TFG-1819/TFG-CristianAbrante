@@ -5,9 +5,27 @@
 %++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 
-A partir del estudio de los antecedentes que se han encontrado los tres objetivos fundamentales 
-han sido:
+La carencia de \textit{frameworks} de computación evolutiva adaptados a la web es la motivación principal que se encuentra detrás de este trabajo. Pero para lograr que se lleve a cabo el desarrollo de este proyecto, se deben establecer una serie de objetivos y tareas a realizar. \\
+
+En primer lugar decidiremos un nombre para el proyecto y el \textit{framework}: \textbf{genetics.js}. La elección de este nombre está inspirada en uno de los tipos principales de algoritmos evolutivos; los algoritmos genéticos, además de añadirle el sufijo \textit{.js}, en referencia al lenguaje \textbf{JavaScript}, en el cual se llevará a cabo el desarrollo. \\
+
+De esta forma, estableceremos las características que deseamos que poseea \textbf{genetics.js}, cuya implementación serán los objetivos principales del proyecto:
 
 \begin{itemize}
-    \item Desarrollo de un framework web de computación evolutiva.
+    \item \textbf{Estar desarrollado en un lenguaje moderno que tenga una gran comunidad}: Es importante que el lenguaje en el que se desarrolle el proyecto nos permita ser ejecutado en un entorno web y a ser posible en otros entornos. Por otra parte que tenga una gran comunidad de usuarios, para así poder llevar el proyecto a una mayor cantidad de gente.
+    \item \textbf{Poseer una buena documentación}: La documentación es una tarea fundamental, puesto que las diferentes técnicas y métodos disponibles deben estar bien explicados de tal forma que puedan ser comprensibles por los usuarios.
+    \item \textbf{Establecer herramientas y procedimientos para garantizar la estabilidad y continuidad del proyecto}: Para garantizar la estabilidad y continuidad del proyecto se pueden utilizar herramientas como los tests, la integración continua o el control de versiones.
+    \item \textbf{Implementación de la mayoría de métodos comunes}: Se debe poseer una implementación de los métodos más comunes en las diversas fases de un algoritmo evolutivo.
+    \item \textbf{Capacidad de extensión}: Para que el framework pueda ser extensible para problemas concretos, se debe utilizar mecanismos de software como la herencia, o la implementación de interfaces.
+\end{itemize}
+
+En función de estos criterios, se ha establecido un mapa de desarrollo que se corresponderá con las versiones que se publicarán de la librería, atendiendo al versionado semántico (\textbf{semantic versioning} \cite{semver}):
+
+\begin{itemize}
+    \item \texttt{0.1.0}: Implementación de la codificación de soluciones mediante \textbf{individuos}.
+    \item \texttt{0.2.0}: Implementación de los operadores de mutación.
+    \item \texttt{0.3.0}: Impelementación de los operadores de cruce.
+    \item \texttt{0.4.0}: Implementación de los operadores de selección de padres. 
+    \item \texttt{0.5.0}: Implementación de los operadores de selección de supervivientes.
+    \item \texttt{0.6.0}: Implementación de las clases gestoras de la población de individuos.
 \end{itemize}
