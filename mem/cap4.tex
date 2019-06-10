@@ -352,9 +352,7 @@ El individuo entero es un \texttt{NumericIndividual} que contiene en su genotipo
 
 Este criterio se puede garantizar de una manera más restrictiva si se genera un error cada vez que se intente establecer un número flotante como un valor dentro del genotipo, pero en esta implementación se ha optado por redondear siempre los valores numéricos que se intenten introducir, de tal forma se garantiza que estos siempre sean enteros. \\
 
-\clearpage
-
-Un ejemplo de su uso sería el siguiente: \\
+Un ejemplo de su uso sería el siguiente: 
 
 \begin{lstlisting} [style=JavaScript]
 import { IntegerIndividual } from "genetics-js"
@@ -364,7 +362,6 @@ import { IntegerIndividual } from "genetics-js"
 * [1, 2, -3, 4]
 */
 const ind1 = new IntegerIndividual("1 2 -3 4");
-
 /**
 * Se genera un individuo cuyo genotipo es:
 * [1, 2, 3, 4]
@@ -402,7 +399,7 @@ Dentro del ciclo de un algoritmo evolutivo, la generación de individuos aleator
 
 El generador de individuos aleatorios debe hacerse a medida para el individuo que se pretende generar, garantizando que sea extensible para cualquier tipo de individuo a implementar en un futuro. Para \textbf{genetics.js} se ha creado un generador aleatorio por cada tipo de individuo que se ha desarrollado, siempre tratando de reutilizar la mayor parte de código estableciendo una jerarquía de herencia.
 
-\begin{figure}[ht]
+\begin{figure}[H]
     \centering
     \includegraphics[scale=0.3]{mem/images/cap-4/4.2.3(Generador)/Generator.png}
     \caption{Diagrama de la jergarquía de clases del generador de individuos}
@@ -485,8 +482,7 @@ La utilidad principal de este generador es especificar los parámetros que tendr
 
 \begin{figure}[ht]
     \centering
-    \includegraphics[scale=0.42]{mem/images/cap-4/4.2.3(Generador)/FloatingGenerator.png}
-    \includegraphics[scale=0.42]{mem/images/cap-4/4.2.3(Generador)/IntegerGenerator.png}
+    \includegraphics[scale=0.42]{mem/images/cap-4/4.2.3(Generador)/IntegerFloating.png}
     \caption{Diagrama de clase de \texttt{FloatingGenerator} e \texttt{IntegerGenerator}}
     \label{fig:generator-uml}
 \end{figure}
@@ -589,7 +585,7 @@ En la implementación de \textbf{genetics.js}, se espera como parámetros una po
 
 La otra posibilidad de implemnentación se conoce como \textit{Stochastic Universal Sampling} \cite{baker1987reducing}. La idea es similar a \textit{Roulette Wheel}, pues utiliza también la ruleta proporcional como idea fundamental. Sin embargo, en este método la ruleta no se hace girar tantas veces como individuos se quiera seleccionar, sino que se hace una sola tirada en la que se seleccionan todos los individuos a la vez. Sería el equivalente a una ruleta en la que existieran tantos puntos de selección como individuos, y en una sola tirada se decidieran todos. \\
 
-\begin{figure}[ht]
+\begin{figure}[H]
     \centering
     \includegraphics[scale=0.5]{mem/images/cap-4/4.2.5(Selection)/SUS-1.png}
     \caption{Representación de la ruleta proporcioonal al fitness con múltiples puntos de selección}
@@ -690,7 +686,7 @@ cross.crossWith(ind1, ind2, { numberOfCrossoverPoints: 3 }}))
 
 El crossover de un solo punto \cite{de1975analysis} es un caso concreto de el crossover de n puntos para $n = 1$. La implementación de este método es bastante sencilla una vez hecho el crossover de n puntos, puesto que tan solo habría que llamar a este método con \texttt{numberOfCrossoverPoints: 1}. Además, cabe destacar que este tipo de operación no tiene ningún parámetro adicional. \\
 
-Un ejemplo de su uso sería: \\
+Un ejemplo de su uso sería:
 
 \begin{lstlisting} [style=JavaScript]
 import { OnePointCrossover, BinaryIndividual } from "genetics-js"
@@ -711,7 +707,7 @@ cross.crossWith(ind1, ind2)
 
 \begin{figure}[ht]
     \centering
-    \includegraphics[scale=0.3]{mem/images/cap-4/4.2.6(Crossover)/Uniform.png}
+    \includegraphics[scale=0.6]{mem/images/cap-4/4.2.6(Crossover)/Uniform.png}
     \caption{Diagrama de clase de \texttt{UniformCrossover}}
     \label{fig:my_label}
 \end{figure}
@@ -720,7 +716,7 @@ El crossover uniforme \cite{syswerda1989uniform} consiste en elegir de cuales de
 
 Para la implementación de este método se ha creado la clase \texttt{UniformCrossover} que extiende de \texttt{BaseCrossover}, además de la interfaz \texttt{UniformCrossoverParams} que extiende de \texttt{CrossoverParams} y que tiene como parámetro el umbral que se utilizará para determinar de cual de los padres se obtiene el material genético para la descendencia. \\
 
-Un ejemplo de su uso podría ser:
+Un ejemplo de su uso podría ser: \\
 
 \begin{lstlisting} [style=JavaScript]
 import { UniformCrossover, BinaryIndividual } from "genetics-js"
@@ -791,7 +787,9 @@ Como vemos, este método de recombinación depende también de un parámetro $\a
 
 La implementación de este método se ha hecho mediante la clase \texttt{SimpleArithmeticRecombination}, con la interfaz de parámetros \texttt{BaseFloatingCrossoverParams}, en la que ya viene especificado el parametro $\alpha$. \\
 
-Un ejemplo de su uso sería el siguiente:
+\clearpage
+
+Un ejemplo de su uso sería el siguiente: \\
 
 \begin{lstlisting} [style=JavaScript]
 import { 
@@ -834,6 +832,8 @@ La expresión que repesenta este método es la siguiente:\\
 \end{equation}
 \\
 Para su implementación se ha creado la clase \texttt{SingleArtihmeticRecombination}, con la interfaz de parámetros \texttt{BaseFloatingCrossoverParams}. \\
+
+\clearpage
 
 Un ejemplo de uso sería: \\
 
