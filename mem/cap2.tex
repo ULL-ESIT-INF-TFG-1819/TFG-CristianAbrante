@@ -4,6 +4,31 @@
 
 %++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-\section{}
-\label{:sec1}
+Tal y como se ha comentado, los algoritmos evolutivos cuentan con una serie de fases diferentes, donde cada una de estas fases se puede implementar utilizando una gran cantidad de métodos distintos.\\
 
+Para construir una implementación de este tipo de algoritmos existen muchos procedimientos que se repetirían aunque la naturaleza de los problemas fuera bastante diferente. Debido sobretodo a que existen muchas técnicas que se pueden aplicar de manera independiente a la codificación de los individuos y a cual es el problema concreto que se está pretendiendo resolver. \\
+
+Esta es la motivación principal para construir un \textit{framework} de computación evolutiva, el hecho de implementar una serie de procedimientos comunes que pudieran ser reutilizados independientemente del problema concreto que se quiera realizar, y que a su vez tuviera ciertas partes extensibles y que se pudieran adaptar a las necesidades concretas del problema. \\
+
+En este sentido, ya se han desarrollado una gran cantidad de frameworks que comprenden problemas de computación evolutiva y optimización. De esta forma, se puede llevar a cabo una clasificación de los mismos dependiendo del lenguaje de programación en el que se hayan desarrollado. \\
+
+Comenzaremos comentando algunos ejemplo desarrollados en \textbf{Java}:
+
+\begin{itemize}
+    \item \textbf{Opt4J}: Esta librería contiene muchas técnicas avanzadas en el terreno de la computación evolutiva y las meteheurísticas en general, como por ejemplo, la implementación de algoritmos de optimización por colonia de hormigas o \textit{simulated annealing}.
+    \item \textbf{Optimization algorithm toolkit}: Este framework se centra en problemas de optimización, permitiendonos configurar instancias de los problemas clásicos en este ámbito y estableciendo sencillos procedimientos para ejecutar tests estadísticos por parte del usuario.
+    \item \textbf{JMetal}: Es uno de los frameworks más famososos y de los pocos cuyo código fuente está alojado en GitHub. Entre sus ventajas se encuentran la gran cantidad de algoritmos de optimización multiobjetivo que tiene implementados:  NSGA-II, SPEA2, PAES, etc.
+\end{itemize}
+
+Por otra parte tenemos algunos otros ejemplos implementados en \textbf{C++}:
+
+\begin{itemize}
+    \item \textbf{ParadisEO}: El principal objetivo de este framework es llevar a cabo la implementación de problemas de optimización combinatoria, aunque también provee otras herramientas para el análisis del estado de la población, aportando métricas avanzadas.
+    \item \textbf{METCO}: Este framework ha sido desarrollado en la Universidad de La Laguna, por el grupo de lenguajes y sistemas informáticos, y ha servido como antecedente principal para el desarrollo de este proyecto.
+\end{itemize}
+
+Estos son algunos ejemplos de librerías de computación evolutiva y optimización en general desarrolladas en lenguajes con una mayor comunidad. Cabe destacar que todos ellos se encuentran en un estado bastante avanzado y tienen implementados una gran cantidad de funcionalidades diferentes. \\
+
+En este proceso de búsqueda de diferentes librerías de este tipo se ha detectado la carencia de un framework completamente compatible y adaptado para la web. El auge que estan teniendo actualmente las aplicaciones web, aparejado con el aumento de la capacidad de cómputo de los navegadores, hace que construir herramientas para ser ejecutadas en el lado del cliente sea una tarea que puede tener muchas opciones de futuro. \\
+
+De esta forma, la motivación principal de este proyecto es construir un framework de computación evolutiva compatible con aplicaciones web. Intentando que sea lo más extenso posible, ofreciendo las operaciones más comunes, y que a la vez pueda ser extensible para ser utilizado como resolutor de problemas concretos.
