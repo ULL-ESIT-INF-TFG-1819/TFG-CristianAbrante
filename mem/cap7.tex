@@ -3,3 +3,40 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+After having completed the development of the project, it is necessary to make a balance to determine which is the satisfaction degree with the result, in this way we can know if the objectives has been reached and which future lines of development we can follow. \\
+
+Should be noted the difficulty of designing and implementing an evolutionary computing framework. This difficulty is determined mostly for the actual relevance of the field, which aims to create a big amount of different applications which develop new advanced and precise methods and techniques. In this way, creating a library which is flexible enough for adapting correctly to those changes and at the same time which provides the most common features has enormous difficulties. \\
+
+In this way, I consider that the methods and techniques implemented cover the majority of the basic applications, nevertheless it should be tested in more demanding scenarios for pointing out the existing weaknesses and solving them gradually. \\
+
+I think that the decisions about the development technologies were right. On the one hand, because there were used modern technologies, which has a big amount of users, which ensures their stability. An on the other hand, because the development of a web application have a lot of future perspective, because it is going to be capable of being executed on the \textit{front-end} and on the server. \\
+
+Next, I am going to describe the future lines of the project, divided into different categories. \\
+
+First, I am going to explain the future lines concerning the \textbf{used technologies}:
+
+\begin{itemize}
+    \item \textbf{Using a monorepo for structuring the repository}: The need for using a monorepo is for manage in a better way the different parts of the project. We can have a package in the monorepo which contains the library itself, other for the documentation, and finally one with examples with common test problems. I recommend using \textbf{Lerna} and \textbf{Yarn} instead of NPM for managing the dependencies.
+    \item \textbf{Changing the documentation technology}: Although \textbf{TypeDoc} was a good election as documentation system, I think that its documentation style is not scalable for the future. This is why I propose the migration to a better option like \textbf{Docusaurus}, mostly because of its great integration with \textbf{React} and \textbf{Gatsby}.
+\end{itemize}
+
+Secondly, the future lines about \textbf{development} are going to be explained:
+
+\begin{itemize}
+    \item \textbf{Restructure the most recently developed classes}: For timing purposes, the last methods implemented (selection and stop criteria), does not have the same design work and development as the others, so they would need a restructuring.
+    \item \textbf{Restructure the files}: In many cases it exists a bad organization in files, which sould be fixed.
+    \item \textbf{Improve the tests}: Actually, for testing the library, it is used a benchmark, but is is not robust enough, not ensuring the correct working of all the modules.
+    \item \textbf{Implementation of a CLI}: I think that a good idea will be allowing to execute some algorithms via command line. For this purpose I recommend using \textbf{enquirer}.
+    \item \textbf{Asynchrony support}: Some evolutionary algorithms take a lot of computing resources, so executing those tasks in an asynchronous way would be a great advance.
+\end{itemize}
+
+Finally I would offer some future lines about \textbf{algorithms and new features}:
+
+\begin{itemize}
+    \item \textbf{Allowing the user to execute statistical tests}: A fundamental task for evaluating an evolutionary algorithm is to execute statistical tests over the result, so I is a task that should be made easy to the user.
+    \item \textbf{Implementing permutation individuals}: This type of individuals are widely used, so I would be interesting to have a native implementation for them.
+    \item \textbf{Considering multi-range numerical individuals}: Nowadays, only one range is allowed in numeric individuals, this behaviour sould be extended.
+    \item \textbf{Considering not feasible individuals}: Actually, not feasible individuals are not allowed. I think that in the future they should be considered.
+    \item \textbf{Implementing new algorithms categories}: New algorithms categories like memetic algorithms should be added to the library.
+\end{itemize}

@@ -119,7 +119,7 @@ Para estructurar las ramas he utilizado un convenio de nombres, de tal forma que
  
  La tecnología utilizada para este propósito ha sido Jest \cite{jest}, pues nos ofrece múltiples ventajas a la hora de crear test unitarios y parametrizados a medida del componente que estemos comprobando y también porque nos permite realizar de manera sencilla \textit{mockups}, o simulaciones, de resultados de las funciones que queramos testear. \\
  
- El hecho de realizar \textit{mockups} es de gran ventaja en una aplicación como esta, en la que tanta lógica depende de resultados aleatorios. Con esta librería de testing se puede especificar \textit{ad-hoc} cual es el resultado "\textit{aleatorio}" que nos devolverá el generador sin tocar su código fuente y de esta forma, aumentar la robostez de los test, comprobando la lógica del componente externalizándola de los valores aleatorios que le puedan llegar como entrada. \\
+ El hecho de realizar \textit{mockups} es de gran ventaja en una aplicación como esta, en la que tanta lógica depende de resultados aleatorios. Con esta librería de testing se puede especificar \textit{ad-hoc} cual es el resultado `` ``\textit{aleatorio}" que nos devolverá el generador sin tocar su código fuente y de esta forma, aumentar la robostez de los test, comprobando la lógica del componente externalizándola de los valores aleatorios que le puedan llegar como entrada. \\
  
  Una desventaja de este framework de desarrollo, es que no es completamente compatible con TypeScript en su versión actual, lo cual genera algunos problemas de a la hora de comprobar los tipos de los módulos que se están testeando. A su vez, esto genera algunas incompatibilidades de tipos al generar los \textit{mockups}, probablemente porque estos internamente se basen en el tipado débil que presenta el lenguaje JavaScript. Para solucionar estos problemas se recurre a la librería externa \textbf{ts-jest} \cite{tsjest}. \\
  
@@ -138,7 +138,7 @@ Para estructurar las ramas he utilizado un convenio de nombres, de tal forma que
  
  La batería de tests es ejecutada por un servidor externo, lo que también sirve para separar dichos test de nuestra máquina local de desarrollo y comprobar de esta forma si nuestro sistema operativo o alguna configuración local está afectando al funcionamiento del proyecto. \\
  
- Llevar a cabo un procedimiento de integración continua es muy importante para garantizar que si se hace un cambio en una parte concreta de la librería, esto no tiene efectos colaterales en otros módulos. La importancia de esto radica principalemnte en la seguridad que tenemos al añadir nuevas funcionalidades a lo que ya tenemos hecho, de tal forma que incorporar a nuevos colaboradores y aceptar sus cambios no sería tan arriesgado como si tan solo se pasaran los test en local.\\
+ Llevar a cabo un procedimiento de integración continua es muy importante para garantizar que si se hace un cambio en una parte concreta de la librería, esto no tiene efectos colaterales en otros módulos. La importancia de esto radica principalmente en la seguridad que tenemos al añadir nuevas funcionalidades a lo que ya tenemos hecho, de tal forma que incorporar a nuevos colaboradores y aceptar sus cambios no sería tan arriesgado como si tan solo se pasaran los test en local.\\
  
  Para llevar a cabo la integración continua se ha elegido la tecnología \textbf{CircleCI} \cite{circleci}, aunque hay algunas otras opciones que presentan las mismas características, como por ejemplo, \textbf{TravisCI} \cite{travis}. El fichero de configuración de esta herramienta (\textit{.circleci/config.yml}), es básicamente calcado del estándard utilizado para aplicaciones con NodeJS. En él, tan solo es necesario especificar el comando npm que se utilizará para ejecutar los tests de integración continua.
  
@@ -155,7 +155,7 @@ Para estructurar las ramas he utilizado un convenio de nombres, de tal forma que
  
  Esta no es una medida infalible del correcto funcionamiento del software desarrollado, sin embargo si que nos da una medida bastante fiable de lo extensos que hemos sido con nuestros tests, mostrando si hemos conseguido cubrir la mayoría de líneas de código existentes en el proyecto.\\
  
- La herramienta encargada de recoger los informes de coverge a partir de los tests utilizados para la integración continua ha sido \textbf{Coveralls} \cite{coveralls}. Para ello, se ha especificado un comando de test ejecutado por la integración continua que garantiza que en el caso de que dichos tests se ejecuten sin errores, se envíe un informe al servidor de coveralls. \\
+ La herramienta encargada de recoger los informes de coverage a partir de los tests utilizados para la integración continua ha sido \textbf{Coveralls} \cite{coveralls}. Para ello, se ha especificado un comando de test ejecutado por la integración continua que garantiza que en el caso de que dichos tests se ejecuten sin errores, se envíe un informe al servidor de coveralls. \\
  
  La configuración de este servicio es bastante simple, pues tan solo habría que especificar en el fichero de configuración (\textit{coveralls.yml}) cual es la herramienta de integración continua que se ha utilizado, en este caso CircleCI.
  
@@ -280,7 +280,7 @@ En este diagrama UML se puede ver la estructura de clases elegida, de las cuales
     \label{fig:baseindividual-uml}
 \end{figure}
 
-\texttt{BaseIndividual} es una clase abstracta que representa al individuo base de la jerarquía. En ella se almacena el \texttt{array} que contiene el genotipo del individuo.Cabe destacar que se trata de una clase genérica en la que no se especifica el tipo que dato que contendrá dicho array. De esta forma se garantiza que se puede extender en clases hijas con la capacidad de reutilizar los métodos que esta tiene implementados. \\
+\texttt{BaseIndividual} es una clase abstracta que representa al individuo base de la jerarquía. En ella se almacena el \texttt{array} que contiene el genotipo del individuo. Cabe destacar que se trata de una clase genérica en la que no se especifica el tipo que dato que contendrá dicho array. De esta forma se garantiza que se puede extender en clases hijas con la capacidad de reutilizar los métodos que esta tiene implementados. \\
 
 Los métodos con los que cuenta esta clase son aquellos que implican una búsqueda en un array y que ya están implementados en JavaScript. Esto se hace para asegurar que los métodos presentes en esta clase son inmutables, es decir, que no cambian el contenido del genotipo. \\
 
@@ -427,7 +427,7 @@ Para establecer los parámetros del generador hemos creado otra interfaz (\textt
     \item \texttt{length}: Es el tamaño del individuo que se va a generar.
 \end{itemize}
 
-Esta interfaz \texttt{GeneratorParams} deberá ser también extendida para indicar los parámteros concretos del generador. \\
+Esta interfaz \texttt{GeneratorParams} deberá ser también extendida para indicar los parámetros concretos del generador. \\
 
 Para ofrecer una implementación básica de un generador de individuos se ha creado la clase \texttt{BaseGenerator}. Esta clase tiene la mayoría de métodos de la interfaz \texttt{IndividualGenerator} implementados, estableciendo además una serie de métodos abstractos para que las clases heredadas puedan implementarlos y así simplificar la tarea de desarrollo. \\
 
@@ -487,13 +487,13 @@ La utilidad principal de este generador es especificar los parámetros que tendr
     \centering
     \includegraphics[scale=0.42]{mem/images/cap-4/4.2.3(Generador)/FloatingGenerator.png}
     \includegraphics[scale=0.42]{mem/images/cap-4/4.2.3(Generador)/IntegerGenerator.png}
-    \caption{Diagrama de clase de \texttt{FloatingGenerator} y \texttt{IntegerGenerator}}
+    \caption{Diagrama de clase de \texttt{FloatingGenerator} e \texttt{IntegerGenerator}}
     \label{fig:generator-uml}
 \end{figure}
 
-Una vez se ha desarrollado \texttt{NumericGenerator} como generador numérico fundamental, es bastante sencillo extender dicha clase para crear un generador de individuos de números enteros (\texttt{IntegerGenerator}) y de números en punto floatante (\texttt{FloatingGenerator}). \\
+Una vez se ha desarrollado \texttt{NumericGenerator} como generador numérico fundamental, es bastante sencillo extender dicha clase para crear un generador de individuos de números enteros (\texttt{IntegerGenerator}) y de números en punto flotante (\texttt{FloatingGenerator}). \\
 
-Para ello, tan solo se debe implementar el método abstracto \texttt{generateGene}, creando un individuo numérico o un individuo en punto flotante respectivamente. Cabe destacar que los parámetros no varian respecto a aquellos establecidos en \texttt{NumericGeneratorParams}, pues en ambos casos tan solo es necesario especificar el rango como elemento generador. \\
+Para ello, tan solo se debe implementar el método abstracto \texttt{generateGene}, creando un individuo numérico o un individuo en punto flotante respectivamente. Cabe destacar que los parámetros no varían respecto a aquellos establecidos en \texttt{NumericGeneratorParams}, pues en ambos casos tan solo es necesario especificar el rango como elemento generador. \\
 
 Un ejemplo de su uso es el siguiente: \\
 
@@ -504,15 +504,13 @@ const integerGenerator = new IntegerGenerator();
 const floatGenerator = new FloatingGenerator();
 
 /**
-* Un posible inidivudo generado podría tener el
-* genotipo:
+* Un posible inidivudo generado:
 * [3, 3, 1, 5]
 */
 console.log(integerGenerator.generateWith({ length: 4, range: [1, 5] }}))
 
 /**
-* Un posible inidivudo generado podría tener el
-* genotipo:
+* Un posible indivudo generado:
 * [0.1, -0.4332, 1.0, 0.5677]
 */
 console.log(floatGenerator.generateWith({ length: 4, range: [-0.5, 2] }}))
@@ -537,7 +535,7 @@ Los métodos que contiene esta clase son:
     \item \texttt{getPopulationSize}: Devuelve el tamaño de la población.
     \item \texttt{replacePopulation}: remplaza los items de la población actual por otros.
     \item \texttt{pushIndividual}: Añade un individuo a la población.
-    \item \texttt{getFittestIndividual}: devuelve el individuo que tenga una mayor evaluación en la función de fitness.
+    \item \texttt{getFittestIndividual}: devuelve el individuo que tenga una mejor evaluación según la función de fitness. Si el problema fuera de maximización se devolvería el individuo con la evaluación más alta, y si fuera de minimización sería aquel con la evaluación más baja.
     \item \texttt{getPopulationItems}: devuelve los items de la población en forma de \texttt{array}.
 \end{itemize}
 
@@ -547,7 +545,7 @@ Los métodos que contiene esta clase son:
     \item \texttt{averageAge}: la edad media de los individuos de la población.
     \item \texttt{averageFitness}: el fitness medio de los individuos de la población.
     \item \texttt{fitnessSum}: la suma total de fitness de los individuos.
-    \item \texttt{fittestIndividualIndex}: el índice del individuo con mayor fitness de la población.
+    \item \texttt{fittestIndividualIndex}: el índice del individuo una mejor evaluación según la función de fitness y el tipo de problema.
 \end{itemize}
 
 \subsection{Selección de padres}
@@ -566,7 +564,7 @@ Para esta librería se ha desarrollado una selección proporcional al fitness cu
 \end{figure}
 
 
-La idea que se encuentra tras la selección mediante \textit{Roulette Wheel} \cite{DBLP:journals/corr/abs-1109-3627}, es seleccionar a los individuos mejor adaptados, pero a su vez dejando un posibilidad a los individuos con una evaluación de fitness peor la posibilidad de ser padres en la siguiente generación. \\
+La idea que se encuentra tras la selección mediante \textit{Roulette Wheel} \cite{DBLP:journals/corr/abs-1109-3627}, es seleccionar a los individuos mejor adaptados, pero a su vez dejando una posibilidad a los individuos con una evaluación de fitness peor la posibilidad de ser padres en la siguiente generación. \\
 
 De manera metáforica, se utiliza una ruleta que tiene todos los individuos representados, pero con un área proporcional a su fitness. Al girar esa ruleta, es más probable que se elijan a los individuos mejor adaptados, puesto que su área de selección es mayor, sin embargo, tampoco se impide la selección de individuos mucho meńos adaptados, aunque su área de seleccion sea menor. Esto nos permite garantizar la variedad en la población seleccionada para evitar que las búsquedas puedan quedar atrapadas en un óptimo local. \\
 
@@ -789,7 +787,7 @@ La expresión que se utilizaría para definir a la descendencia sería:
     <y_1, \dots, y_k, \alpha \cdot x_{k+1} + (1 - \alpha) \cdot y_{k+1}, \dots, \alpha \cdot x_n + (1 - \alpha) \cdot y_n >
 \end{equation}
 
-Como vemos, este método de recmobinación depende también de un parámetro $\alpha$. \\
+Como vemos, este método de recombinación depende también de un parámetro $\alpha$. \\
 
 La implementación de este método se ha hecho mediante la clase \texttt{SimpleArithmeticRecombination}, con la interfaz de parámetros \texttt{BaseFloatingCrossoverParams}, en la que ya viene especificado el parametro $\alpha$. \\
 
@@ -1128,7 +1126,7 @@ Los métodos de reemplazo que se han implementado han sido los siguientes:
     \label{fig:my_label}
 \end{figure}
 
-Este método de remplazo consiste en seleccionar a los individuos mas jóvenes de entre la población y la descendencia. En nuestro caso, en el que los tamaños de la población y la descendencia coinciden, esta operación se corresponderá a seleccionar tan solo a los individuos de la descendencia. \\
+Este método de remplazo consiste en seleccionar a los individuos mas jóvenes de entre la población y la descendencia, también se conoce como algoritmo generacional. En nuestro caso, en el que los tamaños de la población y la descendencia coinciden, esta operación se corresponderá a seleccionar tan solo a los individuos de la descendencia. \\
 
 La principal ventaja de este método es la eficiencia, pues a la hora de tener poblaciones de una gran cantidad de individuos tan solo deberían seleccionarse los individuos de la nueva población. \\
 
@@ -1145,13 +1143,15 @@ Para implementarlo se ha utilizado la clase \texttt{AgeBasedReplacement}, la cua
 
 El criterio que se sigue para llevar a cabo el remplazo mediante este método es el fitness que posee el individuo. De esta forma, cuando se tiene la población inicial y la descendencia, los individuos de ambas se deben ordenar de acuerdo a su fitness, seleccionando solo los mejores. \\
 
-Este método es bastante elitista, es decir que tan solo elige a los mejores de la población y la descendencia. Esto hace que se conserven los individuos mejores adaptados durante más generaciones. Sin embargo, también conlleva una pérdida de diversidad en los individuos y un aumento en la complejidad de la envaluación en poblaciones de un gran tamaño. \\
+Este método es bastante elitista, es decir que tan solo elige a los mejores de la población y la descendencia. Esto hace que se conserven los individuos mejores adaptados durante más generaciones. Sin embargo, también conlleva una pérdida de diversidad en los individuos y un aumento en la complejidad de la evaluación en poblaciones de un gran tamaño. \\
 
 La implementación se ha hecho mediante la clase \texttt{FitnessBasedReplacement}, la cual tiene un método replace, que recibe la población inicial y la descendencia, al igual que en el caso anterior.
 
 \subsection{Fitness}
 
-La función de fitness se utiliza para evaluar cuanto de adaptado se encuentra un individuo al entorno. Si estamos hablando de un problema de optimización combinatoria, esta función se corresponde con la que queremos optimizar. En esta librería, la función de fitness se trata de maximizar, de tal forma que se consideran mejores las funciones de fitness con valores más altos.\\
+La función de fitness se utiliza para evaluar cuanto de adaptado se encuentra un individuo al entorno. Si estamos hablando de un problema de optimización combinatoria, esta función se corresponde con la que queremos optimizar. En esta librería, la función de fitness se trata de maximizar, de tal forma que se consideran mejores las funciones de fitness con valores más altos. \\
+
+En el caso en el que se quisiera minimizar la función se debería especificar a la hora de establecer los parámetros del algoritmo, y el procedimiento que se aplicaría internamente consistiría en invertir la función de fitness. \\
 
 La implementación de la función de fitness ha sido bastante simple, de tal foma que solo se ha establecido el esquema de la función como un tipo.
 
@@ -1180,9 +1180,9 @@ La condición de finalización es la que indica cuando la ejecución del algorit
 
 En el caso de \textbf{genetics.js}, la condición de parada que se ha logrado implementar es la de llegar a un número concreto de generaciones, es decir que el algoritmo se pare cuando se hayan ejecutado una serie de generaciones que se establecen como parámetro. \\
 
-Esto se hace mediante la clase \texttt{MaxGenerations}, que recibe como parámetro el número máximo de generaciones que queremos que se ejecuten.
+Esto se hace mediante la clase \texttt{MaxGenerations}, que recibe como parámetro el número máximo de generaciones que queremos que se ejecuten.\\
 
-un ejemplo de uso sería: \\
+Un ejemplo de uso sería: \\
 
 \begin{lstlisting} [style=JavaScript]
 import { MaxGenerations } from "genetics-js";
