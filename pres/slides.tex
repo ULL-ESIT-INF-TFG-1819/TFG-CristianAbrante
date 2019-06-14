@@ -3,23 +3,27 @@
 \usepackage[spanish]{babel}
 \usepackage[utf8]{inputenc}
 \usepackage{graphicx}
+\usepackage{csquotes}
 
 \newcommand{\beamer}{\textsc{beamer}}
 \newtheorem{definicion}{Definición}
 \newtheorem{ejemplo}{Ejemplo}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\title[Título corto]{Título Largo}
-\author[Autor]{Autor}
+\title[genetics.js]{
+    genetics.js \\
+    Framework web de computación evolutiva
+}
+\author[Cristian Abrante]{Cristian Manuel Abrante Dorta}
 \institute[ULL]{Universidad de La Laguna}
-\date[05-10-2015]{\today}
+\date[21-06-2019]{\today}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \usetheme{Madrid}
 %\usetheme{Warsaw}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\definecolor{pantone254}{RGB}{122,59,122}
+\definecolor{pantone254}{RGB}{87,6,140}
 \definecolor{pantone3015}{RGB}{0,88,147}
 \definecolor{pantone432}{RGB}{56,61,66}
 \setbeamercolor*{palette primary}{use=structure,fg=white,bg=pantone254}
@@ -41,9 +45,9 @@
 %++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  
 \begin{frame}
 
-  \includegraphics[width=0.15\textwidth]{img/ullesc.eps}
-  \hspace*{7.5cm}
-  \includegraphics[width=0.16\textwidth]{img/etsii.eps}
+  \includegraphics[width=0.45\textwidth]{pres/img/etsit-logo.png}
+  \hspace*{2cm}
+  \includegraphics[width=0.35\textwidth]{pres/img/geneticsjs-logo.png}
   \titlepage
 
   \begin{scriptsize}
@@ -70,11 +74,33 @@
 %++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  
 \begin{frame}
 
-\frametitle{Motivación}
+\frametitle{Introducción}
+\begin{exampleblock}{}
+  {\large ``La gran ventaja de la evolución es la gran cantidad de especies diferentes que ha creado, cada una adaptada a su medio''}
+  \vskip5mm
+  \hspace*\fill{\small--- A.E. Eiben y J.E. Smith}
+\end{exampleblock}
+\end{frame}
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  
 
-\begin{definicion}
-Especificar la motivación del trabajo
-\end{definicion}
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  
+\begin{frame}
+
+\frametitle{Introducción}
+
+En primer lugar, veremos una clasificación de los problemas en función de su complejidad.
+
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.5]{pres/img/introduccion/p-np.png}
+    \caption{Representación de las clases de problemas $\mathcal{P}$ y $\mathcal{NP}$}
+    \label{fig:p-np}
+\end{figure}
+
+\begin{itemize}
+    \item \textbf{Clase $\mathcal{P}$}: Se puede encontrar una solución en \textbf{tiempo polinomial}.
+    \item \textbf{Clase $\mathcal{NP}$}: Se puede verificar una solución en \textbf{tiempo polinomial}.
+\end{itemize}
 
 \end{frame}
 %++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  
@@ -82,19 +108,130 @@ Especificar la motivación del trabajo
 %++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  
 \begin{frame}
 
-\frametitle{Objetivos }
+\frametitle{Introducción}
 
-\begin{block}{Ejemplo}
-  \begin{itemize}
-  \item
-   Objetivo 1 
-  \pause
+Dentro de la clase $\mathcal{NP}$, existen una gran cantidad de problemas de \textbf{optimización combinatoria}. \\
 
-  \item
-   Objetivo 2
-
-  \end{itemize}
+\begin{block}{Optimización combnatoria}
+ En este tipo de problemas, se trata de optimizar una función objetivo, que depende de una serie de variables \textbf{discretas}, sujetas a un conjunto de restricciones.
 \end{block}
+\\
+Algunos ejemplos de este tipo de problemas:
+
+\begin{itemize}
+    \item Problema del viajante de comercio (TSP).
+    \item Problema de las ocho reinas.
+\end{itemize}
+\end{frame}
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  
+
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  
+\begin{frame}
+
+\frametitle{Introducción}
+
+Formalmente, un problema ($P$) de optimización combinatoria se puede definir como una tupla:
+
+\begin{center}
+    $P = (S, f, \Omega)$
+\end{center}
+
+Donde:
+
+\begin{itemize}
+    \item \textbf{Espacio de soluciones} ($S$): Es el conjunto finito y numerable de todas las posibles soluciones al problema.
+    \item \textbf{Función objetivo} ($f$): Para cada solución de $S$, devuelve su valor de bondad.
+    \begin{center}
+        \begin{math}
+            f: S \rightarrow \mathbb{R}
+        \end{math}
+    \end{center}
+    \item \textbf{Conjunto de restricciones} ($\Omega$): Conjunto de restricciones que debe satisfacer una solución de s ($s \in S$), para ser válida.
+\end{itemize}
+
+\end{frame}
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  
+
+\begin{frame}
+
+\frametitle{Introducción}
+
+El concepto de \textbf{óptimo global} ($s^*$) es la solución para la cual la función objetivo tiene una evaluación más alta:
+
+\begin{center}
+    $\forall s \in S, \quad f(s^*) \geq f(s)$ 
+\end{center}
+
+Para encontrar esta solución, existen varias opciones:
+
+\begin{itemize}
+    \item Enumerar todas las soluciones de $S$. Esto suele ser \textbf{inviable} debido al gran tamaño de este conjunto.
+    \item Utilizar una \textbf{exploración inteligente} del espacio de soluciones. Utilizando por ejemplo, \textbf{metaheurísticas}.
+\end{itemize}
+
+\end{frame}
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  
+
+\begin{frame}
+
+\frametitle{Introducción}
+
+El concepto de \textbf{óptimo global} ($s^*$) es la solución para la cual la función objetivo tiene una evaluación más alta:
+
+\begin{center}
+    $\forall s \in S, \quad f(s^*) \geq f(s)$ 
+\end{center}
+
+Para encontrar esta solución, existen varias opciones:
+
+\begin{itemize}
+    \item Enumerar todas las soluciones de $S$. Esto suele ser \textbf{inviable} debido al gran tamaño de este conjunto.
+    \item Utilizar una \textbf{exploración inteligente} del espacio de soluciones. Utilizando, por ejemplo, \textbf{metaheurísticas}.
+\end{itemize}
+
+\end{frame}
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  
+
+\begin{frame}
+
+\frametitle{Introducción}
+
+El concepto de \textbf{óptimo global} ($s^*$) es la solución para la cual la función objetivo tiene una evaluación más alta:
+
+\begin{center}
+    $\forall s \in S, \quad f(s^*) \geq f(s)$ 
+\end{center}
+
+Para encontrar esta solución, existen varias opciones:
+
+\begin{itemize}
+    \item Enumerar todas las soluciones de $S$. Esto suele ser \textbf{inviable} debido al gran tamaño de este conjunto.
+    \item Utilizar una \textbf{exploración inteligente} del espacio de soluciones. Utilizando, por ejemplo, \textbf{metaheurísticas}.
+\end{itemize}
+
+\end{frame}
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  
+
+\begin{frame}
+
+\frametitle{Introducción}
+
+\begin{block}{Metaheurísticas}
+ Las metaheurísticas se centran en encontrar soluciones a problemas de optimización aplicando una búsqueda en el espacio de soluciones ($S$), cuando no se tiene información específica del problema.
+\end{block}
+
+Existen muchas técnicas metaheurísticas, que se pueden clasificar según diferentes criterios, sin embargo en este trabajo nos centraremos en la \textbf{computación evolutiva}.
+
+\end{frame}
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  
+
+\begin{frame}
+
+\frametitle{Introducción}
+
+La \textbf{computación evolutiva} es una técnica metaheurística, bio-inpirada y basada en población.\\
+
+Está inspirada en el proceso evolutivo natural, principalmente
 
 \end{frame}
 %++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  

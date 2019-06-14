@@ -2,7 +2,7 @@
 % Chapter 1: Introducción 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Este capítulo servirá para presentar una clasificación de problemas, exponiendo la complejidad que poseen algunos de ellos, lo que los hace dificilmente abordables mediante técnicas tradicionales, teniendo la necesidad de usar otras técnicas como la computación evolutiva.
+Este capítulo servirá para presentar una clasificación de problemas, exponiendo la complejidad que poseen algunos de ellos, lo que los hace difícilmente abordables mediante técnicas tradicionales, teniendo la necesidad de usar otras técnicas como la computación evolutiva.
 
 %---------------------------------------------------------------------------------
 \section{Clasificación de problemas}
@@ -14,7 +14,7 @@ Existen una gran cantidad de problemas que se abordan hoy en día desde el área
 
 Los sistemas computacionales encargados de resolver estos problemas, pueden entenderse como \textbf{cajas negras} (\textit{black boxes}) \cite{eiben2003introduction}. Este esquema mental que usamos para describir los sistemas encargados de resolver problemas, parte de la base de que un sistema es una caja que recibe una serie de entradas desde el exterior, y que a partir de un modelo o programa que tiene almacenado, es capaz de procesar dicho conjunto de señales de entrada para devolver una salida. \\
 
-El nombre \textbf{caja negra} viene dado porque normalmente, este modelo que procesa las señaeles no viene especificado de manera explícita, y por tanto puede tener diversas formas: por ejemplo puede ser una ecuación o conjunto de ecuaciones que procesen una entrada numérica, o también una herramienta estadística que devuelva una estimación a partir de la entrada, o incluso puede ser un modelo lógico que ejecute una serie de sentencias para procesar señales. \\
+El nombre \textbf{caja negra} viene dado porque normalmente, este modelo que procesa las señales no viene especificado de manera explícita, y por tanto puede tener diversas formas: por ejemplo puede ser una ecuación o conjunto de ecuaciones que procesen una entrada numérica, o también una herramienta estadística que devuelva una estimación a partir de la entrada, o incluso puede ser un modelo lógico que ejecute una serie de sentencias para procesar señales. \\
 
 En cualquier caso, esta \textbf{caja negra} tiene tres partes fundamentales: las entradas, el modelo de procesamiento y la salida. Además, está claro que la parte fundamental es el modelo de computación, que de ser conocido nos permitiría calcular la salida para cualquier entrada al sistema. \\
 
@@ -25,10 +25,10 @@ En cualquier caso, esta \textbf{caja negra} tiene tres partes fundamentales: las
     \label{fig:my_label}
 \end{figure}
 
-Este esquema que hemos definido es muy conveniente para establecer un criterio de clasificación de problemas, en función de que partes del sistema son conocidas y cuales no. A partir de esto podemos diferenciar en tres tipos de problemas:
+Este esquema que hemos definido es muy conveniente para establecer un criterio de clasificación de problemas, en función de qué partes del sistema son conocidas y cuales no. A partir de esto podemos diferenciar en tres tipos de problemas:
 
 \subsubsection{Optimización}
-Los problemas de optimización son aquellos en los que se conoce el modelo, además de la salida que se espera, o al menos una descripción de la misma, y en función de ello, se debe calcular cuales son los valores de entrada que proporcionan dicha salida. \\
+Los problemas de optimización son aquellos en los que se conoce el modelo, además de la salida que se espera, o al menos una descripción de la misma, y en función de ello, se debe calcular cuáles son los valores de entrada que proporcionan dicha salida. \\
 
 Existen multitud de problemas que se clasifican en esta categoría, aunque quizás uno de los más clásicos es el problema de viajante de comercio (\textbf{TSP}). Este problema consiste en encontrar la secuencia de rutas de coste mínimo dado un grafo de ciudades y sus interconexiones, de tal forma que cada una de las ciudades sea visitada solo una vez.\\
 
@@ -43,7 +43,7 @@ Este es el tipo de problemas que se abordan en áreas como el \textbf{Machine Le
 
 \subsubsection{Simulación}
 
-Este es el tipo de problemas más lineales, pues en ellos se conoce cuales serán las entradas y el modelo de computación, pero se desconoce cual será la salida. \\
+Este es el tipo de problemas más lineales, pues en ellos se conoce cuáles serán las entradas y el modelo de computación, pero se desconoce cual será la salida. \\
 
 Existen multitud de ejemplos de problemas de simulación, como por ejemplo; simulación de fluidos, o simulación meteorológica. Este tipo de problemas tienen una gran utilidad, pues nos permiten predecir una realidad futura, lo cual es crucial en múltiples ámbitos. \\
 
@@ -53,13 +53,11 @@ Existen multitud de ejemplos de problemas de simulación, como por ejemplo; simu
 
 Otra clasificación posible que se puede hacer de los problemas es en función de la \textit{complejidad} que entraña resolverlos. De esta forma una clasificación básica en este sentido pueden ser los problemas \textit{fáciles} y \textit{difíciles} de resolver \cite{garey2002computers}.\\
 
-Esta definición puede resultar ambigua, puesto que existen múltiples algoritmos que pueden resolver un problema. Es por ello, que para medir la complejidad de un problema, elegimos el algoritmo que lo resuelve en menor tiempo. Con \textbf{tiempo de ejecución} realmente no nos referimos a una magnitud física, sino al número de pasos elementales u operaciones que lleva finalizarlo. \\
-
-Atendiendo a esta clasificación, nos encontramos 3 clases de problemas \cite{papadimitriou2003computational}:
+Esta definición puede resultar ambigua, puesto que existen múltiples algoritmos que pueden resolver un problema. Es por ello, que para medir la complejidad de un problema, elegimos el algoritmo que lo resuelve en menor tiempo. Con \textbf{tiempo de ejecución} realmente no nos referimos a una magnitud física, sino al número de pasos elementales u operaciones que lleva finalizarlo. Atendiendo a esta clasificación, nos encontramos tres clases de problemas \cite{papadimitriou2003computational}:
 
 \begin{itemize}
     \item \textbf{Clase $\mathcal{P}$}: Los problemas que pertenecen a la clase $\mathcal{P}$, son aquellos en los que existe un algoritmo que pueda resolverlos en tiempo polinomial. Es decir que la función que expresa la complejidad temporal de resolución del algoritmo, es un polinomio.
-    \item \textbf{Clase $\mathcal{NP}$}: Para los problemas que están en $\mathcal{NP}$ no existe un algoritmo que pueda resolverlos en tiempo polinomial, sin embargo, se puede evaluar si una solución es válida para el problema en tiempo polinomial. Por ejemplo, el TSP o el VRP son problemas que pertenecen a esta clase.
+    \item \textbf{Clase $\mathcal{NP}$}: Para los problemas que están en $\mathcal{NP}$ no existe un algoritmo que pueda resolverlos en tiempo polinomial, sin embargo, se puede evaluar si una solución es válida para el problema en tiempo polinomial. Por ejemplo, el TSP es un problema que pertenece a esta clase.
     \item \textbf{Clase $\mathcal{NP}-Completo$}: Este es un subconjunto de problemas de $\mathcal{NP}$, que se corresponden con los problemas mas difíciles de resolver. Se considera que un problema es $\mathcal{NP}$-Completo cuando está en $\mathcal{NP}$ y además, \textbf{todos} los problemas de $\mathcal{NP}$ se pueden transformar a dicho problema mediante una \textbf{reducción polinomial}. Encontrar un problema que pertenenciera a esta clase fue una tarea compleja hasta el desarrollo del \textbf{Teorema de Cook} \cite{garey2002computers}.
 \end{itemize}
 
@@ -71,7 +69,7 @@ Uno de los problemas que más trae de cabeza a la comunidad científica, conside
 
 Como podemos ver, existe una gran cantidad de problemas que no poseen un algoritmo exacto que los pueda resolver en un tiempo razonable. Es por ello, que se necesita buscar alternativas que nos permitan llevar a cabo la resolución de dichos problemas, aunque muchas veces se deba hacer de manera aproximada. \\
 
-La computación evolutiva es una técnica que nos permite encontrar las soluciones a dichos problemas complejos, inspirándose en el proceso evolutivo natural para lograr los resultados. El proceso natural de evolución tiene mucho potencial a la hora de construir buenas soluciones a los problemas, principalmente porque se potencia el mecanismo de "\textit{prueba y error}" \cite{holland1973genetic}. \\
+La computación evolutiva es una técnica que nos permite encontrar las soluciones a dichos problemas complejos, inspirándose en el proceso evolutivo natural para lograr los resultados. El proceso natural de evolución tiene mucho potencial a la hora de construir buenas soluciones a los problemas, principalmente porque se potencia el mecanismo de ``\textit{prueba y error}" \cite{holland1973genetic}. \\
 
 En el proceso evolutivo natural, contamos con un ambiente en el que se encuentran una serie de recursos, por los cuales tienen que competir los individuos que se encuentren en él. Además de tratar de obtener la mayor parte de los recursos disponibles, los individuos tratarán de reproducirse entre sí. De esta forma, en las sucesivas generaciones de individuos, solo los más daptados habrán conseguido sobrevivir y transmitir sus características físicas a su descendencia, a través del material genético. \\
 
@@ -85,19 +83,19 @@ Siguiendo la idea básica que se quiere perseguir con los algoritmos evolutivos,
 
 \begin{algorithm}[H]
  INICIALIZAR la población con $n$ individuos aleatorios;\\
- EVALUACIÓN de la población mediante la función de fitness;
+ EVALUACIÓN de la población mediante la función de puntuación (\textit{fitness});
  
  \While{CONDICIÓN DE PARADA no sea satisfecha}{
   SELECCIÓN de padres; \\
   RECOMBINACIÓN de pares de padres; \\
   MUTACIÓN de la descendencia; \\
   EVALUCACIÓN de la descendencia; \\
-  SELECCIÓN de supervivientes para la siguiente generacón;
+  SELECCIÓN de supervivientes para la siguiente generación;
  }
  \caption{Esquema básico de un algoritmo evolutivo}
 \end{algorithm}
 
-En este esquema podemos ver las diferentes fases de las que se compone un algoritmo evolutivo. En primer lugar, se deberá inicializar una población con individuos generados aleatoriamente, que se corresponderán con las posibles soluciones que puede tener nuestro problema, a continuación estás soluciones deberán ser evaluadas mediante la función de fitness, determinando así su grado de adaptación al medio. Seguidamente, se entrará en el bucle principal del algoritmo, el cual continuará ejecutándose mientras que una determinada condición de parada no haya sido satisfecha. Dentro de este bucle, se aplicarán los operadores principales sobre la población generada; en primer lugar, se seleccionarán los padres que se reproducirán en la siguiente generación, a los cuales se les aplicará un operador de cruce para generar una descendencia. Esta descendencia, sufrirá de manera aleatoria una mutación que afectará a su material genético, y después de ello, se evaluará de nuevo respecto a la función de fitness. Seguidamente, se deberán seleccionar que individuos son los que permanecerán en la siguiente generación, repitiendo de nuevo el bucle. \\ 
+En este esquema podemos ver las diferentes fases de las que se compone un algoritmo evolutivo. En primer lugar, se deberá inicializar una población con individuos generados aleatoriamente, que se corresponderán con las posibles soluciones que puede tener nuestro problema, a continuación estás soluciones deberán ser evaluadas mediante la función de puntuación (\textit{fitness}), determinando así su grado de adaptación al medio. Seguidamente, se entrará en el bucle principal del algoritmo, el cual continuará ejecutándose mientras que una determinada condición de parada no haya sido satisfecha. Dentro de este bucle, se aplicarán los operadores principales sobre la población generada; en primer lugar, se seleccionarán los padres que se reproducirán en la siguiente generación, a los cuales se les aplicará un operador de cruce para generar una descendencia. Esta descendencia, sufrirá de manera aleatoria una mutación que afectará a su material genético, y después de ello, se evaluará de nuevo respecto a la función de fitness. Seguidamente, se deberán seleccionar que individuos son los que permanecerán en la siguiente generación, repitiendo de nuevo el bucle. \\ 
 
 Podemos afirmar que este es un procedimiento estocástico, puesto que en él están involucrados numerosos componentes aleatorios. Esta aleatoriedad es el motor principal de las dos fuerzas que garantizan la eficacia de este tipo de algoritmos \cite{eiben2003introduction}:
 
@@ -109,7 +107,7 @@ Podemos afirmar que este es un procedimiento estocástico, puesto que en él est
 Para cada una de las fases de las que se compone un algoritmo evolutivo, existen numerosos métodos que se pueden aplicar. Los cuales dependen enormemente de la codificación que se le esté aplicando a los individuos, además del problema concreto que se esté tratando de resolver.
 
 %---------------------------------------------------------------------------------
-\section{Antecedentes}
+\section{Bibliotecas de algoritmos evolutivos}
 \label{1:sec:4}
 
 Tal y como se ha comentado, los algoritmos evolutivos cuentan con una serie de fases diferentes, donde cada una de estas fases se puede implementar utilizando una gran cantidad de métodos distintos.\\
@@ -118,9 +116,7 @@ Para construir una implementación de este tipo de algoritmos existen muchos pro
 
 Esta es la motivación principal para construir un \textit{framework} de computación evolutiva, el hecho de implementar una serie de procedimientos comunes que pudieran ser reutilizados independientemente del problema concreto que se quiera realizar, y que a su vez tuviera ciertas partes extensibles y que se pudieran adaptar a las necesidades concretas del problema. \\
 
-En este sentido, ya se han desarrollado una gran cantidad de frameworks que comprenden problemas de computación evolutiva y optimización. De esta forma, se puede llevar a cabo una clasificación de los mismos dependiendo del lenguaje de programación en el que se hayan desarrollado. \\
-
-Comenzaremos comentando algunos ejemplo desarrollados en \textbf{Java}:
+En este sentido, ya se han desarrollado una gran cantidad de frameworks que comprenden problemas de computación evolutiva y optimización. De esta forma, se puede llevar a cabo una clasificación de los mismos dependiendo del lenguaje de programación en el que se hayan desarrollado. Comenzaremos comentando algunos ejemplo desarrollados en \textbf{Java}:
 
 \begin{itemize}
     \item \textbf{Opt4J} \cite{lukasiewycz2009opt4j}: Esta librería contiene muchas técnicas avanzadas en el terreno de la computación evolutiva y las meteheurísticas en general, como por ejemplo, la implementación de algoritmos de optimización por colonia de hormigas o \textit{simulated annealing}.
@@ -128,7 +124,7 @@ Comenzaremos comentando algunos ejemplo desarrollados en \textbf{Java}:
     \item \textbf{JMetal} \cite{durillo2011jmetal}: Es uno de los frameworks más famososos y de los pocos cuyo código fuente está alojado en GitHub. Entre sus ventajas se encuentran la gran cantidad de algoritmos de optimización multiobjetivo que tiene implementados:  NSGA-II, SPEA2, PAES, etc.
 \end{itemize}
 
-Por otra parte tenemos algunos otros ejemplos implementados en \textbf{C++}:
+Por otra parte tenemos algunos otros ejemplos implementados en \CC:
 
 \begin{itemize}
     \item \textbf{ParadisEO} \cite{cahon2004paradiseo}: El principal objetivo de este framework es llevar a cabo la implementación de problemas de optimización combinatoria, aunque también provee otras herramientas para el análisis del estado de la población, aportando métricas avanzadas.
@@ -170,4 +166,4 @@ En función de estos criterios, se ha establecido un mapa de desarrollo que se c
     \item \texttt{0.6.0}: Implementación de las clases gestoras de la población de individuos.
 \end{itemize}
 
-Una vez se ha introducido el proyecto a realizar y se han fijado los objetivos que debe tener el trabajo, en los siguientes capítulos de la memoria se expondrá detalladamente como se ha llevado a cabo el desarrollo del proyecto (capítulo \ref{chapter:desarrollo}), justificando las tecnologías utilizadas y exponiendo la estructura del software implementado. A su vez, se explicará un caso de uso concreto de la librería desarrollada (capítulo \ref{chapter:casodeuso}) para finalmente ofrecer unas conclusiones (capítulo \ref{chapter:conclusiones}) y el valor en el que se ha presupuestado el proyecto (capítulo \ref{chapter:presupuesto}).
+Una vez se ha introducido el proyecto a realizar y se han fijado los objetivos que debe tener el trabajo, en los siguientes capítulos de la memoria se expondrá detalladamente como se ha llevado a cabo el desarrollo del proyecto (Capítulo \ref{chapter:desarrollo}), justificando las tecnologías utilizadas y exponiendo la estructura del software implementado. A su vez, se explicará un caso de uso concreto de la librería desarrollada (Capítulo \ref{chapter:casodeuso}) para finalmente ofrecer unas conclusiones (Capítulo \ref{chapter:conclusiones}) y el valor en el que se ha presupuestado el proyecto (Capítulo \ref{chapter:presupuesto}).
