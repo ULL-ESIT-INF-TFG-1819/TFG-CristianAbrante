@@ -4,6 +4,8 @@
 \usepackage[utf8]{inputenc}
 \usepackage{graphicx}
 \usepackage{csquotes}
+\usepackage{algorithm,algorithmic}
+\usepackage[]{algorithm2e}
 
 \newcommand{\beamer}{\textsc{beamer}}
 \newtheorem{definicion}{Definición}
@@ -63,30 +65,19 @@
 %++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  
 \begin{frame}
   \frametitle{Índice}  
-  \tableofcontents[pausesections]
+  \tableofcontents
 \end{frame}
 %++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  
 
+\section{Introducción}
 
-\section{Motivación y Objetivos}
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  
 
+\subsection{$\mathcal{P}$ vs $\mathcal{NP}$}
 
 %++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  
 \begin{frame}
-
-\frametitle{Introducción}
-\begin{exampleblock}{}
-  {\large ``La gran ventaja de la evolución es la gran cantidad de especies diferentes que ha creado, cada una adaptada a su medio''}
-  \vskip5mm
-  \hspace*\fill{\small--- A.E. Eiben y J.E. Smith}
-\end{exampleblock}
-\end{frame}
-%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  
-
-%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  
-\begin{frame}
-
-\frametitle{Introducción}
+\frametitle{$\mathcal{P}$ vs $\mathcal{NP}$}
 
 En primer lugar, veremos una clasificación de los problemas en función de su complejidad.
 
@@ -105,10 +96,11 @@ En primer lugar, veremos una clasificación de los problemas en función de su c
 \end{frame}
 %++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  
 
+\subsection{Optimización combinatoria}
+
 %++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  
 \begin{frame}
-
-\frametitle{Introducción}
+\frametitle{Optimización combinatoria}
 
 Dentro de la clase $\mathcal{NP}$, existen una gran cantidad de problemas de \textbf{optimización combinatoria}. \\
 
@@ -120,15 +112,14 @@ Algunos ejemplos de este tipo de problemas:
 
 \begin{itemize}
     \item Problema del viajante de comercio (TSP).
-    \item Problema de las ocho reinas.
+    \item Problema de rutas y capacidades de vehículos (VRP).
 \end{itemize}
 \end{frame}
-%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 \begin{frame}
-
-\frametitle{Introducción}
+\frametitle{Optimización combinatoria}
 
 Formalmente, un problema ($P$) de optimización combinatoria se puede definir como una tupla:
 
@@ -150,11 +141,11 @@ Donde:
 \end{itemize}
 
 \end{frame}
-%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 \begin{frame}
-
-\frametitle{Introducción}
+\frametitle{Optimización combinatoria}
 
 El concepto de \textbf{óptimo global} ($s^*$) es la solución para la cual la función objetivo tiene una evaluación más alta:
 
@@ -170,183 +161,129 @@ Para encontrar esta solución, existen varias opciones:
 \end{itemize}
 
 \end{frame}
-%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
+\subsection{Metaheurísticas}
+
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 \begin{frame}
-
-\frametitle{Introducción}
-
-El concepto de \textbf{óptimo global} ($s^*$) es la solución para la cual la función objetivo tiene una evaluación más alta:
-
-\begin{center}
-    $\forall s \in S, \quad f(s^*) \geq f(s)$ 
-\end{center}
-
-Para encontrar esta solución, existen varias opciones:
-
-\begin{itemize}
-    \item Enumerar todas las soluciones de $S$. Esto suele ser \textbf{inviable} debido al gran tamaño de este conjunto.
-    \item Utilizar una \textbf{exploración inteligente} del espacio de soluciones. Utilizando, por ejemplo, \textbf{metaheurísticas}.
-\end{itemize}
-
-\end{frame}
-%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  
-
-\begin{frame}
-
-\frametitle{Introducción}
-
-El concepto de \textbf{óptimo global} ($s^*$) es la solución para la cual la función objetivo tiene una evaluación más alta:
-
-\begin{center}
-    $\forall s \in S, \quad f(s^*) \geq f(s)$ 
-\end{center}
-
-Para encontrar esta solución, existen varias opciones:
-
-\begin{itemize}
-    \item Enumerar todas las soluciones de $S$. Esto suele ser \textbf{inviable} debido al gran tamaño de este conjunto.
-    \item Utilizar una \textbf{exploración inteligente} del espacio de soluciones. Utilizando, por ejemplo, \textbf{metaheurísticas}.
-\end{itemize}
-
-\end{frame}
-%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  
-
-\begin{frame}
-
-\frametitle{Introducción}
+\frametitle{Metaheurísticas}
 
 \begin{block}{Metaheurísticas}
  Las metaheurísticas se centran en encontrar soluciones a problemas de optimización aplicando una búsqueda en el espacio de soluciones ($S$), cuando no se tiene información específica del problema.
 \end{block}
+
+\bigskip
 
 Existen muchas técnicas metaheurísticas, que se pueden clasificar según diferentes criterios, sin embargo en este trabajo nos centraremos en la \textbf{computación evolutiva}.
 
 \end{frame}
 %++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  
 
+\section{Computación evolutiva}
+
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  
+
+\subsection{Definición}
+
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  
 \begin{frame}
+\frametitle{Computación evolutiva}
 
-\frametitle{Introducción}
+\begin{exampleblock}{}
+  {\large ``La gran ventaja de la evolución es la gran cantidad de especies diferentes que ha creado, cada una adaptada a su medio''}
+  \vskip5mm
+  \hspace*\fill{\small--- A.E. Eiben y J.E. Smith}
+\end{exampleblock}
 
-La \textbf{computación evolutiva} es una técnica metaheurística, bio-inpirada y basada en población.\\
-
-Está inspirada en el proceso evolutivo natural, principalmente
+\begin{block}{Computación evolutiva}
+ La \textbf{computación evolutiva} es una técnica metaheurística, bio-inpirada y basada en población. Utilizada para resolver diversos problemas complejos, y especialmente útil a la hora de resolver problemas de \textbf{optimización combinatoria}.
+\end{block}
 
 \end{frame}
 %++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  
 
-\section{Fundamentos Teóricos}
-
-\begin{frame}
-\frametitle{Fundamentos Teóricos}
-
-Se presentarán los antecedentes teóricos y prácticos que apoyan el tema objeto
-del trabajo.
-
-\end{frame}
-%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  
-
-\section{Procedimiento experimental}
-
-\begin{frame}
-\frametitle{Procedimiento experimental}
-
-Ha de contar con secciones para la descripción de los experimentos y del material.
-También deber haber una sección para los resultados obtenidos y una última de
-análisis de los resultados obtenidos.
-
-\end{frame}
-%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  
-
-\subsection{Descripción de los experimentos}
+\subsection{Historia}
 
 %++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  
 \begin{frame}
-\frametitle{Generación de datos aleatoria}
+\frametitle{Historia}
 
-\begin{ejemplo}
-  \begin{itemize}
-    \item <1-> Con semilla 1 
-    \item <2-> Con semilla 10 
-    \item <3> Sin semilla 
-  \end{itemize}
-\end{ejemplo}
+\begin{columns}
+\column{0.5\textwidth}
+La inspiración principal de la computación evolutiva es la \textbf{Teoría de la evolución de Darwin}. En la cual se exponen conceptos clave como la \textbf{selección natural} o la \textbf{supervivencia de los individuos más adaptados}.
 
-\end{frame}
-%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  
-
-\subsection{Descripción del material}
-%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  
-\begin{frame}
-\frametitle{Hardware y Software}
-
-\begin{ejemplo}
-  \begin{enumerate}
-    \item
-      Descripción del hardware 
-      \pause
-
-    \item
-      Descripción del software 
-  \end{enumerate}
-\end{ejemplo}
-
-\end{frame}
-%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  
-
-\subsection{Resultados obtenidos}
-%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  
-\begin{frame}
-\frametitle{Medidas de tiempo y Velocidad}
-
-%------------------------------------------------------------------------------
-\input{tables/table.tex}
-%------------------------------------------------------------------------------
-
-\end{frame}
-%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  
-
-
-\subsection{Análisis de los resultados}
-%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  
-\begin{frame}
-\frametitle{Diagrama del tiempo y la velocidad}
-
-%------------------------------------------------------------------------------
-\begin{figure}[!th]
-\begin{center}
-\includegraphics[width=0.75\textwidth]{img/figura1.eps}
-\caption{Ejemplo de figura}
-\label{fig:1}
-\end{center}
+\column{0.5\textwidth}
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.15]{pres/img/darwin.jpg}
+    \caption{Charles Darwin}
+    \label{fig:darwin}
 \end{figure}
-%------------------------------------------------------------------------------
+\end{columns}
 
 \end{frame}
-%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  
-
-
-\section{Conclusiones}
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 %++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  
 \begin{frame}
-\frametitle{Conclusiones}
+\frametitle{Historia}
 
-\begin{ejemplo}
-  \begin{enumerate}
-    \item
-      Conclusión 1
-      \pause
-    \item
-      Conclusión 2
-  \end{enumerate}
-\end{ejemplo}
+El desarrollo de la computación evolutiva se produce a partir de los \textbf{años sesenta}:
+
+\begin{description}
+    \item[1962] Bremermann ejecuta el primer experimento sobre \textbf{Optimización mediante evolución y recombinación}.
+    \item[1965] Fogel, Owen y Walsh introducen el término de \textbf{Programación evolutiva}.
+    \item[1973] Holland desarrolla los \textit{algoritmos genéticos}.
+    \item[1973] Rechenberg y Schwefel crean las \textbf{estrategias evolutivas}.
+    \item[1990] Se unifican todos los términos, definiendo el término \textbf{computación evolutiva}
+\end{description}
 
 \end{frame}
 %++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  
 
+\subsection{Estructura}
+
 %++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  
+\begin{frame}
+\frametitle{Estructura}
+
+La estructura de un algoritmo evolutivo es la siguiente:
+
+\begin{algorithm}[H]
+ INICIALIZAR la población con $n$ individuos aleatorios;\\
+ EVALUACIÓN de la población mediante la función de puntuación (\textit{fitness});
+ 
+ \While{CONDICIÓN DE PARADA no sea satisfecha}{
+  SELECCIÓN de padres; \\
+  RECOMBINACIÓN de pares de padres; \\
+  MUTACIÓN de la descendencia; \\
+  EVALUACIÓN de la descendencia; \\
+  SELECCIÓN de supervivientes para la siguiente generación;
+ }
+ \caption{Esquema básico de un algoritmo evolutivo}
+\end{algorithm}
+
+\end{frame}
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  
+
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+\begin{frame}
+\frametitle{Estructura}
+
+Los algoritmos evolutivos permiten realizar una exploración inteligente del espacio de soluciones ($S$) del problema gracias a:
+
+\bigskip
+
+\begin{itemize}
+    \item \textbf{Variación}: Las fases de mutación y recombinación garantizan la diversidad en las soluciones.
+    \item \textbf{Intensificación}: Las fases de selección de padres y descendencia, garantizan que se evaluen las mejores soluciones.
+\end{itemize}
+
+\end{frame}
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 \begin{frame}
   \frametitle{Bibliografía}
 
@@ -365,8 +302,6 @@ análisis de los resultados obtenidos.
 
   \end{thebibliography}
 \end{frame}
-
-
 %++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  
 
 \end{document}
