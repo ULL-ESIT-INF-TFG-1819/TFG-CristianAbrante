@@ -6,6 +6,7 @@
 \usepackage{csquotes}
 \usepackage{algorithm,algorithmic}
 \usepackage[]{algorithm2e}
+\usepackage{subfig}
 
 \newcommand{\beamer}{\textsc{beamer}}
 \newtheorem{definicion}{Definición}
@@ -316,7 +317,7 @@ Se ha identificado la carencia de un \textit{framework} de este propósito, pero
 \frametitle{Objetivos}
 
 \begin{block}{Desarrollo}
- El objetivo de este proyecto es el desarrollo de un \textit{framework} que contenga los principales métodos que cubran todas las fases de un algoritmo evolutivo.
+ El objetivo de este proyecto es el desarrollo de \textbf{genetics.js}, un \textit{framework} que contenga los principales métodos que cubran todas las fases de un algoritmo evolutivo.
 \end{block}
 
 \bigskip
@@ -352,6 +353,132 @@ Para cumplir estos criterios y objetivos se ha elaborado un \textbf{Roadmap} bas
     \item \texttt{0.5.0}: Implementación de los operadores de selección de supervivientes.
     \item \texttt{0.6.0}: Implementación de las clases gestoras de la población de individuos.
 \end{itemize}
+
+\end{frame}
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+\section{Desarrollo}
+
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+
+\subsection{Tecnologías utilizadas}
+
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+\begin{frame}
+\frametitle{Tecnologías utilizadas}
+
+Dado que la biblioteca debe ser completamente compatible con aplicaciones web, lo más lógico es desarrollarla con el \textit{stack} del lenguaje \textbf{JavaScript}.
+
+\begin{figure}
+    \centering
+    \subfloat{\includegraphics[width=2cm]{mem/images/cap-4/4.1.1(JS)/js-logo.png}}
+    \qquad
+    \subfloat{\includegraphics[width=3cm]{mem/images/cap-4/4.1.1(JS)/node-logo.png}}
+    \qquad
+    \subfloat{\includegraphics[width=3cm]{mem/images/cap-4/4.1.1(JS)/npm-logo.png}}
+    \caption{Logos de JavaScript, Node y NPM}
+    \label{fig:1}
+\end{figure}
+
+Distinguiremos entre tecnologías utilizadas \textbf{durante el desarrollo} y dependencias en \textbf{producción}.
+
+\end{frame}
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+\subsubsection{Tecnologías utilizadas en el desarrollo}
+
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+\begin{frame}
+\frametitle{Tecnologías utilizadas en el desarrollo}
+
+El lenguaje de programación utilizado para el desarrollo ha sido \textbf{TypeScript}:
+
+\medskip
+
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.1]{mem/images/cap-4/4.1.2(desarrollo)/typescript-logo.png}
+    \caption{Logo de TypeScript}
+    \label{fig:typescript}
+\end{figure}
+
+\medskip
+
+La utilización de este lenguaje aporta ciertas ventajas frente a \textbf{JavaScript}, como seguridad de tipos, y escalabilidad. 
+
+\end{frame}
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+\begin{frame}
+\frametitle{Tecnologías utilizadas en el desarrollo}
+
+Para garantizar la continuidad, estabilidad y calidad del software se han utilizado las siguientes herramientas:
+
+\begin{figure}
+    \centering
+    \subfloat{\includegraphics[scale=0.16]{mem/images/cap-4/4.1.2(desarrollo)/typedoc-logo.png}}
+    \qquad
+    \subfloat{\includegraphics[scale=0.16]{mem/images/cap-4/4.1.2(desarrollo)/jest-logo.png}}
+    \qquad
+    \subfloat{\includegraphics[scale=0.1]{mem/images/cap-4/4.1.2(desarrollo)/circleci-logo.png}}
+    \qquad
+    \subfloat{\includegraphics[scale=0.15]{mem/images/cap-4/4.1.2(desarrollo)/coveralls-logo.png}}
+    \caption{Logos de TypeDoc, Jest, CricleCI y Coveralls}
+    \label{fig:1}
+\end{figure}
+
+\begin{itemize}
+    \item \textbf{Documentación}: Se ha usado \textbf{TypeDoc}.
+    \item \textbf{Tests}: Se ha utilizado \textbf{Jest}.
+    \item \textbf{Integración contínua}: Se ha usado \textbf{CircleCI}.
+    \item \textbf{Coverage}: Se ha elegido \textbf{Coveralls}.
+\end{itemize}
+
+\end{frame}
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+\begin{frame}
+\frametitle{Tecnologías utilizadas en el desarrollo}
+
+Para formatear el código y depurar los posibles errores he utilizado:
+
+\begin{figure}
+    \centering
+    \subfloat{\includegraphics[scale=0.025]{mem/images/cap-4/4.1.2(desarrollo)/prettier-logo.png}}
+    \qquad
+    \subfloat{\includegraphics[scale=0.36]{mem/images/cap-4/4.1.2(desarrollo)/tslint-logo.png}}
+    \qquad
+    \subfloat{\includegraphics[scale=0.1]{mem/images/cap-4/4.1.2(desarrollo)/webstorm-logo.png}}
+    \caption{Logos de Prettier, ts-lint y WebStorm}
+    \label{fig:1}
+\end{figure}
+
+\begin{itemize}
+    \item \textbf{Prettier}: herramienta utilizada para formatear el código de manera común.
+    \item \textbf{ts-lint}: Utilizado para comprobar errores de formato y de código antes de realizar la compilación.
+    \item \textbf{WebStorm}: IDE utilizado para el desarrollo.
+\end{itemize}
+
+\end{frame}
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+\subsubsection{Tecnologías utilizadas en producción}
+
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+\begin{frame}
+\frametitle{Tecnologías utilizadas en producción}
+
+La intención es construir un \textbf{framework minimalista}, de tal forma que se tengan las mínimas dependencias posibles en producción.
+
+\begin{center}
+    \Huge \texttt{random.js}
+\end{center}
+
+\bigskip
+
+Esta biblioteca se ha utilizado para llevar a cabo la \textbf{generación de números aleatorios}, pues nos permite entre otras cosas establecer la semilla con la que se generarán estos valores.
 
 \end{frame}
 %++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
