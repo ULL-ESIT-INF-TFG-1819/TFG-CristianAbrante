@@ -39,7 +39,7 @@ Como vemos, en este problema está especificada cual es la salida esperada, adem
 En los problemas de modelización, se conocen las entradas y sus correspondientes salidas, pero se desconoce cual es el modelo de computación que debe usarse para procesarlas. \\
 
 
-Este es el tipo de problemas que se abordan en áreas como el \textbf{Machine Learning}, pues en ellos se suele tener un conjunto de datos en los que existe una correspondecia entre las entradas y su resultado esperado. El problema está en crear un modelo que sea capaz de \textit{aprender} a partir de dichos datos y por tanto, sea capaz de generalizar y extraer características de datos que no haya procesado previamente.
+Este es el tipo de problemas que se abordan en áreas como el \textbf{Machine Learning}, pues en ellos se suele tener un conjunto de datos en los que existe una correspondencia entre las entradas y su resultado esperado. El problema está en crear un modelo que sea capaz de \textit{aprender} a partir de dichos datos y por tanto, sea capaz de generalizar y extraer características de datos que no haya procesado previamente.
 
 \subsubsection{Simulación}
 
@@ -58,7 +58,7 @@ Esta definición puede resultar ambigua, puesto que existen múltiples algoritmo
 \begin{itemize}
     \item \textbf{Clase $\mathcal{P}$}: Los problemas que pertenecen a la clase $\mathcal{P}$, son aquellos en los que existe un algoritmo que pueda resolverlos en tiempo polinomial. Es decir que la función que expresa la complejidad temporal de resolución del algoritmo, es un polinomio.
     \item \textbf{Clase $\mathcal{NP}$}: Para los problemas que están en $\mathcal{NP}$ no existe un algoritmo que pueda resolverlos en tiempo polinomial, sin embargo, se puede evaluar si una solución es válida para el problema en tiempo polinomial. Por ejemplo, el TSP es un problema que pertenece a esta clase.
-    \item \textbf{Clase $\mathcal{NP}-Completo$}: Este es un subconjunto de problemas de $\mathcal{NP}$, que se corresponden con los problemas mas difíciles de resolver. Se considera que un problema es $\mathcal{NP}$-Completo cuando está en $\mathcal{NP}$ y además, \textbf{todos} los problemas de $\mathcal{NP}$ se pueden transformar a dicho problema mediante una \textbf{reducción polinomial}. Encontrar un problema que pertenenciera a esta clase fue una tarea compleja hasta el desarrollo del \textbf{Teorema de Cook} \cite{garey2002computers}.
+    \item \textbf{Clase $\mathcal{NP}-Completo$}: Este es un subconjunto de problemas de $\mathcal{NP}$, que se corresponden con los problemas mas difíciles de resolver. Se considera que un problema es $\mathcal{NP}$-Completo cuando está en $\mathcal{NP}$ y además, \textbf{todos} los problemas de $\mathcal{NP}$ se pueden transformar a dicho problema mediante una \textbf{reducción polinomial}. Encontrar un problema que perteneciera a esta clase fue una tarea compleja hasta el desarrollo del \textbf{Teorema de Cook} \cite{garey2002computers}.
 \end{itemize}
 
 Uno de los problemas que más trae de cabeza a la comunidad científica, considerado como una de las grandes incógnitas de la matemática moderna es el problema ¿$\mathcal{P} = \mathcal{NP}$? Este problema trata de discernir si verdaderamente existen problemas que están en $\mathcal{NP}$ \cite{baker1975relativizations} porque tienen una naturaleza diferente a los que están en $\mathcal{P}$, o es porque aún no hemos encontrado un algoritmo lo sufiecientemente bueno para resolverlo en un tiempo razonable.
@@ -71,7 +71,7 @@ Como podemos ver, existe una gran cantidad de problemas que no poseen un algorit
 
 La computación evolutiva es una técnica que nos permite encontrar las soluciones a dichos problemas complejos, inspirándose en el proceso evolutivo natural para lograr los resultados. El proceso natural de evolución tiene mucho potencial a la hora de construir buenas soluciones a los problemas, principalmente porque se potencia el mecanismo de ``\textit{prueba y error}" \cite{holland1973genetic}. \\
 
-En el proceso evolutivo natural, contamos con un ambiente en el que se encuentran una serie de recursos, por los cuales tienen que competir los individuos que se encuentren en él. Además de tratar de obtener la mayor parte de los recursos disponibles, los individuos tratarán de reproducirse entre sí. De esta forma, en las sucesivas generaciones de individuos, solo los más daptados habrán conseguido sobrevivir y transmitir sus características físicas a su descendencia, a través del material genético. \\
+En el proceso evolutivo natural, contamos con un ambiente en el que se encuentran una serie de recursos, por los cuales tienen que competir los individuos que se encuentren en él. Además de tratar de obtener la mayor parte de los recursos disponibles, los individuos tratarán de reproducirse entre sí. De esta forma, en las sucesivas generaciones de individuos, solo los más adaptados habrán conseguido sobrevivir y transmitir sus características físicas a su descendencia, a través del material genético. \\
 
 Mediante un algoritmo evolutivo, se trata de simular este mismo procedimiento. Para ello, consideramos que el ambiente que contiene los recursos por los que los individuos deben competir es el problema que queremos solucionar, y las posibles soluciones del problema son los individuos. Para simular el grado de adaptación al ambiente que deben tener estos individuos se utilizará una función que medirá cual buena es la solución que se está evaluando. Al igual que ocurre en un ambiente real, estos individuos deberán reproducirse entre sí, transmitiendo su material \textit{genético} a la descendencia. \\
 
@@ -133,7 +133,7 @@ Por otra parte tenemos algunos otros ejemplos implementados en \CC:
 
 Estos son algunos ejemplos de librerías de computación evolutiva y optimización en general desarrolladas en lenguajes con una mayor comunidad. Cabe destacar que todos ellos se encuentran en un estado bastante avanzado y tienen implementados una gran cantidad de funcionalidades diferentes. \\
 
-En este proceso de búsqueda de diferentes librerías de este tipo se ha detectado la carencia de un framework completamente compatible y adaptado para la web. El auge que estan teniendo actualmente las aplicaciones web, aparejado con el aumento de la capacidad de cómputo de los navegadores, hace que construir herramientas para ser ejecutadas en el lado del cliente sea una tarea que puede tener muchas opciones de futuro. \\
+En este proceso de búsqueda de diferentes librerías de este tipo se ha detectado la carencia de un framework completamente compatible y adaptado para la web. El auge que están teniendo actualmente las aplicaciones web, aparejado con el aumento de la capacidad de cómputo de los navegadores, hace que construir herramientas para ser ejecutadas en el lado del cliente sea una tarea que puede tener muchas opciones de futuro. \\
 
 De esta forma, la motivación principal de este proyecto es construir un framework de computación evolutiva compatible con aplicaciones web. Intentando que sea lo más extenso posible, ofreciendo las operaciones más comunes, y que a la vez pueda ser extensible para ser utilizado como resolutor de problemas concretos.
 
@@ -145,7 +145,7 @@ La carencia de \textit{frameworks} de computación evolutiva adaptados a la web 
 
 En primer lugar decidiremos un nombre para el proyecto y el \textit{framework}: \textbf{genetics.js}. La elección de este nombre está inspirada en uno de los tipos principales de algoritmos evolutivos; los algoritmos genéticos, además de añadirle el sufijo \textit{.js}, en referencia al lenguaje \textbf{JavaScript}, en el cual se llevará a cabo el desarrollo. \\
 
-De esta forma, estableceremos las características que deseamos que poseea \textbf{genetics.js}, cuya implementación serán los objetivos principales del proyecto:
+De esta forma, estableceremos las características que deseamos que posea \textbf{genetics.js}, cuya implementación serán los objetivos principales del proyecto:
 
 \begin{itemize}
     \item \textbf{Estar desarrollado en un lenguaje moderno que tenga una gran comunidad}: Es importante que el lenguaje en el que se desarrolle el proyecto nos permita ser ejecutado en un entorno web y a ser posible en otros entornos. Por otra parte que tenga una gran comunidad de usuarios, para así poder llevar el proyecto a una mayor cantidad de gente.
