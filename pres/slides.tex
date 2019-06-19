@@ -483,7 +483,360 @@ Esta biblioteca se ha utilizado para llevar a cabo la \textbf{generación de nú
 \end{frame}
 %++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
+\subsection{Estructura del software}
+
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+\begin{frame}
+\frametitle{Estructura del software}
+
+El desarrollo de \textbf{genetics.js} se ha hecho como un \textbf{paquete npm}.
+
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.2]{pres/img/geneticsjs-logo.png}
+    \caption{Logo de genetics.js}
+    \label{fig:my_label}
+\end{figure}
+
+Los diferentes módulos que compondrán el software desarrollado se corresponden con los métodos más comunes para implementar las diferentes fases de los algoritmos evolutivos. 
+
+\end{frame}
 %++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+\begin{frame}
+\frametitle{Individuos}
+
+En los algoritmos evolutivos, los individuos de la población se corresponden con las \textbf{diferentes soluciones que puede tener el problema} que estemos resolviendo.
+
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.6]{mem/images/cap-4/4.2.2(Individuos)/Individuos-1.png}
+    \caption{Ejemplo de conversión entre genotipo y fenotipo}
+    \label{fig:ejemplo-1}
+\end{figure}
+
+\begin{itemize}
+    \item \textbf{genotipo}: codificación de la solución que posee el individuo.
+    \item \textbf{fenotipo}: valor que se le asocia a dicha codificación.
+\end{itemize}
+
+\end{frame}
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+\begin{frame}
+\frametitle{Individuos}
+
+\begin{columns}
+    \column{0.5\textwidth}
+    \begin{figure}
+        \centering
+        \includegraphics[scale=0.13]{mem/images/cap-4/4.2.2(Individuos)/Individual.png}
+        \caption{Diagrama UML de los individuos}
+        \label{fig:my_label}
+    \end{figure}
+    \column{0.5\textwidth}
+    Los diferentes individuos implementados han sido:
+    \begin{itemize}
+        \item \texttt{BaseIndividual}
+        \item \texttt{MutableIndividual}
+        \item \texttt{BinaryIndividual}
+        \item \texttt{NumericIndividual}
+        \item \texttt{IntegerIndividual}
+        \item \texttt{FloatingIndividual}
+    \end{itemize}
+\end{columns}
+
+\end{frame}
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+\begin{frame}
+\frametitle{Individuos}
+
+\begin{figure}
+  \centering
+  \includegraphics[scale=0.23]{pres/img/desarrollo/individual-example.png}
+  \caption{Ejemplo de instanciación de diferentes individuos}
+  \label{fig:my_label}
+\end{figure}
+
+\end{frame}
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+\begin{frame}
+\frametitle{Generador de individuos}
+
+El generador de individuos se utiliza para inicializar aleatoriamente la población.
+
+\bigskip
+
+\begin{columns}
+    \column{0.6\textwidth}
+    \begin{figure}
+        \centering
+        \includegraphics[scale=0.13]{mem/images/cap-4/4.2.3(Generador)/Generator.png}
+        \caption{Diagrama UML del generador aleatorio}
+        \label{fig:my_label}
+    \end{figure}
+    \column{0.4\textwidth}
+    Los diferentes generadores implementados han sido:
+    \begin{itemize}
+        \item \texttt{BaseGenerator}
+        \item \texttt{BinaryGenerator}
+        \item \texttt{NumericGenerator}
+        \item \texttt{IntegerGenerator}
+        \item \texttt{FloatingGenerator}
+    \end{itemize}
+    
+\end{columns}
+
+\end{frame}
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+\begin{frame}
+\frametitle{Generador de individuos}
+
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.21]{pres/img/desarrollo/generator-example.png}
+    \caption{Ejemplo de uso de diferentes generadores de individuos}
+    \label{fig:my_label}
+\end{figure}
+
+\end{frame}
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+\begin{frame}
+\frametitle{Gestión de la población}
+
+La clase \texttt{Population} se utiliza para gestionar la población de individuos que compone nuestro problema.
+
+\bigskip
+
+\begin{columns}
+    \column{0.5\textwidth}
+    \begin{figure}
+        \centering
+        \includegraphics[scale=0.2]{mem/images/cap-4/4.2.4(Population)/Population.png}
+        \caption{Diagrama UML de la clase \texttt{Population}}
+        \label{fig:my_label}
+    \end{figure}
+    \column{0.5\textwidth}
+    Los diferentes parámetros a los que se puede acceder son:
+    \begin{itemize}
+        \item \texttt{averageAge}
+        \item \texttt{averageFitness}
+        \item \texttt{fitnessSum}
+        \item \texttt{fittestIndividualIndex}
+    \end{itemize}
+\end{columns}
+
+\end{frame}
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+\begin{frame}
+\frametitle{Selección de padres}
+
+La fase de selección de padres consiste en seleccionar que individuos serán los que se \textbf{reproducirán para formar la descendencia}.
+
+\bigskip
+
+\begin{figure}
+    \centering
+    \subfloat{\includegraphics[scale=0.37]{mem/images/cap-4/4.2.5(Selection)/RouletteWheel.png}}
+    \qquad
+    \subfloat{\includegraphics[scale=0.37]{mem/images/cap-4/4.2.5(Selection)/SUS.png}}
+    \caption{Diagramas de \texttt{RouletteWheel} y \texttt{StochasticUniversalSampling}}
+    \label{fig:1}
+\end{figure}
+
+Los métodos de selección implementados han sido:
+
+\begin{itemize}
+    \item \texttt{RouletteWheel}
+    \item \texttt{StochasticUniversalSampling}
+\end{itemize}
+
+\end{frame}
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+\begin{frame}
+\frametitle{Selección de padres}
+
+\begin{figure}
+    \centering
+    \subfloat[Esquema del procedimiento Roulette Wheel]{\includegraphics[scale=0.27]{mem/images/cap-4/4.2.5(Selection)/RouletteWheel-1.png}}
+    \qquad
+    \subfloat[Esquema del procedimiento Stochastic Universal Sampling]{\includegraphics[scale=0.27]{mem/images/cap-4/4.2.5(Selection)/SUS-1.png}}
+    \label{fig:1}
+\end{figure}
+
+\end{frame}
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+\begin{frame}
+\frametitle{Operaciones de cruce}
+
+Las operaciones de cruce consisten en generar una descendencia a partir de \textbf{dos individuos padres}.
+
+\bigskip
+
+\begin{columns}
+    \column{0.4\textwidth}
+    \begin{figure}
+        \centering
+        \includegraphics[scale=0.1]{mem/images/cap-4/4.2.6(Crossover)/Crossover.png}
+        \caption{Diagrama UML de las operaciones de cruce}
+        \label{fig:my_label}
+    \end{figure}
+    \column{0.6\textwidth}
+    Los métodos que se han implementado han sido:
+    \begin{itemize}
+        \item \texttt{BaseCrossover} e interfaz \texttt{Crossover}
+        \item \texttt{NPointsCrossover}
+        \item \texttt{OnePointCrossover}
+        \item \texttt{UniformCrossover}
+        \item \texttt{SimpleArithmeticRecombination}
+        \item \texttt{SingleArithmeticRecombination}
+        \item \texttt{WholeArithmeticRecombination}
+    \end{itemize}
+\end{columns}
+
+\end{frame}
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+\begin{frame}
+\frametitle{Operaciones de cruce}
+
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.23]{pres/img/desarrollo/crossover-example.png}
+    \caption{Ejemplo de una operación de cruce}
+    \label{fig:my_label}
+\end{figure}
+
+\end{frame}
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+\begin{frame}
+\frametitle{Operaciones de mutación}
+
+Las operaciones de mutación tratan de \textbf{producir una cierta variación} en la descendencia generada mediante un operador de cruce.
+
+\bigskip
+
+\begin{columns}
+    \column{0.47\textwidth}
+    \begin{figure}
+        \centering
+        \includegraphics[width=\textwidth]{mem/images/cap-4/4.2.7(Mutation)/Mutation.png}
+        \caption{Diagrama UML de las operaciones de mutación}
+        \label{fig:my_label}
+    \end{figure}
+    \column{0.53\textwidth}
+    Los métodos que se han implementado han sido:
+    \begin{itemize}
+        \item \texttt{MutationBase} e interfaz \texttt{Mutation}
+        \item \texttt{BitwiseMutation}
+        \item \texttt{CreepMutation}
+        \item \texttt{RandomResetting}
+        \item \texttt{FloatingNonUniformMutation}
+        \item \texttt{FloatingUniformMutation}
+    \end{itemize}
+\end{columns}
+
+\end{frame}
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+\begin{frame}
+\frametitle{Operaciones de mutación}
+
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.23]{pres/img/desarrollo/mutation-example.png}
+    \caption{Ejemplo de una operación de mutación}
+    \label{fig:my_label}
+\end{figure}
+
+\end{frame}
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+\begin{frame}
+\frametitle{Reemplazo}
+
+La fase de reemplazo consiste en determinar que individuos compondrán la siguiente generación teniendo a la población inicial y a la descendencia generada.
+
+\bigskip
+
+\begin{figure}
+    \centering
+    \subfloat{\includegraphics[scale=0.3]{mem/images/cap-4/4.2.8(Reemplazo)/AgeBasedReplacement.png}}
+    \qquad
+    \subfloat{\includegraphics[scale=0.3]{mem/images/cap-4/4.2.8(Reemplazo)/FitnessBasedReplacement.png}}
+    \caption{Diagramas de \texttt{AgeBasedReplacement} y \texttt{FitnessBasedReplacement}}
+    \label{fig:1}
+\end{figure}
+
+Los métodos de selección implementados han sido:
+
+\begin{itemize}
+    \item \texttt{AgeBasedReplacement}
+    \item \texttt{FitnessBasedReplacement}
+\end{itemize}
+
+\end{frame}
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+\begin{frame}
+\frametitle{Puntuación (\textit{fitness})}
+
+La función de puntuación (\textit{fitness}) se utiliza para determinar \textbf{cuanto de adaptado al medio} está el individuo que se pretende evaluar. En el caso de un problema de optimización, esta función se corresponde con la que se pretende optimizar.
+
+\begin{center}
+    \texttt{type FitnessFunction<I extends BaseIndividual<T>, T> = (individual: I) => number}
+\end{center}
+
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.20]{pres/img/desarrollo/fitness-example.png}
+    \caption{Ejemplo de una función de fitness}
+    \label{fig:my_label}
+\end{figure}
+
+\end{frame}
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+\begin{frame}
+\frametitle{Condición de finalización}
+
+La condición de finalización es el criterio que determinará cuando se detendrá el algoritmo evolutivo. En este caso, \textbf{un número máximo de iteraciones sin mejora}.
+
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.22]{pres/img/desarrollo/termination-example.png}
+    \caption{Utilización de la condición de parada}
+    \label{fig:my_label}
+\end{figure}
+
+\end{frame}
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+
 \begin{frame}
   \frametitle{Bibliografía}
 
