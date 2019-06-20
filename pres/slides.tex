@@ -93,7 +93,7 @@
 \begin{frame}
 \frametitle{$\mathcal{P}$ vs $\mathcal{NP}$}
 
-En primer lugar, veremos una clasificación de los problemas en función de su complejidad.
+En primer lugar, veremos una clasificación de los problemas en función de su complejidad computacional.
 
 \begin{figure}
     \centering
@@ -103,8 +103,8 @@ En primer lugar, veremos una clasificación de los problemas en función de su c
 \end{figure}
 
 \begin{itemize}
-    \item \textbf{Clase $\mathcal{P}$}: Se puede encontrar una solución en \textbf{tiempo polinomial}.
-    \item \textbf{Clase $\mathcal{NP}$}: Se puede verificar una solución en \textbf{tiempo polinomial}.
+    \item \textbf{Clase $\mathcal{P}$}: Se puede \textbf{encontrar} una solución en tiempo polinomial.
+    \item \textbf{Clase $\mathcal{NP}$}: Se puede \textbf{verificar} una solución en tiempo polinomial.
 \end{itemize}
 
 \end{frame}
@@ -116,17 +116,22 @@ En primer lugar, veremos una clasificación de los problemas en función de su c
 \begin{frame}
 \frametitle{Optimización combinatoria}
 
-Dentro de la clase $\mathcal{NP}$, existen una gran cantidad de problemas de \textbf{optimización combinatoria}. \\
+Dentro de la clase $\mathcal{NP}$, existen una gran cantidad de problemas de \textbf{optimización combinatoria}.
 
-\begin{block}{Optimización combnatoria}
+\bigskip
+
+\begin{block}{Optimización combinatoria}
  En este tipo de problemas, se trata de optimizar una función objetivo, que depende de una serie de variables \textbf{discretas}, sujetas a un conjunto de restricciones.
 \end{block}
-\\
+
+\bigskip
+
 Algunos ejemplos de este tipo de problemas:
 
 \begin{itemize}
     \item Problema del viajante de comercio (TSP).
-    \item Problema de rutas y capacidades de vehículos (VRP).
+    \item Problema de rutas de vehículos (VRP).
+    \item Problema del vertext cover.
 \end{itemize}
 \end{frame}
 %++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -145,7 +150,7 @@ Donde:
 
 \begin{itemize}
     \item \textbf{Espacio de soluciones} ($S$): Es el conjunto finito y numerable de todas las posibles soluciones al problema.
-    \item \textbf{Función objetivo} ($f$): Para cada solución de $S$, devuelve su valor de bondad.
+    \item \textbf{Función objetivo} ($f$): Para cada solución de $S$, devuelve su puntuación.
     \begin{center}
         \begin{math}
             f: S \rightarrow \mathbb{R}
@@ -161,10 +166,16 @@ Donde:
 \begin{frame}
 \frametitle{Optimización combinatoria}
 
-El concepto de \textbf{óptimo global} ($s^*$) es la solución para la cual la función objetivo tiene una evaluación más alta:
+El concepto de \textbf{óptimo global} ($s^*$) es la solución para la cual la función objetivo tiene una evaluación más alta, en el caso de un problema de \textbf{maximización}:
 
 \begin{center}
     $\forall s \in S, \quad f(s^*) \geq f(s)$ 
+\end{center}
+
+O mas baja en el caso de un problema de \textbf{minimización}:
+
+\begin{center}
+    $\forall s \in S, \quad f(s^*) \leq f(s)$ 
 \end{center}
 
 Para encontrar esta solución, existen varias opciones:
@@ -248,9 +259,9 @@ El desarrollo de la computación evolutiva se produce a partir de los \textbf{a�
 \begin{description}
     \item[1962] Bremermann ejecuta el primer experimento sobre \textbf{Optimización mediante evolución y recombinación}.
     \item[1965] Fogel, Owen y Walsh introducen el término de \textbf{Programación evolutiva}.
-    \item[1973] Holland desarrolla los \textit{algoritmos genéticos}.
+    \item[1973] Holland desarrolla los \textbf{algoritmos genéticos}.
     \item[1973] Rechenberg y Schwefel crean las \textbf{estrategias evolutivas}.
-    \item[1990] Se unifican todos los términos, definiendo el término \textbf{computación evolutiva}
+    \item[1990] Se unifican todos los conceptos, definiendo el término \textbf{computación evolutiva}
 \end{description}
 
 \end{frame}
@@ -359,7 +370,7 @@ Para cumplir estos criterios y objetivos se ha elaborado un \textbf{Roadmap} bas
 \bigskip
 
 \begin{itemize}
-    \item \texttt{0.1.0}: Implementación de la codificación de soluciones mediante \textbf{individuos}.
+    \item \texttt{0.1.0}: Implementación de la codificación de soluciones mediante individuos.
     \item \texttt{0.2.0}: Implementación de los operadores de mutación.
     \item \texttt{0.3.0}: Impelementación de los operadores de cruce.
     \item \texttt{0.4.0}: Implementación de los operadores de selección de padres. 
