@@ -26,6 +26,7 @@ Este repositorio contiene las diversas partes de las que se compone el trabajo, 
 
 * `bib/` : bibliografía completa del proyecto, redactada durante la fase de búsqueda de información.
 * `code/` : Código fuente de la librería.
+* `compiled/` : Archivos compilados: memoria original y firmada y diapositivas.
 * `mem/`: Código fuente de la memoria del proyecto.
 * `pres/`: Código fuente de la presentación que se ha hecho durante la defensa del trabajo.
 * `tareas/`: Tareas de seguimiento que se han elaborado durante el desarrollo.
