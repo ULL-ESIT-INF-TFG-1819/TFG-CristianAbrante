@@ -1,88 +1,40 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Chapter 5: Caso de uso 
+% Chapter 5: Summary and future lines
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-En este capítulo se expondrá una aplicación concreta implementada con \textbf{genetics.js}, la librería desarrollada. En esta implementación se ha construido una aplicación web usando React como framework de creación de interfaces de usuario, además de usar la librería para ejecutar un algoritmo evolutivo en el lado del cliente. \\
+After having completed the development of the project, it is necessary to make a balance to determine which is the satisfaction degree with the result, thus knowing if the objectives has been reached and which future lines of development we can follow. \\
 
-La intención que tiene este desarrollo es mostrar la capacidad de la que dispone la librería para ser ejecutada en el \textit{front-end}, junto a tecnologías modernas para la creación de páginas web. \\
+Should be noted the difficulty of designing and implementing an evolutionary computing framework. This difficulty is determined mostly for the actual relevance of the field, which aims to create a big amount of different applications which develop new advanced and precise methods and techniques. In this way, creating a library which is flexible enough for adapting correctly to those changes and at the same time which provides the most common features has enormous difficulties. \\
 
-\section{Descripción del problema a implementar}
+Hence, I consider that the methods and techniques implemented cover the majority of the basic applications. Nevertheless it should be tested in more demanding scenarios for pointing out the existing weaknesses to solve them gradually. \\
 
-La aplicación que se ha implementado es un simulador del problema de la mochila (\textit{Knapsack problem}), resuelto mediante un algoritmo evolutivo. La intención principal es que se puedan seleccionar la mayoría de parámetros posibles del algoritmo, para así poder ver como cambia el rendimiento con diferentes configuraciones de entrada. \\
+I think that the decisions about the development technologies were right. On the one hand, because modern technologies, which are frequently applied by a significant number of users, where considered. The above ensures the stability of the library designed. On the other hand, because the development of a web application have a lot of future perspective, due to its ability for being executed on the \textit{front-end} and on the server. \\
 
-Pero antes de describir el procedimiento concreto para desarrollar la aplicación, es importante realizar una definición del problema que se pretende abordar. Cabe destacar que el problema de la mochila es clásico en el ámbito de la optimización combinatoria \cite{karp1972reducibility}, y ha sido objeto de estudio desde el nacimiento del campo. \\
-
-En la formulación del problema disponemos de $n$ items que pueden ser introducidos en la mochila. Cada item tiene dos atributos, su peso ($w_i$) y su valor o beneficio ($v_i$). De esta forma, la solución al problema trata de descubrir cual es el conjunto de items que debe introducirse en la mochila de tal forma que se maximize el beneficio total pero sin sobrepasar la capacidad ($W$) de la mochila. \\
-
-De manera formal se puede describir el problema de esta forma:
-
-\begin{equation*}
-\begin{aligned}
-& \underset{X}{\text{max}}
-& & \sum_{i=1}^n v_i x_i \\
-& \text{sujeto a}
-& & \sum_{i=1}^n w_i x_i \leq W \\
-&&& x_i \in \{0, 1\}
-\end{aligned}
-\end{equation*}
-
-Donde $X = \{x_1, \dots, x_n\}$ es el conjunto de variables de decisión que establecen si el item $i$-esimo está o no presente en la mochila. \\
-
-Existen múltiples técnicas para abordar este problema, incluso pudiendo ser resuelto mediante una técnicas exactas. Pero con motivo de probar la librería desarrollada, el problema se resolverá con un algoritmo genético. \\
-
-La codificación que se utilizará para los individuos es la \textbf{codificación binaria}, donde cada uno de los genes del individuo representará si el ítem en la posición establecida se encuentra o no en la mochila. \\
-
-Los parámetros del algoritmo que podrán seleccionarse serán:
+Next, I am going to describe the future lines of the project, divided into different categories. First, I am going to explain the future lines concerning the \textbf{used technologies}:
 
 \begin{itemize}
-    \item \textbf{Tamaño de la población}: El tamaño de la población deberá estar comprendido entre 0 y 25. Donde el límite superior se ha establecido por criterios de claridad en la visualización.
-    \item \textbf{Tipo de operador de cruce}: El operador de cruce que se puede seleccionar puede ser el crossover de un punto (\texttt{OnePointCrossover}), el crossover de n puntos (\texttt{NPointsCrossover}) o el crossover uniforme (\texttt{UniformCrossover}). Cabe destacar que dependiendo del operador elegido, se deberán establecer sus parámetros.
-    \item \textbf{Método de selección de padres}: Se puede elegir entre \textit{roulette wheel} y \textit{stochastic universal sampling}.
-    \item \textbf{Método de reemplazo}: Se puede seleccionar entre el remplazo basado en la edad (\texttt{AgeBasedReplacement}) y el basado en el fitness (\texttt{FitnessBasedReplacement}).
-    \item \textbf{La tasa de mutación}: La tasa de mutación (\textit{mutation rate}), puede establecerse, teniendo 0.5 como valor por defecto.
-    \item \textbf{Numero máximo de generaciones}: El número máximo de generaciones será también un parámetro a establecer, aunque por defecto son 50.
+    \item \textbf{Using a monorepo for structuring the repository}: The need for using a monorepo is aimed to manage in a better way the different parts of the project. We can have a package in the monorepo which contains the library itself, other for the documentation, and finally one with examples with common test problems. I recommend using \textbf{Lerna} and \textbf{Yarn} instead of NPM for managing the dependencies.
+    \item \textbf{Changing the documentation technology}: Although \textbf{TypeDoc} was a good election as a documentation system, I think that its documentation style is not scalable for the future. This is why I propose the migration to a better option like \textbf{Docusaurus}, mostly because of its great integration with \textbf{React} and \textbf{Gatsby}.
 \end{itemize}
 
-\section{Desarrollo de la aplicación}
+Secondly, the future lines about \textbf{development} are going to be explained:
 
-Para implementar la aplicación web, hemos utilizado \textbf{React} \cite{react} como librería para la creación de la interfaz de usuario, y \textbf{TypeScript} como lenguaje de desarrollo. Esta elección se ha tomado porque es mucho más cómodo y flexible trabajar con una librería como React para crear la interfaz de usuario en lugar de trabajar con HTML y CSS directamente. \\
+\begin{itemize}
+    \item \textbf{Restructuring the most recently developed classes}: Due to time restrictions, the last methods implemented (selection and stopping criteria), were not so developed as the remaining ones, so they would need to be restructured.
+    \item \textbf{Restructuring the files}: In many cases there exists a bad organization in files, which should be fixed.
+    \item \textbf{Improving the tests}: Currently, for testing the library, a benchmark is used, but is is not robust enough, and consequently, it does not ensure the correct working of all the modules.
+    \item \textbf{Implementation of a Command Line Interface (CLI)}: I think that a good idea will be allowing to execute some algorithms via command line. For this purpose I recommend the usage of \textbf{enquirer}.
+    \item \textbf{Asynchrony support}: Some evolutionary algorithms take a lot of computing resources, so executing those tasks in an asynchronous way would be a great advance.
+\end{itemize}
 
-Además, la metodología de trabajo de React nos permite desarrollar a partir de componentes, lo que añade una gran modularidad al diseño, simplificando la tarea de mostrar la información referente al algoritmo que pretendemos ejecutar. \\
+Finally I would offer some future lines about \textbf{algorithms and new features}:
 
-Para simplificar la tarea de gestionar diferentes elementos visuales se ha utilizado la librería \textbf{Material UI} \cite{materialui}, que provee una serie de componentes inspirados en el estandard Material Design, desarrollado por Google. Como la aplicación cuenta con bastantes formularios diferentes, se ha utilizado la librería \textbf{Formik} \cite{formik} para la gestión, además de usar \textbf{Yup} \cite{yup} para garantizar la validez de los datos introducidos. \\
-
-En cuanto al diseño visual de la aplicación, cabe destacar que contamos con dos pantallas, la primera utilizada para establecer los parámetros del algoritmo y la segunda para mostrar la ejecución del mismo. Explicaremos ambas pantallas por separado. \\
-
-En primer lugar, expondremos la pantalla principal. En ella podremos seleccionar todos los parámetros referentes al algoritmo además de establecer los items que se encontrarán en la mochila, así como su capacidad. \\
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[scale=0.2]{mem/images/cap-5/knapsack-1.png}
-    \caption{Pantalla principal de la aplicación web desarrollada}
-    \label{fig:screenshot-1}
-\end{figure}
-
-En la parte central de la pantalla tendremos el formulario en el que se muestran los items que formarán parte de la mochila. Podremos introducir items y también eliminarlos, pudiendo a su vez establecer el peso y cantidad del item en cuestión. Además, en la parte derecha contamos con un campo de texto en el que podremos introducir la capacidad de la mochila. Cabe señalar que ambos formularios están verificados para impedir que se introduzcan valores erróneos. \\
-
-El segundo formulario con el que nos encontramos es el de parámteros del algoritmo. En el podremos elegir cuales serán las operaciones que se aplicarán a la hora de ejecutar el algoritmo genético. Al igual que ocurría en el caso anterior, en este formulario también se ha llevado a cabo una verificación para evitar los valores erróneos. \\
-
-Una vez pulsamos el boton \textbf{execute algorithm} de la parte inferior, la aplicación nos llevaría a una segunda pantalla en la que se mostraría la ejecución del algoritmo.
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[scale=0.2]{mem/images/cap-5/knapsack-2.png}
-    \caption{Pantalla de ejecución del algoritmo}
-    \label{fig:screenshot-1}
-\end{figure}
-
-Esta pantalla está dividida en una serie de secciones diferentes. En la parte izquierda, contamos con una tabla en la que se muestran las estadísticas del algoritmo evolutivo, actualizadas durante la ejecución. Entre las estadísticas que se muestran encontramos: el número de generaciones, la edad media de los individuos, o el fitness medio de la población. \\
-
-A la izquierda de este recuadro se puede ver una representación visual de la población, la cual se irá actualizando a medida que el algoritmo se ejecute. La visualización de este apartado es la que impide que se tengan tamaños de población muy grandes. \\
-
-Finalmente y en la parte inferior, nos encontramos una representación del individuo con un mayor valor de fitness, indicando cuales son los items que ha escogido para introducir en la mochila, así como el peso y valor que tendrá dicha selección. \\
-
-La ejecución del algoritmo se puede hacer de manera contínua, ejecutando de una sola vez el algoritmo hasta que se llegue a un máximo de generaciones, o también se puede hacer paso a paso, por si se quiere depurar el resultado. \\
-
-El despliegue de esta aplicación se ha hecho en \textbf{GitHub pages}, y por tanto está disponible en este enlace: \url{https://cristianabrante.github.io/GeneticsJsKnapsack/}.
+\begin{itemize}
+    \item \textbf{Allowing the user to execute statistical tests}: A fundamental task for evaluating an evolutionary algorithm is to execute statistical tests over the results, so this possibility should be provided to the user.
+    \item \textbf{Implementing permutation individuals}: This type of individuals are widely used, so it would be interesting to have a native implementation for them.
+    \item \textbf{Considering multi-range numerical individuals}: Nowadays, only a general range is allowed in numeric individuals. As a result, this behaviour should be extended.
+    \item \textbf{Considering not feasible individuals}: Currently, not feasible individuals are not allowed. I think that in the future they should be considered.
+    \item \textbf{Implementing new algorithms categories}: New algorithm categories, like memetic algorithms, should be added to the library.
+\end{itemize}
