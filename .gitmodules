@@ -1,0 +1,3 @@
+[submodule "code/GeneticsJS"]
+	path = code/GeneticsJS
+	url = git@github.com:CristianAbrante/GeneticsJS.git
