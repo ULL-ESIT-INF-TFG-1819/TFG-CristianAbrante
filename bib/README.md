@@ -1,6 +1,3 @@
-# Bibliografía del proyecto
+# Bibliografía
 
-Contenido del directorio:
-
-      .
-      └── bibliography.bib            # Bibliografía del proyecto.
+El fichero `bibliography.bib` contiene toda la información bibliográfica recopilada durante la fase de investigación.
